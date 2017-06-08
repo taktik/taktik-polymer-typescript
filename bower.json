@@ -8,6 +8,13 @@
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
+    "polymer-starter-kit": "ssh://git.taktik.be/poly/polymer-ozone.git#develop",
+    "ozone-connection": "ssh://git.taktik.be/poly/polymer-ozone.git#develop"
+  },
+  "resolutions": {
+    "polymer": "1.9 - 2",
+    "paper-ripple": "1 - 2",
+    "font-roboto": "master"
   }
 }

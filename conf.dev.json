@@ -1,0 +1,12 @@
+{
+  "ozoneApi": {
+    "host": "/ozone",
+    "hostProxy": "https://dev.flowr.cloud/ozone",
+    "endPoints": {
+      "login": "/rest/v3/authentication/login",
+      "logout": "/rest/v3/authentication/logout",
+      "items": "/rest/v3/items",
+      "session": "/rest/v3/authentication/current/session"
+    }
+  }
+}
