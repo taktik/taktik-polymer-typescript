@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>ozone-components-demo test</title>
+
+    <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../bower_components/web-component-tester/browser.js"></script>
+    <link rel="import" href="../../bower_components/ozone-connection/build/ozone-api/ozone-config/fake-ozone-config.html">
+    <link rel="import" href="../../src/ozone-item-api/ozone-item-api.html">
+</head>
+<body>
+<fake-ozone-config id="ozoneConfig"></fake-ozone-config>
+<test-fixture id="basic">
+    <template>
+        <ozone-item-api></ozone-item-api>
+    </template>
+</test-fixture>
+
+
+<script>
+    addEventListener('WebComponentsReady', function() {
+        describe('ozone-api-login tests', function () {
+
+            let element,
+                server,
+                responseHeaders = {json: {'Content-Type': 'application/json'}};
+
+            beforeEach((done) => {
+                console.log('beforEAch')
+
+                element = fixture('basic');
+                server = sinon.fakeServer.create();
+                flush(done); //make sure every components are ready
+            });
+
+            afterEach(() => {
+                console.log('afterEAch')
+                server.restore();
+
+            });
+            it('should create an item', (done) => {
+                // -- Configure mock server
+                const expectedResponse = {an: 'object', with: "attributes"};
+                server.respondWith(
+                    'POST',
+                    "/ozone/rest/v3/items/",
+                    [
+                        200,
+                        responseHeaders.json,
+                        JSON.stringify(expectedResponse)
+                    ]
+                );
+
+                // -- start test
+                element.create({some: 'data', with: "attributes"})
+                    .then((response) => {
+                        expect(response).to.be.deep.equal(expectedResponse);
+                        done();
+                    });
+                server.respond(); //Flush server
+            });
+
+            it('should getOne an item', (done) => {
+                // -- Configure mock server
+                const expectedResponse = {an: 'object', with: "attributes"};
+                server.respondWith(
+                    'GET',
+                    "/ozone/rest/v3/items/an_id",
+                    [
+                        200,
+                        responseHeaders.json,
+                        JSON.stringify(expectedResponse)
+                    ]
+                );
+
+                // -- start test
+                element.getOne('an_id')
+                    .then((response) => {
+                        expect(response).to.be.deep.equal(expectedResponse);
+                        done();
+                    });
+                server.respond(); //Flush server
+            });
+
+            it('should update an item', (done) => {
+                // -- Configure mock server
+                const expectedResponse = {an: 'object', with: "attributes"};
+                server.respondWith(
+                    'POST',
+                    "/ozone/rest/v3/items/",
+                    [
+                        200,
+                        responseHeaders.json,
+                        JSON.stringify(expectedResponse)
+                    ]
+                );
+
+                // -- start test
+                element.update({some: 'data', with: "attributes"})
+                    .then((response) => {
+                        expect(response).to.be.deep.equal(expectedResponse);
+                        done();
+                    });
+                server.respond(); //Flush server
+            });
+
+            it('should deleteOne an item', (done) => {
+                // -- Configure mock server
+                const expectedResponse = 'item_Deleted';
+                server.respondWith(
+                    'DELETE',
+                    "/ozone/rest/v3/items/an_id",
+                    [
+                        200,
+                        responseHeaders.json,
+                        JSON.stringify(expectedResponse)
+                    ]
+                );
+
+                // -- start test
+                element.deleteOne('an_id')
+                    .then((response) => {
+                        expect(response).to.be.equal(expectedResponse);
+                        done();
+                    });
+                server.respond(); //Flush server
+            });
+
+            it('should bulkDelete items', (done) => {
+                // -- Configure mock server
+                const expectedResponse = ['item_Deleted'];
+                server.respondWith(
+                    'POST',
+                    "/ozone/rest/v3/items/bulkDelete",
+                    [
+                        200,
+                        responseHeaders.json,
+                        JSON.stringify(expectedResponse)
+                    ]
+                );
+
+                // -- start test
+                element.bulkDelete('an_id')
+                    .then((response) => {
+                        expect(response).to.be.deep.equal(expectedResponse);
+                        done();
+                    });
+                server.respond(); //Flush server
+            });
+
+            it('should bulkGet items', (done) => {
+                // -- Configure mock server
+                const expectedResponse = [{an: 'object', with: "attributes"}];
+                server.respondWith(
+                    'POST',
+                    "/ozone/rest/v3/items/bulkGet",
+                    [
+                        200,
+                        responseHeaders.json,
+                        JSON.stringify(expectedResponse)
+                    ]
+                );
+
+                // -- start test
+                element.bulkGet(['an_id'])
+                    .then((response) => {
+                        expect(response).to.be.deep.equal(expectedResponse);
+                        done();
+                    });
+                server.respond(); //Flush server
+            });
+
+            it('should bulkSave items', (done) => {
+                // -- Configure mock server
+                const expectedResponse = [{an: 'object', with: "attributes"}];
+                server.respondWith(
+                    'POST',
+                    "/ozone/rest/v3/items/bulkSave",
+                    [
+                        200,
+                        responseHeaders.json,
+                        JSON.stringify(expectedResponse)
+                    ]
+                );
+
+                // -- start test
+                element.bulkSave([{some: 'data', with: "attributes"}])
+                    .then((response) => {
+                        expect(response).to.be.deep.equal(expectedResponse);
+                        done();
+                    });
+                server.respond(); //Flush server
+            });
+        });
+    });
+</script>
+
+
+</body>
+</html>
