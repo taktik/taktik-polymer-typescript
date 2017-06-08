@@ -10,8 +10,19 @@ export type Item = any;
 @customElement('ozone-item-api')
 export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
 
+    @property()
+    collection:string = 'items';
+
     static get observers() {
-        return ['computeServiceUrl(config.endPoints.items)'];
+        return [
+        '_collectionChange(collection, config.endPoints.*)'];
+    }
+
+    _collectionChange(collection: string, endpoints: any): void{
+
+        if(collection && endpoints.value && this.config){
+            this.computeServiceUrl(endpoints.value[collection])
+        }
     }
 
     create(data:any): Promise<Item> {

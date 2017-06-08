@@ -8,7 +8,60 @@
 
     <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../../bower_components/web-component-tester/browser.js"></script>
-    <link rel="import" href="../../bower_components/ozone-connection/build/ozone-api/ozone-config/fake-ozone-config.html">
+    <link rel="import" href="../../bower_components/polymer/polymer.html">
+
+    <dom-module id="fake-ozone-config">
+        <template>
+
+        </template>
+        <script>
+            class FakeOzoneConfig extends Polymer.Element {
+                static get is () { return 'fake-ozone-config'; }
+
+                static get properties() {
+                    return {
+                        /**
+                         * Ozone config value in a promise.
+                         */
+                        configPromise: {
+                            type: Object,
+                            readOnly: true
+                        }
+                    }
+                }
+
+                constructor() {
+                    super();
+                    this._setConfigPromise(this._createConfigPromise())
+                }
+
+                _createConfigPromise() {
+                    return new Promise(function (resolve) {
+                        let fakeConfig = {
+                            "host": "/ozone",
+                            "endPoints": {
+                                "items": "/rest/v3/items",
+                                "a_Collection": "/rest/v3/a_Collection"
+                            }
+                        };
+                        resolve(fakeConfig);
+                    })
+                        .then((config) => {
+                            const configReady = new CustomEvent('config-ready', {
+                                bubbles: true,
+                                composed: true,
+                                detail: config,
+                            });
+
+                            this.dispatchEvent(configReady);
+                            return config;
+                        });
+                }
+            }
+            window.customElements.define(FakeOzoneConfig.is, FakeOzoneConfig);
+        </script>
+    </dom-module>
+
     <link rel="import" href="../../src/ozone-item-api/ozone-item-api.html">
 </head>
 <body>
@@ -32,6 +85,7 @@
                 console.log('beforEAch')
 
                 element = fixture('basic');
+                element.set('collection', 'a_Collection');
                 server = sinon.fakeServer.create();
                 flush(done); //make sure every components are ready
             });
@@ -46,7 +100,7 @@
                 const expectedResponse = {an: 'object', with: "attributes"};
                 server.respondWith(
                     'POST',
-                    "/ozone/rest/v3/items/",
+                    "/ozone/rest/v3/a_Collection/",
                     [
                         200,
                         responseHeaders.json,
@@ -68,7 +122,7 @@
                 const expectedResponse = {an: 'object', with: "attributes"};
                 server.respondWith(
                     'GET',
-                    "/ozone/rest/v3/items/an_id",
+                    "/ozone/rest/v3/a_Collection/an_id",
                     [
                         200,
                         responseHeaders.json,
@@ -90,7 +144,7 @@
                 const expectedResponse = {an: 'object', with: "attributes"};
                 server.respondWith(
                     'POST',
-                    "/ozone/rest/v3/items/",
+                    "/ozone/rest/v3/a_Collection/",
                     [
                         200,
                         responseHeaders.json,
@@ -112,7 +166,7 @@
                 const expectedResponse = 'item_Deleted';
                 server.respondWith(
                     'DELETE',
-                    "/ozone/rest/v3/items/an_id",
+                    "/ozone/rest/v3/a_Collection/an_id",
                     [
                         200,
                         responseHeaders.json,
@@ -134,7 +188,7 @@
                 const expectedResponse = ['item_Deleted'];
                 server.respondWith(
                     'POST',
-                    "/ozone/rest/v3/items/bulkDelete",
+                    "/ozone/rest/v3/a_Collection/bulkDelete",
                     [
                         200,
                         responseHeaders.json,
@@ -156,7 +210,7 @@
                 const expectedResponse = [{an: 'object', with: "attributes"}];
                 server.respondWith(
                     'POST',
-                    "/ozone/rest/v3/items/bulkGet",
+                    "/ozone/rest/v3/a_Collection/bulkGet",
                     [
                         200,
                         responseHeaders.json,
@@ -178,7 +232,7 @@
                 const expectedResponse = [{an: 'object', with: "attributes"}];
                 server.respondWith(
                     'POST',
-                    "/ozone/rest/v3/items/bulkSave",
+                    "/ozone/rest/v3/a_Collection/bulkSave",
                     [
                         200,
                         responseHeaders.json,
