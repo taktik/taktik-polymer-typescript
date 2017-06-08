@@ -36,6 +36,12 @@ export function property<T>(options?: PropertyOptions) {
   }
 }
 
+
+export function domElement<T>() {
+  return (proto: any, propName: string) : any => {
+  }
+}
+
 /**
  * A TypeScript property decorator factory that causes the decorated method to
  * be called when a property changes. `targets` is either a single property

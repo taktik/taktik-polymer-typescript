@@ -2,13 +2,20 @@
  * Created by hubert on 8/06/17.
  */
 
-import {customElement, property} from 'decorators'
+import {customElement, property, domElement} from 'decorators'
 
 export type uuid = string;
 export type Item = any;
 
+export interface DomElements {
+    ozoneAccess:IronAjax
+}
+
 @customElement('ozone-item-api')
 export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
+
+    @domElement()
+    $: DomElements;
 
     @property()
     collection:string = 'items';
