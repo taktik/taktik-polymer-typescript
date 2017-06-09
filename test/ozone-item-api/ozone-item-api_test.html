@@ -207,7 +207,10 @@
 
             it('should bulkGet items', (done) => {
                 // -- Configure mock server
-                const expectedResponse = [{an: 'object', with: "attributes"}];
+                const expectedResponse = [
+                        {an: 'object', with: "attributes"},
+                        {an: 'other_object', with: "attributes"}
+                    ];
                 server.respondWith(
                     'POST',
                     "/ozone/rest/v3/a_Collection/bulkGet",
@@ -221,7 +224,13 @@
                 // -- start test
                 element.bulkGet(['an_id'])
                     .then((response) => {
-                        expect(response).to.be.deep.equal(expectedResponse);
+                    let result = [];
+                    for(i of response){
+                        result.push(i);
+                    }
+                        expect(result.length).to.equal(expectedResponse.length);
+                        expect(result).to.include(expectedResponse[0]);
+                        expect(result).to.include(expectedResponse[1]);
                         done();
                     });
                 server.respond(); //Flush server
@@ -229,7 +238,10 @@
 
             it('should bulkSave items', (done) => {
                 // -- Configure mock server
-                const expectedResponse = [{an: 'object', with: "attributes"}];
+                const expectedResponse = [
+                    {an: 'object', with: "attributes"},
+                    {an: 'other_object', with: "attributes"}
+                ];
                 server.respondWith(
                     'POST',
                     "/ozone/rest/v3/a_Collection/bulkSave",
@@ -243,7 +255,13 @@
                 // -- start test
                 element.bulkSave([{some: 'data', with: "attributes"}])
                     .then((response) => {
-                        expect(response).to.be.deep.equal(expectedResponse);
+                        let result = [];
+                        for(i of response){
+                            result.push(i);
+                        }
+                        expect(result.length).to.equal(expectedResponse.length);
+                        expect(result).to.include(expectedResponse[0]);
+                        expect(result).to.include(expectedResponse[1]);
                         done();
                     });
                 server.respond(); //Flush server
