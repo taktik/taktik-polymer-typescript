@@ -2,7 +2,7 @@
  * Created by hubert on 8/06/17.
  */
 
-import {customElement, property, domElement} from 'decorators'
+import {customElement, domElement} from 'decorators'
 
 export type uuid = string;
 export type Item = any;
@@ -23,14 +23,26 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
     @domElement()
     $: DomElements;
 
-    @property()
-    collection:string = 'items';
+    //@property()
+    collection:string;
 
+    static get properties() {
+        return {
+            /**
+             * type of the ozone collection.
+             * Default value is 'items'
+             */
+            collection: {
+                type: String,
+                notify: false,
+                value: 'items'
+            }
+        }
+    }
     static get observers() {
         return [
             '_collectionChange(collection, config.endPoints.*)'];
     }
-
     _collectionChange(collection: string, endpoints: any): void{
 
         if(collection && endpoints.value && this.config){
@@ -38,35 +50,70 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
         }
     }
 
-    create(data:any): Promise<Item> {
+    /**
+     * Create or update a collection item.
+     * @param data Item item to create.
+     * @return {Promise<Item>}
+     */
+    create(data:Item): Promise<Item> {
         return this.update(data);
     }
 
-    update(data:any): Promise<Item> {
+    /**
+     * Create or update a collection item.
+     * @param data Item item to update.
+     * @return {Promise<Item>}
+     */
+    update(data:Item): Promise<Item> {
         const url = this._buildUrl('');
         return this._postRequest(url, data, this._readItemResponse);
     }
 
+    /**
+     * get one collection item by uuid.
+     * @param id
+     * @return {Promise<Item>}
+     */
     getOne(id:uuid):Promise<Item> {
         const url = this._buildUrl(id);
         return this._getRequest(url);
     }
 
+    /**
+     * delete one collection item by uuid.
+     * @param id
+     * @return {Promise<any>}
+     */
     deleteOne(id:uuid):Promise<uuid> {
         const url = this._buildUrl(id);
         return this._deleteRequest(url);
     }
 
+    /**
+     * get collection items from a list of id.
+     * @param ids {Array<uuid>} array of id to get
+     * @return {Promise<Iterator<Item>>} promise resole with an iterator of collection item
+     */
     bulkGet(ids:Array<uuid>):Promise<Iterator<Item>> {
         const url = this._buildUrl('bulkGet');
         return this._postRequest(url, ids, this._readBulkItemResponse);
     }
 
+    /**
+     * delete items from a list of id.
+     * @param ids
+     * @return {Promise<Array<uuid>>} promise resole with an array of deleted id
+     */
     bulkDelete(ids:Array<uuid>):Promise<Array<uuid>> {
         const url = this._buildUrl('bulkDelete');
         return this._postRequest(url, ids, this._readItemResponse);
     }
 
+    /**
+     * save an array of items
+     * @param items
+     * @return {Promise<Iterator<Item>>} promise resole with an iterator of collection item
+     */
     bulkSave(items:Array<any>):Promise<Iterator<Item>> {
         const url = this._buildUrl('bulkSave');
         return this._postRequest(url, items, this._readBulkItemResponse);

@@ -41,6 +41,7 @@
                             "host": "/ozone",
                             "endPoints": {
                                 "items": "/rest/v3/items",
+                                "new_Collection": "/rest/v3/new_Collection",
                                 "a_Collection": "/rest/v3/a_Collection"
                             }
                         };
@@ -68,7 +69,7 @@
 <fake-ozone-config id="ozoneConfig"></fake-ozone-config>
 <test-fixture id="basic">
     <template>
-        <ozone-item-api></ozone-item-api>
+        <ozone-item-api collection="a_Collection"></ozone-item-api>
     </template>
 </test-fixture>
 
@@ -82,18 +83,13 @@
                 responseHeaders = {json: {'Content-Type': 'application/json'}};
 
             beforeEach((done) => {
-                console.log('beforEAch')
-
                 element = fixture('basic');
-                element.set('collection', 'a_Collection');
                 server = sinon.fakeServer.create();
                 flush(done); //make sure every components are ready
             });
 
             afterEach(() => {
-                console.log('afterEAch')
                 server.restore();
-
             });
             it('should create an item', (done) => {
                 // -- Configure mock server
@@ -265,6 +261,16 @@
                         done();
                     });
                 server.respond(); //Flush server
+            });
+
+            it('should change url on collection update', (done) => {
+                element.set('collection', 'new_Collection');
+                flush(()=>{
+
+                    expect(element.serviceUrl).to.be.equal('/ozone/rest/v3/new_Collection');
+
+                    done();
+                });
             });
         });
     });
