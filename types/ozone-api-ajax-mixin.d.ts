@@ -2,7 +2,7 @@
  * Created by hubert on 8/06/17.
  */
 
-
+declare type uuid = string;
 declare function OzoneApiAjaxMixin(element: any):OzoneApiAjaxMixinConstructor
 
 declare interface OzoneApiAjaxMixinConstructor {

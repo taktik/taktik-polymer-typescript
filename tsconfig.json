@@ -12,8 +12,9 @@
       "./src"
     ],
     "declaration": true,    /* Generates corresponding '.d.ts' file. */
-    "rootDir": "./src"      /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
-
+    "rootDir": "./src",     /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+    "baseUrl": "./",
+    "paths": {"ozone-type": ["./bower_components/ozone-type/ozone/include"]}
   },
   "exclude": [
     "node_modules",

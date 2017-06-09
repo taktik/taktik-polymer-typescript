@@ -4,7 +4,8 @@
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
     "reflect-metadata": "^0.1.10",
-    "imd": "^1.0.0"
+    "imd": "^1.0.0",
+    "ozone-type": "ssh://git.taktik.be/sandbox/ozone-type.git#master"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",

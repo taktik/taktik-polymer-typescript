@@ -3,9 +3,7 @@
  */
 
 import {customElement, domElement} from 'decorators'
-
-export type uuid = string;
-export type Item = any;
+import {Item} from 'ozone-type'
 
 export interface DomElements {
     ozoneAccess:IronAjax
@@ -119,9 +117,7 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
         return this._postRequest(url, items, this._readBulkItemResponse);
     }
 
-    _readItemResponse = (res:ItemResponse):Item => {
-        return res.response;
-    };
+    _readItemResponse = (res:ItemResponse) => res.response;
 
     _readBulkItemResponse =  (res:BulkResponse) => {
         return (function* ():Iterator<Item> {
