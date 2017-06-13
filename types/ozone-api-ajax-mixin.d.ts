@@ -45,3 +45,23 @@ declare class OzoneApiAjaxMixinType extends PolymerElement{
      */
 
 }
+
+
+declare function TaktikSearchApiMixin(element: any):TaktikSearchApiMixinConstructor
+
+declare interface TaktikSearchApiMixinConstructor {
+    new(): TaktikSearchApiMixinType;
+}
+declare interface TaktikSearchApiMixinType extends PolymerElement{
+    searchString: string;
+
+    searchResults:string;
+
+    _setSearchResults():void
+
+    auto:string;
+
+    _resultsFound():void
+
+
+}

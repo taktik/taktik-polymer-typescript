@@ -5,7 +5,12 @@
     "polymer": "Polymer/polymer#^2.0.0",
     "reflect-metadata": "^0.1.10",
     "imd": "^1.0.0",
-    "ozone-type": "ssh://git.taktik.be/sandbox/ozone-type.git#master"
+    "ozone-type": "ssh://git.taktik.be/sandbox/ozone-type.git#master",
+    "iron-scroll-threshold": "PolymerElements/iron-scroll-threshold#^2.0.0",
+    "paper-button": "^2.0.0",
+    "iron-list": "^2.0.0",
+    "iron-test-helpers": "^2.0.0",
+    "iron-ajax": "^2.0.2"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",
