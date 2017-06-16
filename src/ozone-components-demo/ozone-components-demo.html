@@ -1,32 +1,72 @@
-<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<head>
+  <link rel="import" href="../../bower_components/polymer/polymer-element.html">
+  <link rel="import" href="../../bower_components/ozone-connection/build/taktik-material/taktik-free-text-search/taktik-free-text-search.html">
+  <link rel="import" href="../../bower_components/ozone-connection/build/ozone-api/ozone-api-search/ozone-api-search.html">
+  <link rel="import" href="../ozone-mosaic/ozone-mosaic.html">
+</head>
+<body>
+  <dom-module id="ozone-components-demo">
+    <template>
+      <paper-material elevation="1">
 
-<dom-module id="ozone-components-demo">
-  <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <h2>Hello [[prop1]]!</h2>
-  </template>
-
-  <script>
-    /**
-     * @customElement
-     * @polymer
-     */
-    class OzoneComponentsDemo extends Polymer.Element {
-      static get is() { return 'ozone-components-demo'; }
-      static get properties() {
-        return {
-          prop1: {
-            type: String,
-            value: 'ozone-components-demo'
+        <style>
+          .customStyle {
+            --taktik-search-button: {
+              background-color: sienna;
+              color: white;
+            };
+            --taktik-auto-complete-items: {
+              font-family: serif;
+            };
+            --taktik-count-result-found:{
+              color: darkgrey;
+            }
           }
-        };
-      }
-    }
+        </style>
+        <taktik-free-text-search
+                id="freeTextSearch"
+                class="customStyle "
+                search-value="{{search}}"
+                show-item-count
+                search-results></taktik-free-text-search>
 
-    window.customElements.define(OzoneComponentsDemo.is, OzoneComponentsDemo);
-  </script>
-</dom-module>
+        <ozone-api-search id="autoCompleteAPI" suggest auto size="5" ></ozone-api-search>
+        found [[numberOfResults]] results with "{{search}}".
+      </paper-material>
+      <ozone-mosaic total="{{numberOfResults}}" id="searchDisplay"></ozone-mosaic>
+    </template>
+
+    <script>
+      /**
+       * @customElement
+       * @polymer
+       */
+      class OzoneComponentsDemo extends Polymer.Element {
+        static get is() { return 'ozone-components-demo'; }
+          static get properties() {
+              return {
+                  search: {
+                      type: String,
+                      value: ''
+                  },
+                  result: {
+                      type: Array
+                  },
+                  numberOfResults:{
+                      type:Number
+                  }
+              };
+          }
+
+          ready (){
+              super.ready();
+              this.$.freeTextSearch.registerAutoCompleteAPI(this.$.autoCompleteAPI);
+              this.$.freeTextSearch.registerSearchAPI(this.$.searchDisplay)
+          }
+
+      }
+
+      window.customElements.define(OzoneComponentsDemo.is, OzoneComponentsDemo);
+    </script>
+  </dom-module>
+</body>

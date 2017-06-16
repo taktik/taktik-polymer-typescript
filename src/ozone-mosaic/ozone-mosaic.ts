@@ -23,6 +23,8 @@ export class OzoneMosaic  extends Polymer.Element{
     //@property()
     items: Array<Item>;
 
+    searchString:string
+
     static get properties() {
         return {
             /**
@@ -32,16 +34,63 @@ export class OzoneMosaic  extends Polymer.Element{
                 type: Array,
                 notify: true,
                 value: () =>  []
+            },
+            /**
+             * string to search in the collection
+             */
+            searchString: {
+                type: String
+            },
+            /**
+             * total number of items found with the search
+             */
+            total: {
+                type: Number,
+                notify:true
+            },
+            /**
+             * true indicate that all the data data still available with this search.
+             */
+            dataRemain:{
+                type: Boolean,
+                notify:true,
+                value: false
             }
         }
     }
 
-    searchInItems(searchString:string){
-        this.$.mosaicCollection.searchInItems(searchString);
+    ready(){
+        super.ready();
+        this.$.ozoneApi.addEventListener('configured', e => {
+
+            //this.$.mosaicCollection.loadItems();
+        });
     }
 
+    /**
+     * trigger quickSearch in the collection
+     * @param searchString
+     */
+    searchInItems(searchString:string){
+        this.set('items', []);
+        this.$.mosaicCollection.quickSearch(searchString);
+    }
+
+    /**
+     *
+     */
     toggleThreshold(){
-        this.$.mosaicCollection.loadNextItems();
-        this.$.scrollTheshold.clearTriggers();
+        this.$.mosaicCollection.loadNextItems()
+            .catch(()=>{})
+            .then(()=>{
+                this.$.scrollTheshold.clearTriggers();
+            });
+    }
+
+    /**
+     *
+     */
+    requestSearch(){
+        this.searchInItems(this.searchString);
     }
 }

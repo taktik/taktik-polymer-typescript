@@ -42,16 +42,16 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
     @domElement()
     $: DomElements;
 
-    //@property()
+
+    /**
+     * type of the ozone collection.
+     * Default value is 'item'
+     */
     collection:string;
 
 
     static get properties() {
         return {
-            /**
-             * type of the ozone collection.
-             * Default value is 'item'
-             */
             collection: {
                 type: String,
                 notify: false,
@@ -64,10 +64,20 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
             '_collectionChange(collection, config.endPoints.*)'
         ];
     }
+
+    /**
+     * Fired when element is configured.
+     * This event will be fired if the config change.
+     *
+     * @event configured
+     */
+
     _collectionChange(collection: string, endpoints: any): void{
 
         if(collection && endpoints.value && this.config){
             this.computeServiceUrl(endpoints.value[collection])
+            this.dispatchEvent(new CustomEvent('configured',
+                {bubbles: true, composed: true}));
         }
     }
 

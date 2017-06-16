@@ -23,6 +23,7 @@
     "web-component-tester": "^6.0.0"
   },
   "devDependencies": {
-    "@types/core-js": "^0.9.41"
+    "@types/core-js": "^0.9.41",
+    "typedoc": "^0.7.1"
   }
 }

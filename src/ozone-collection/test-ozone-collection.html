@@ -103,24 +103,24 @@
                         element.findOne('1_local')
                             .then(result => {
                                 expect(result).to.be.deep.equal({id: '1_local', name: 'one'})
-                                assert.isFalse(element.source.getOne.called);
+                                assert.isFalse(element._source.getOne.called);
                                 done();
                             });
                     });
                     it('should request server and add', (done)=>{
 
-                        element.source.getOne.withArgs('3_server')
+                        element._source.getOne.withArgs('3_server')
                             .returns(Promise.resolve({id: '3_server', name: 'three'}));
                         element.findOne('3_server')
                             .then(result => {
                                 expect(result).to.be.deep.equal({id: '3_server', name: 'three'})
-                                assert.isTrue(element.source.getOne.called);
+                                assert.isTrue(element._source.getOne.called);
                                 expect(element.items).to.deep.include({id: '3_server', name: 'three'})
                                 done();
                             });
                     });
                     it('should return null when not found', (done)=>{
-                        element.source.getOne.withArgs('not_exist')
+                        element._source.getOne.withArgs('not_exist')
                             .returns(Promise.resolve(null));
 
                         element.findOne('not_exist')
@@ -137,7 +137,7 @@
                             {id: '1_local', name: 'one'},
                             {id: '2_local', name: 'two'}
                         ];
-                        element.source.bulkSave
+                        element._source.bulkSave
                             .withArgs(element.items)
                             .returns(Promise.resolve([
                             {id: '1_local', name: 'one', server:'tag'},
@@ -190,7 +190,7 @@
                             {id: '2_local', name: 'two'}
                         ];
 
-                        element.source.update.withArgs({id: '1_local', name: 'one'}).returns(Promise.resolve(
+                        element._source.update.withArgs({id: '1_local', name: 'one'}).returns(Promise.resolve(
                             {id: '1_local', name: 'one', server:'tag'}));
 
 
@@ -223,7 +223,7 @@
                         ];
 
 
-                        element.source.create
+                        element._source.create
                             .withArgs({id: 'new', name: 'one'})
                             .returns(Promise.resolve(
                                 {id: 'new', name: 'new name', server:'tag'}));
@@ -244,7 +244,7 @@
                             {id: '2_local', name: 'two'}
                         ];
 
-                        element.source.bulkDelete
+                        element._source.bulkDelete
                             .withArgs(['1_local', '2_local'])
                             .returns(Promise.resolve(
                                 ['1_local', '2_local']));
@@ -265,7 +265,7 @@
                             {id: '3_local', name: 'three'}
                         ];
 
-                        element.source.bulkDelete
+                        element._source.bulkDelete
                             .withArgs(['1_local', '3_local'])
                             .returns(Promise.resolve(
                             ['1_local', '3_local']));
@@ -285,7 +285,7 @@
                             {id: '2_local', name: 'two'}
                         ];
 
-                        element.source.deleteOne
+                        element._source.deleteOne
                             .withArgs('1_local')
                             .returns(Promise.resolve('1_local'));
 
@@ -427,10 +427,10 @@
                 describe('search', function () {
                     it('should call ozoneApi.search and loadNextItems',(done)=>{
                         element.loadNextItems = sinon.stub();
-                        element.source.search.returns('returned itemsIterator');
+                        element._source.search.returns('returned _searchIterator');
                         element.search('hello');
                         assert.isTrue(element.loadNextItems.called);
-                        expect(element.itemsIterator).to.be.equal('returned itemsIterator');
+                        expect(element._searchIterator).to.be.equal('returned _searchIterator');
                         done()
                     })
                 });
@@ -449,8 +449,8 @@
 
                 describe('loadNextItems', function () {
                     it('should load next items from the server and push them in items', (done)=>{
-                        element.itemsIterator = {next: sinon.stub()};
-                        element.itemsIterator.next.returns(Promise.resolve({results:['item_1', 'item_2']}));
+                        element._searchIterator = {next: sinon.stub()};
+                        element._searchIterator.next.returns(Promise.resolve({results:['item_1', 'item_2']}));
                         element.loadNextItems().then(()=>{
                             expect(element.items).to.be.deep.equal(['item_1', 'item_2']);
                             done();
