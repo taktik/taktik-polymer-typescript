@@ -61,6 +61,12 @@ declare class PolymerElement extends PolymerMetaEffects {
   updateStyles(properties: string[]): void;
 
   $:any;
+
+  splice(property: string, start?:number, remove?:number, items?:any): void;
+
+  notifyPath(property: string):void;
+
+  parentNode: PolymerElement
 }
 
 declare class PolymerPropertyEffects extends HTMLElement {

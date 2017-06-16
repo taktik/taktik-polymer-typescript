@@ -114,7 +114,7 @@
                     server.respond(); //Flush server
                 });
 
-                it('should getOne an item', (done) => {
+                it('should getOne an existing item', (done) => {
                     // -- Configure mock server
                     const expectedResponse = {an: 'object', with: "attributes"};
                     server.respondWith(
@@ -131,6 +131,26 @@
                     element.getOne('an_id')
                         .then((response) => {
                             expect(response).to.be.deep.equal(expectedResponse);
+                            done();
+                        });
+                    server.respond(); //Flush server
+                });
+                it('getOne should return null when not found', (done) => {
+                    // -- Configure mock server
+                    server.respondWith(
+                        'GET',
+                        "/ozone/rest/v3/a_Collection/an_id",
+                        [
+                            200,
+                            responseHeaders.json,
+                            ''
+                        ]
+                    );
+
+                    // -- start test
+                    element.getOne('an_id')
+                        .then((response) => {
+                            assert.isNull(response)
                             done();
                         });
                     server.respond(); //Flush server
@@ -292,7 +312,7 @@
 
                 });
 
-                it('should send suggestion query in all items on requestSearch call', (done) => {
+                it('should send quicksearch query in all items on requestSearch call', (done) => {
 
                     // -- Prepare expect function
                     let expectToBeCall = (request) => {
@@ -301,6 +321,11 @@
                         let requestBody = JSON.parse(request.requestBody);
                         expect(requestBody).to.include.keys('query');
                         expect(requestBody).to.include.keys('size');
+                        expect(requestBody.query).to.deep.equal({
+                            "$type": "QueryStringQuery",
+                            "field": "_quicksearch",
+                            "queryString": "*"
+                        });
                         done();
                     };
                     // -- Configure mock server

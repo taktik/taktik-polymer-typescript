@@ -93,11 +93,18 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
     /**
      * get one collection item by uuid.
      * @param id
-     * @return {Promise<Item>}
+     * @return {Promise<Item | null>}
      */
-    getOne(id:uuid):Promise<Item> {
+    getOne(id:uuid):Promise<Item | null> {
         const url = this._buildUrl(id);
-        return this._getRequest(url);
+        return this._getRequest(url)
+            .then(response => {
+                if(response == ''){
+                    return null;
+                } else {
+                    return response
+                }
+            });
     }
 
     /**
@@ -125,7 +132,7 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
      * @param ids
      * @return {Promise<Array<uuid>>} promise resole with an array of deleted id
      */
-    bulkDelete(ids:Array<uuid>):Promise<Array<uuid>> {
+    bulkDelete(ids:Array<uuid| undefined>):Promise<Array<uuid>> {
         const url = this._buildUrl('bulkDelete');
         return this._postRequest(url, ids, this._readItemResponse);
     }
@@ -135,7 +142,7 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
      * @param items
      * @return {Promise<Iterator<Item>>} promise resole with an iterator of collection item
      */
-    bulkSave(items:Array<any>):Promise<Array<Item>> {
+    bulkSave(items:Array<Item>):Promise<Array<Item>> {
         const url = this._buildUrl('bulkSave');
         return this._postRequest(url, items, this._readBulkItemResponse);
     }
