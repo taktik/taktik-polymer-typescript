@@ -27,6 +27,8 @@ export class OzoneCollection  extends Polymer.Element{
     //@property()
     _source: OzoneItemAPI | null;
 
+    get _getSource() {return this._source as OzoneItemAPI};
+
     //@property()
     items: Array<Item>;
 
@@ -117,7 +119,7 @@ export class OzoneCollection  extends Polymer.Element{
      */
     search(searchQuery:SearchQuery){
         this._verifySource();
-        this._searchIterator = this._source.search(searchQuery);
+        this._searchIterator = this._getSource.search(searchQuery);
         this.loadNextItems()
     }
 
@@ -145,7 +147,7 @@ export class OzoneCollection  extends Polymer.Element{
      * @param id {uuid} id of the item to get.
      * @return {Promise<Item>} promise resolve with the item or null (if not found).
      */
-    findOne(id:uuid):Promise<Item | undefined>{
+    findOne(id:uuid):Promise<Item | null>{
         try {
             this.isDefined(id);
 
@@ -153,7 +155,7 @@ export class OzoneCollection  extends Polymer.Element{
             let result;
             if (index < 0) {
                 this._verifySource();
-                result = this._source.getOne(id)
+                result = this._getSource.getOne(id)
                     .then(item => {
                         if (item) {
                             this.push('items', item);
@@ -181,7 +183,7 @@ export class OzoneCollection  extends Polymer.Element{
     saveAll():Promise<any>{
         try {
             this._verifySource();
-            return this._source.bulkSave(this.items)
+            return this._getSource.bulkSave(this.items)
                 .then(items => {
                     this.set('items', items);
                     return items;
@@ -218,7 +220,7 @@ export class OzoneCollection  extends Polymer.Element{
             let result;
             if (index > -1) {
                 this._verifySource();
-                result = this._source.update(item)
+                result = this._getSource.update(item)
                     .then(item => {
                         this.items[index] = item;
                         this.notifyPath('items');
@@ -243,7 +245,7 @@ export class OzoneCollection  extends Polymer.Element{
         try {
             this.isDefined(item);
             this._verifySource();
-            return this._source.create(item)
+            return this._getSource.create(item)
                 .then(item => {
                     if(reflect) {
                         this.push('items', item);
@@ -264,7 +266,7 @@ export class OzoneCollection  extends Polymer.Element{
         try {
             this._verifySource();
             const ids = this.items.map(item => item.id);
-            return this._source.bulkDelete(ids)
+            return this._getSource.bulkDelete(ids)
                 .then((result) => {
                     if(reflect) {
                         this.set('items', []);
@@ -287,7 +289,7 @@ export class OzoneCollection  extends Polymer.Element{
             this.isDefined(ids);
             this._verifySource();
             this._verifySource();
-            return this._source.bulkDelete(ids)
+            return this._getSource.bulkDelete(ids)
                 .then((ids)=>{
                     if(reflect) {
                         ids.map(id => {
@@ -311,7 +313,7 @@ export class OzoneCollection  extends Polymer.Element{
         try {
             this.isDefined(id);
             this._verifySource();
-            return this._source.deleteOne(id)
+            return this._getSource.deleteOne(id)
                 .then((id)=>{
                     if(reflect) {
                         this._removeOne(id);
