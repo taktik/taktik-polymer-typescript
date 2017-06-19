@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>ozone-components-demo test</title>
+
+    <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../bower_components/web-component-tester/browser.js"></script>
+    <link rel="import" href="../../bower_components/polymer/polymer.html">
+    <link rel="import" href="../ozone-item-api/fake-ozone-config.html">
+
+
+    <link rel="import" href="ozone-type-api.html">
+</head>
+<body>
+<fake-ozone-config id="ozoneConfig"></fake-ozone-config>
+<test-fixture id="basic">
+    <template>
+        <ozone-type-api collection="a_Collection"></ozone-type-api>
+    </template>
+</test-fixture>
+
+
+<script>
+    addEventListener('WebComponentsReady', function() {
+        describe('ozone-api-login tests', function () {
+
+            let element,
+                server,
+                responseHeaders = {json: {'Content-Type': 'application/json'}},
+                fields = [{"name":{"strings":{"en":"a_field_name"}}}],
+                type = {fields : fields};
+
+            beforeEach((done) => {
+
+                server = sinon.fakeServer.create();
+                server.respondWith(
+                    'GET',
+                    '/ozone/rest/v3/type/a_Collection',
+                    [
+                        200,
+                        responseHeaders.json,
+                        JSON.stringify(type)
+                    ]);
+                element = fixture('basic');
+                getOzoneConfig().serverRespondWithConfig();
+                flush(done); //make sure every components are ready
+            });
+
+            afterEach(() => {
+                server.restore();
+            });
+
+            describe('loadType', function(){
+
+                it('should set typeDescriptor', (done)=>{
+                    element.loadType().then(()=>{
+                        expect(element.typeDescriptor).to.deep.equal(type)
+                        done();
+                    });
+                    server.respond();
+                });
+                it('should resolve with typeDescriptor', (done)=>{
+                    element.loadType().then((typeDescriptor)=>{
+                        expect(typeDescriptor).to.deep.equal(type)
+                        done();
+                    });
+                    server.respond();
+                });
+            });
+
+            describe('getFields', function(){
+
+                it('should list fields', (done)=>{
+
+                    element.loadType().then((typeDescriptor)=>{
+                        expect(element.getFields()).to.deep.equal(fields)
+                        done();
+                    });
+                    server.respond();
+                });
+            });
+        });
+    });
+</script>
+
+
+</body>
+</html>

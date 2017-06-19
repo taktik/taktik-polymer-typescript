@@ -1,15 +1,16 @@
 /// <amd-module name="ozone-item-api"/>
-/// <reference path="../../bower_components/reflect-metadata/Reflect.d.ts" />
 
 /**
  * Created by hubert on 8/06/17.
  */
 
 import {customElement, domElement, jsElement} from 'decorators'
-import {Item, SearchRequest, ItemSearchResult} from 'ozone-type'
+import {Item, SearchRequest, ItemSearchResult, TypeDescriptor, FieldDescriptor} from 'ozone-type'
+import {OzoneTypeAPI} from 'ozone-type-api'
 
 export interface DomElements {
-    ozoneAccess:IronAjax
+    ozoneAccess:IronAjax,
+    ozoneTypeApi:OzoneTypeAPI
 }
 export interface BulkResponse {
     response:Array<Item>;
@@ -59,6 +60,7 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
             }
         }
     }
+
     static get observers() {
         return [
             '_collectionChange(collection, config.endPoints.*)'
@@ -75,9 +77,16 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
     _collectionChange(collection: string, endpoints: any): void{
 
         if(collection && endpoints.value && this.config){
-            this.computeServiceUrl(endpoints.value[collection])
-            this.dispatchEvent(new CustomEvent('configured',
-                {bubbles: true, composed: true}));
+            this.computeServiceUrl(endpoints.value[collection]);
+            this.$.ozoneTypeApi.set('collection', collection);
+            this.$.ozoneTypeApi.loadType().then(()=>{
+                this.dispatchEvent(new CustomEvent('configured',
+                    {bubbles: true, composed: true}));
+                console.log('configured')
+            }).catch((err)=>{
+                console.error(err.message);
+                console.error('Error in initialisations of ozone-item-api for collection', this.collection);
+            });
         }
     }
 
