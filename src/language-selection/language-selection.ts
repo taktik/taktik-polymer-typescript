@@ -6,7 +6,7 @@
 import {customElement} from 'decorators'
 
 @customElement('language-selection')
-class LanguageSelection extends Polymer.Element{
+export class LanguageSelection extends Polymer.Element{
 
     /**
      * currentLanguage
@@ -22,6 +22,12 @@ class LanguageSelection extends Polymer.Element{
      */
     availableLanguages:Array<string>;
 
+    /**
+     * defaultLanguage
+     * @value: 'en'
+     */
+    defaultLanguage: string;
+
     static get properties() {
         return {
             currentLanguage: {
@@ -29,6 +35,10 @@ class LanguageSelection extends Polymer.Element{
                 notify: true,
                 value: 'en',
                 observer:'_currentLanguageChange'
+            },
+            defaultLanguage: {
+                type: String,
+                value: 'en',
             },
 
             availableLanguages:{

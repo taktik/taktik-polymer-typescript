@@ -62,12 +62,17 @@
                 });
             });
 
-            describe('default language', function () {
+            describe('default value of currentLanguage', function () {
                 it('should be en', (done) => {
                     expect(element.currentLanguage).to.equal('en');
                     done()
                 });
-
+            });
+            describe('defaultLanguage', function () {
+                it('should be en', (done) => {
+                    expect(element.defaultLanguage).to.equal('en');
+                    done()
+                });
             });
         });
     });
