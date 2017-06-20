@@ -82,7 +82,6 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
             this.$.ozoneTypeApi.loadType().then(()=>{
                 this.dispatchEvent(new CustomEvent('configured',
                     {bubbles: true, composed: true}));
-                console.log('configured')
             }).catch((err)=>{
                 console.error(err.message);
                 console.error('Error in initialisations of ozone-item-api for collection', this.collection);

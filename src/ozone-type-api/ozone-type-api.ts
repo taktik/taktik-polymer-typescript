@@ -10,7 +10,17 @@ import {TypeDescriptor, FieldDescriptor} from 'ozone-type'
 @customElement('ozone-type-api')
 export class OzoneTypeAPI  extends OzoneApiAjaxMixin(Polymer.Element){
 
+    /**
+     * collection type.
+     * @notify: false
+     * @value: item
+     */
     collection: string;
+
+    /**
+     *
+     * @notify: true
+     */
     typeDescriptor: TypeDescriptor;
 
 
@@ -42,13 +52,16 @@ export class OzoneTypeAPI  extends OzoneApiAjaxMixin(Polymer.Element){
     }
 
     _getRequest(url:string): Promise<any> {
-        console.log('ozone-type-api',url)
         this.$.ozoneAccess.url = url;
         this.$.ozoneAccess.method = 'GET';
         return this.$.ozoneAccess
             .generateRequest().completes.then((res:any) => res.response)
     }
 
+    /**
+     * get list of fields of the collection.
+     * @return { Array<FieldDescriptor>} list of field
+     */
     getFields(): Array<FieldDescriptor>{
         if (this.typeDescriptor.fields) {
             return this.typeDescriptor.fields;
