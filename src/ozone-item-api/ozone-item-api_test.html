@@ -35,7 +35,6 @@
                 beforeEach((done) => {
                     element = fixture('basic');
 
-                    element.$.ozoneTypeApi.loadType = sinon.stub().returns(Promise.resolve({}));
                     server = sinon.fakeServer.create();
 
                     getOzoneConfig().serverRespondWithConfig();
@@ -244,12 +243,6 @@
                         done();
                     });
                 });
-
-                it('should call $.ozoneTypeApi.loadType an ini', ((done) => {
-                    assert.isTrue(element.$.ozoneTypeApi.loadType.called);
-                    expect(element.$.ozoneTypeApi.collection).to.equal('a_Collection');
-                    done();
-                }))
             });
 
             describe('search operation', function(){

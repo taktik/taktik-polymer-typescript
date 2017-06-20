@@ -6,11 +6,9 @@
 
 import {customElement, domElement, jsElement} from 'decorators'
 import {Item, SearchRequest, ItemSearchResult, TypeDescriptor, FieldDescriptor} from 'ozone-type'
-import {OzoneTypeAPI} from 'ozone-type-api'
 
 export interface DomElements {
     ozoneAccess:IronAjax,
-    ozoneTypeApi:OzoneTypeAPI
 }
 export interface BulkResponse {
     response:Array<Item>;
@@ -78,14 +76,8 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
 
         if(collection && endpoints.value && this.config){
             this.computeServiceUrl(endpoints.value[collection]);
-            this.$.ozoneTypeApi.set('collection', collection);
-            this.$.ozoneTypeApi.loadType().then(()=>{
                 this.dispatchEvent(new CustomEvent('configured',
                     {bubbles: true, composed: true}));
-            }).catch((err)=>{
-                console.error(err.message);
-                console.error('Error in initialisations of ozone-item-api for collection', this.collection);
-            });
         }
     }
 
