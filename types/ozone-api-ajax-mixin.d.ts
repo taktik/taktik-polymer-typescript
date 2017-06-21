@@ -5,16 +5,22 @@
 declare type uuid = string;
 declare function OzoneApiAjaxMixin(element: any):OzoneApiAjaxMixinConstructor
 
+declare interface ConfigType {
+    ozoneApi: any,
+    type: string,
+    host:string
+}
+
 declare interface OzoneApiAjaxMixinConstructor {
     new(): OzoneApiAjaxMixinType;
 }
-
+declare function getOzoneConfig(): {configPromise: Promise<ConfigType>};
 declare class OzoneApiAjaxMixinType extends PolymerElement{
 
     /**
      * Ozone Config property
      */
-    readonly config: any;
+    readonly config: ConfigType;
 
     /**
      * Service URL to be used by each ozone-api instance.

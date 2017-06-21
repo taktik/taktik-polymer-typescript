@@ -55,6 +55,10 @@ export class OzoneMosaic  extends Polymer.Element{
                 type: Boolean,
                 notify:true,
                 value: false
+            },
+            selectedItem:{
+                notify: true,
+                type:Object
             }
         }
     }

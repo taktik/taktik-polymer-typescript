@@ -54,7 +54,6 @@ export class LocalizeName extends Polymer.Element{
     }
 
     _changes(data: LocalizedString, language: string) {
-        console.log('chage', data, language)
         if(data && data.strings) {
             if(data.strings.hasOwnProperty(language)) {
                 this.set('displayString', data.strings[language])

@@ -4,11 +4,11 @@
 import {customElement} from 'decorators'
 import {Item} from 'ozone-type'
 
-@customElement('ozone-item')
-export class OzoneItem  extends Polymer.Element{
+@customElement('ozone-item-preview')
+export class OzoneItemPreview  extends Polymer.Element{
 
     //@property()
-    data:Item;
+    itemData:Item;
 
     static get properties() {
         return {

@@ -66,8 +66,11 @@ declare class PolymerElement extends PolymerMetaEffects {
 
   notifyPath(property: string):void;
 
-  parentNode: PolymerElement
+  parentNode: PolymerElement;
+
+  root: PolymerElement;
 }
+
 
 declare class PolymerPropertyEffects extends HTMLElement {
   ready(): void;

@@ -9,40 +9,11 @@
     <script src="../../bower_components/web-component-tester/browser.js"></script>
     <script src="../../bower_components/iron-test-helpers/mock-interactions.js"></script>
     <link rel="import" href="../../bower_components/polymer/polymer.html">
+    <link rel="import" href="ozone-api-fake.html">
 
     <!-- Step 1: import the element to test -->
    <link rel="import" href="ozone-collection.html">
 
-    <dom-module id="ozone-api-fake">
-        <template>
-
-        </template>
-        <script>
-            class OzoneApiFake extends Polymer.Element {
-                static get is () { return 'ozone-api-fake'; }
-
-                ready(){
-                    super.ready();
-                    this.create = sinon.stub();
-
-                    this.update = sinon.stub();
-
-                    this.getOne = sinon.stub();
-
-                    this.deleteOne = sinon.stub();
-
-                    this.bulkGet = sinon.stub();
-
-                    this.bulkDelete = sinon.stub();
-
-                    this.bulkSave = sinon.stub();
-
-                    this.search = sinon.stub();
-                }
-            }
-            window.customElements.define(OzoneApiFake.is, OzoneApiFake);
-        </script>
-    </dom-module>
 </head>
 <body>
 <test-fixture id="basic">
