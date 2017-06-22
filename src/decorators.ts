@@ -5,12 +5,28 @@
  * A TypeScript class decorator that defines a custom element with name
  * `tagname` and the decorated class.
  */
+
+declare interface ProjectWindow extends Window{
+  [index:string] : any;
+};
+declare var window: ProjectWindow;
+
 export function customElement(tagname: string) {
   return (clazz: any) => {
     clazz.is = tagname;
     window[clazz.name] = clazz; // Register class in windows se that is can be use without IMD module loading.
                                 // Useful for import in pure JS project.
     window.customElements.define(tagname, clazz);
+  }
+}
+/**
+ * A TypeScript class decorator that declare a global class
+ * `tagname` and the decorated class.
+ */
+export function jsElement() {
+  return (clazz: any) => {
+    window[clazz.name] = clazz; // Register class in windows se that is can be use without IMD module loading.
+                                // Useful for import in pure JS project.
   }
 }
 
@@ -33,6 +49,12 @@ export function property<T>(options?: PropertyOptions) {
       type,
       notify,
     };
+  }
+}
+
+
+export function domElement<T>() {
+  return (proto: any, propName: string) : any => {
   }
 }
 

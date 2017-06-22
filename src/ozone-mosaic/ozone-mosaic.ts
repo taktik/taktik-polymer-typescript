@@ -6,6 +6,11 @@ import {Item} from 'ozone-type';
 
 
 export interface DomElements {
+import {OzoneItemAPI} from 'ozone-item-api';
+
+
+export interface DomElements {
+    ozoneApi:OzoneItemAPI
     scrollTheshold:{
         clearTriggers():void
     }

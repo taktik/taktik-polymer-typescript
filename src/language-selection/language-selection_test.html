@@ -1,0 +1,82 @@
+<!doctype html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>ozone-suggest</title>
+
+    <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../bower_components/web-component-tester/browser.js"></script>
+    <script src="../../bower_components/iron-test-helpers/mock-interactions.js"></script>
+    <link rel="import" href="../../bower_components/polymer/polymer.html">
+
+    <!-- Step 1: import the element to test -->
+    <link rel="import" href="language-selection.html">
+
+
+</head>
+<body>
+<test-fixture id="basic">
+    <template>
+        <language-selection id="languageSelection"></language-selection>
+    </template>
+</test-fixture>
+
+
+<script>
+    describe('language-selection', function () {
+        addEventListener('WebComponentsReady', function () {
+            let element;
+            beforeEach((done) => {
+                element = fixture('basic');
+                flush(done); //make sure every components are ready
+            });
+            describe('dom', function () {
+                it('should should contains list of availableLanguages', (done) => {
+                    const languagesList = element.$.availableLanguages.querySelectorAll('div');
+                    expect(languagesList[0].textContent).to.equal('en');
+                    expect(languagesList[1].textContent).to.equal('fr');
+                    done()
+                });
+
+            });
+
+            describe('select language', function () {
+                it('should should update currentLanguage', (done) =>{
+                    const languagesList = element.$.availableLanguages.querySelectorAll('div');
+                    languagesList[1].click();
+                    flush(()=>{
+                        expect(element.currentLanguage).to.equal('fr');
+                        done();
+                    });
+                });
+
+                it('should should fire languageChange', (done) =>{
+
+                    element.addEventListener('current-language-change', (event)=>{
+                        expect(event.detail.currentLanguage).to.equal('fr');
+                        done();
+                    });
+                    const languagesList = element.$.availableLanguages.querySelectorAll('div');
+                    languagesList[1].click();
+                });
+            });
+
+            describe('default value of currentLanguage', function () {
+                it('should be en', (done) => {
+                    expect(element.currentLanguage).to.equal('en');
+                    done()
+                });
+            });
+            describe('defaultLanguage', function () {
+                it('should be en', (done) => {
+                    expect(element.defaultLanguage).to.equal('en');
+                    done()
+                });
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

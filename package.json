@@ -19,6 +19,11 @@
     "gulp-replace": "^0.5.4",
     "gulp-save": "^1.2.1",
     "proxy-middleware": "^0.15.0",
-    "url": "^0.11.0"
+    "url": "^0.11.0",
+    "web-component-tester": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/core-js": "^0.9.41",
+    "typedoc": "^0.7.1"
   }
 }
