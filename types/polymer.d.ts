@@ -40,7 +40,7 @@ declare var Polymer: {
    * etc., mixins.
    */
   Element: PolymerElementConstructor;
-
+  dedupingMixin<T>(constructor: any): T
   ElementMixin:  Mixin<PolymerElement>;
 
   PropertyEffects: Mixin<PolymerPropertyEffects>;
@@ -57,7 +57,9 @@ declare class PolymerElement extends PolymerMetaEffects {
   static finalize(): void;
   static readonly template: HTMLTemplateElement;
 
+  connectedCallback(): void;
   ready(): void;
+
   updateStyles(properties: string[]): void;
 
   $:any;

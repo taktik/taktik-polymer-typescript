@@ -1,0 +1,30 @@
+<head>
+    <link rel="import" href="../decorators.html">
+    <link rel="import" href="../../bower_components/polymer/polymer-element.html">
+    <link rel="import" href="../../bower_components/paper-item/paper-item.html">
+    <link rel="import" href="../ozone-type-api/ozone-type-api.html">
+    <link rel="import" href="../tool/mediaUrl.html">
+    <link rel="import" href="../ozone-item-abstract-view/ozone-item-abstract-view.html">
+</head>
+<body>
+<dom-module id="ozone-item-view">
+    <template>
+        <paper-item elevation="2">
+            <div class="name">[[itemData.name]]</div>
+            <img src="[[previewImage]]">
+            <ul>
+                <dom-repeat items="[[rawFields]]">
+                    <template>
+                        <li>
+                            <div class="label">[[item.name]]</div>
+                            <div class$="[[item.type]]">[[item.value]]</div>
+                        </li>
+                    </template>
+                </dom-repeat>
+                </ul>
+            </ul>
+        </paper-item>
+    </template>
+    <script src="ozone-item-view.js"></script>
+</dom-module>
+</body>

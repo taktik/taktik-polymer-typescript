@@ -6,7 +6,10 @@
       "login": "/rest/v3/authentication/login",
       "logout": "/rest/v3/authentication/logout",
       "items": "/rest/v3/items",
+      "item": "/rest/v3/items/item",
       "session": "/rest/v3/authentication/current/session"
-    }
+    },
+    "type": "/rest/v3/type/{type}",
+    "view": "view"
   }
 }
