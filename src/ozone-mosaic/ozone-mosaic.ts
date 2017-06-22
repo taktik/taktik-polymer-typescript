@@ -3,9 +3,6 @@
  */
 import {customElement, domElement} from 'decorators';
 import {Item} from 'ozone-type';
-
-
-export interface DomElements {
 import {OzoneItemAPI} from 'ozone-item-api';
 
 
