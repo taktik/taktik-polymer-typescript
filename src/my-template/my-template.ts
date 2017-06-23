@@ -11,6 +11,13 @@ export interface DomElements {
    // Declare id: type of you dom elements
 }
 
+/**
+ * <my-template> is a template module start an ozone polymer module.
+ *
+ * ```html
+ * <my-template> Document usage with code example </my-template>
+ * ```
+ */
 @customElement('my-template')
 class MyTemplate extends Polymer.Element {
 
