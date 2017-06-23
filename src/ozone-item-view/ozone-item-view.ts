@@ -4,7 +4,7 @@
 import {customElement} from 'decorators'
 import {Item} from 'ozone-type'
 import {FieldDescriptor} from 'ozone-type'
-import{OzoneItemAbstractView} from 'ozone-item-abstract-view'
+import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item-abstract-view'
 
 import {MediaUrl, OzoneImageSize} from 'mediaUrl'
 

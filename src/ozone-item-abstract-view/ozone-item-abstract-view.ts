@@ -14,7 +14,40 @@ export interface rawField{
     value: any
 }
 
-export declare class OzoneItemAbstractViewClass extends Polymer.Element {}
+
+export declare interface OzoneItemAbstractViewInterface extends PolymerElement {
+    /**
+     * item to display
+     */
+    itemData: Item;
+
+    /**
+     * reference to ozoneTypeApi to use to introspect fields types
+     * By default it use getOzoneTypeAPI() to get the API
+     * Use this fild if you don't need the default TypeApi
+     */
+    ozoneTypeApi: OzoneTypeAPI;
+
+    /**
+     * url of the image preview
+     */
+    previewImage: string;
+
+    /**
+     * observer function on itemData.
+     * Overwrite this function in child implementation
+     * @abstract
+     * @param {Item} data
+     */
+    dataChange(data: Item):void;
+}
+
+export declare interface OzoneItemAbstractViewConstructor {
+    new(): OzoneItemAbstractViewInterface;
+}
+export declare interface OzoneItemAbstractViewMixinType{
+    (parentClass: PolymerElementConstructor):OzoneItemAbstractViewConstructor
+}
 /**
  * `OzoneItemAbstractView` is an abstract class for item view.
  * It provide ozoneTypeApi and an observer on the itemData.
@@ -27,7 +60,7 @@ export declare class OzoneItemAbstractViewClass extends Polymer.Element {}
  * ```
  */
 
-export  const OzoneItemAbstractView: any  = Polymer.dedupingMixin<OzoneItemAbstractViewClass>(function(superClass:PolymerElementConstructor) {
+export  const OzoneItemAbstractView: OzoneItemAbstractViewMixinType  = Polymer.dedupingMixin<any>(function(superClass:PolymerElementConstructor) {
     @customElement('ozone-item-abstract-view')
     class OzoneItemAbstractViewClass extends superClass {
 

@@ -3,7 +3,7 @@
  */
 import {customElement} from 'decorators'
 import {MediaUrl, OzoneImageSize} from 'mediaUrl'
-import{OzoneItemAbstractView} from 'ozone-item-abstract-view'
+import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item-abstract-view'
 
 
 /**
