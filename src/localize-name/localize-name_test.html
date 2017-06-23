@@ -11,7 +11,6 @@
     <link rel="import" href="../../bower_components/polymer/polymer.html">
 
     <!-- Step 1: import the element to test -->
-    <link rel="import" href="../language-selection/language-selection.html">
     <link rel="import" href="localize-name.html">
 
 
@@ -19,9 +18,7 @@
 <body>
 <test-fixture id="basic">
     <template>
-        <language-selection id="languageSelection" >
-        </language-selection>
-        <localize-name id="localizeName"> does not work </localize-name>
+        <localize-name id="localizeName" default-language="en"> does not work </localize-name>
     </template>
 </test-fixture>
 
@@ -32,29 +29,27 @@
             let element,
                 languageSelection;
             beforeEach((done) => {
-                element = fixture('basic')[1];
-                languageSelection = fixture('basic')[0];
-                setTimeout(done, 100); //make sure every components are ready
+                element = fixture('basic');
+                flush(done); //make sure every components are ready
             });
             describe('language parameters', function () {
                 it('should use languageSelection by default', (done) => {
-                    expect(element.language).to.equal('en');
-                    expect(element._languageSelection.defaultLanguage).to.equal('en');
+                    expect(element.defaultLanguage).to.equal('en');
                     done()
                 });
 
                 it('should use listen on languageSelection current-language-change', (done) => {
-                    element._languageSelection.set('currentLanguage', 'fr');
+                    element.set('language', 'fr');
                     flush(()=>{
                         expect(element.language).to.equal('fr');
-                        expect(element._languageSelection.defaultLanguage).to.equal('en');
+                        expect(element.defaultLanguage).to.equal('en');
                         done()
                     });
                 });
             });
 
             describe('displayString', function () {
-                it('should contain data according language selection', (done) =>{
+                it('should contain data according language selection to defaultlanguage', (done) =>{
                     element.set('data', {strings:{fr:'bonjour', en: 'hello'}});
                     flush(()=>{
                         expect(element.displayString).to.equal('hello');
@@ -64,7 +59,7 @@
 
                 it('should be update when language change', (done) =>{
                     element.set('data', {strings:{fr:'bonjour', en: 'hello'}});
-                    element._languageSelection.set('currentLanguage', 'fr');
+                    element.set('language', 'fr');
 
                     flush(()=>{
                         expect(element.displayString).to.equal('bonjour');
@@ -84,7 +79,7 @@
 
                 it('should be update when language change', (done) =>{
                     element.set('data', {strings:{fr:'bonjour', en: 'hello'}});
-                    element._languageSelection.set('currentLanguage', 'fr');
+                    element.set('language', 'fr');
 
                     flush(()=>{
                         expect(element.root.querySelector('.localize-name').textContent).to.equal('bonjour');

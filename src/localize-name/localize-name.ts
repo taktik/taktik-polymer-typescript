@@ -5,15 +5,13 @@
 
 import {customElement} from 'decorators'
 import {LocalizedString} from "ozone-type";
-import {LanguageSelection} from 'language-selection';
 
 @customElement('localize-name')
 export class LocalizeName extends Polymer.Element{
 
     data: LocalizedString;
     language: string;
-    languageSelectionId: string;
-    _languageSelection: LanguageSelection;
+    defaultLanguage: string;
 
     static get properties() {
         return {
@@ -23,29 +21,14 @@ export class LocalizeName extends Polymer.Element{
             language:{
                 type: String,
             },
+            defaultLanguage:{
+                type: String,
+            },
             displayString: {
                 type: String,
                 notify: true
             },
-            languageSelectionId:{
-                type: String,
-                value: 'languageSelection',
-                observer: '_languageSelectionChange'
-            },
-            _languageSelection:{
-                type: Object
-            }
 
-        }
-    }
-
-    _languageSelectionChange(){
-        this._languageSelection = document.querySelector(`#${this.languageSelectionId}`) as LanguageSelection;
-        if(this._languageSelection){
-            this.set('language', this._languageSelection.currentLanguage);
-            this._languageSelection.addEventListener('current-language-change', (event:any) => {
-                this.set('language', event.detail.currentLanguage);
-            });
         }
     }
 
@@ -58,7 +41,7 @@ export class LocalizeName extends Polymer.Element{
             if(data.strings.hasOwnProperty(language)) {
                 this.set('displayString', data.strings[language])
             } else {
-                this.set('displayString', data.strings[this._languageSelection.defaultLanguage])
+                this.set('displayString', data.strings[this.defaultLanguage])
             }
         }
     }

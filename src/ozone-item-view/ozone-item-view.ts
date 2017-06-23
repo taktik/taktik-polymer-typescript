@@ -73,9 +73,15 @@ export class OzoneItemView  extends OzoneItemAbstractView(Polymer.Element) {
                     } else {
                         fieldType = "unknown";
                     }
+                    let fieldName;
+                    if(description && description.name) {
+                        fieldName = description.name;
+                    } else {
+                        fieldName = {strings: {en: entry + '*'}};
+                    }
 
                     this.push('rawFields',{
-                        name:entry,
+                        name:fieldName,
                         type:fieldType,
                         value: data[entry]
                     });
