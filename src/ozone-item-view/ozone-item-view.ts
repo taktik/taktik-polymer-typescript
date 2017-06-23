@@ -1,11 +1,12 @@
 /**
  * Created by hubert on 8/06/17.
  */
+/// <amd-module name="ozone-item-view"/>
+
 import {customElement} from 'decorators'
 import {Item} from 'ozone-type'
 import {FieldDescriptor} from 'ozone-type'
 import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item-abstract-view'
-
 import {MediaUrl, OzoneImageSize} from 'mediaUrl'
 
 export interface rawField{

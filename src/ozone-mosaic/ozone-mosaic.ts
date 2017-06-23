@@ -1,6 +1,8 @@
 /**
  * Created by hubert on 8/06/17.
  */
+
+/// <amd-module name="ozone-mosaic"/>
 import {customElement, domElement} from 'decorators';
 import {Item} from 'ozone-type';
 import {OzoneItemAPI} from 'ozone-item-api';

@@ -2,7 +2,7 @@
  * Created by hubert on 20/06/17.
  */
 
-
+/// <amd-module name="ozone-view-factory"/>
 import {customElement} from 'decorators'
 import {Item} from "ozone-type";
 import {OzoneTypeAPI} from "ozone-type-api";
