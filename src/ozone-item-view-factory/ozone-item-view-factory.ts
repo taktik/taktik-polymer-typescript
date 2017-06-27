@@ -5,12 +5,10 @@
 /// <amd-module name="ozone-view-factory"/>
 import {customElement} from 'decorators'
 import {Item} from "ozone-type";
-import {OzoneTypeAPI} from "ozone-type-api";
 import {OzoneItemView} from 'ozone-item-view'
 
 
 export interface DomElements {
-    ozoneType:OzoneTypeAPI
 }
 
 /**
@@ -40,10 +38,6 @@ export class OzoneItemViewFactory extends Polymer.Element{
                 observer:'_itemChange'
             }
         }
-    }
-
-    _typeChange(){
-        this.$.ozoneType.loadType()
     }
 
     _itemChange(item?: Item){

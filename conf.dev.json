@@ -10,6 +10,7 @@
       "session": "/rest/v3/authentication/current/session"
     },
     "type": "/rest/v3/type/{type}",
-    "view": "view"
+    "view": "/view",
+    "permissions": "/rest/v3/items/bulkGetPermissions"
   }
 }

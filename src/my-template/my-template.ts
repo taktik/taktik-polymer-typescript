@@ -19,7 +19,7 @@ export interface DomElements {
  * ```
  */
 @customElement('my-template')
-class MyTemplate extends Polymer.Element {
+export class MyTemplate extends Polymer.Element {
 
     $: DomElements;
 

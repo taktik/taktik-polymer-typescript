@@ -9,7 +9,8 @@ declare interface ConfigType {
     ozoneApi: any,
     type: string,
     host:string,
-    view: string
+    view: string,
+    permissions: string,
 }
 
 declare interface OzoneApiAjaxMixinConstructor {

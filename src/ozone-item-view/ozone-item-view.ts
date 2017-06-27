@@ -7,7 +7,7 @@ import {customElement} from 'decorators'
 import {Item} from 'ozone-type'
 import {FieldDescriptor} from 'ozone-type'
 import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item-abstract-view'
-import {MediaUrl, OzoneImageSize} from 'mediaUrl'
+import {MediaUrl, OzoneImageSize, SizeEnum} from 'mediaUrl'
 
 export interface rawField{
     name:string,
@@ -34,6 +34,7 @@ export interface rawField{
  *         this.root.appendChild(toLocal);
  * ```
  */
+
 @customElement('ozone-item-view')
 export class OzoneItemView  extends OzoneItemAbstractView(Polymer.Element) {
 
@@ -61,35 +62,45 @@ export class OzoneItemView  extends OzoneItemAbstractView(Polymer.Element) {
         }
     }
 
-
-    dataChange(data:Item){
+    async dataChange(data:Item){
         let rawFields: Array<rawField> = [];
-        for (let entry in data){
-            this.ozoneTypeApi.findFieldInCollection(data.type, entry)
-                .then((description:FieldDescriptor)=>{
-                    let fieldType;
-                    if(description && description.fieldType) {
-                        fieldType = description.fieldType;
-                    } else {
-                        fieldType = "unknown";
-                    }
-                    let fieldName;
-                    if(description && description.name) {
-                        fieldName = description.name;
-                    } else {
-                        fieldName = {strings: {en: entry + '*'}};
-                    }
 
-                    this.push('rawFields',{
-                        name:fieldName,
-                        type:fieldType,
-                        value: data[entry]
-                    });
+        let entries = this.orderEntries(data);
+
+        for (let entry of entries){
+            const description = await (this.ozoneTypeApi.findFieldInCollection(data.type, entry));
+
+            if(description){
+                let fieldType;
+                if(description && description.fieldType) {
+                    fieldType = description.fieldType;
+                } else {
+                    fieldType = "unknown";
+                }
+                let fieldName;
+                if(description && description.name) {
+                    fieldName = description.name;
+                } else {
+                    fieldName = {strings: {en: entry + '*'}};
+                }
+
+                this.push('rawFields',{
+                    name:fieldName,
+                    type:fieldType,
+                    value: data[entry]
                 });
+            }
+
         }
-        this.ozoneTypeApi.ifIsTypeInstanceOf(data.type, 'media').then(()=> {
-            const mediaUrl = new MediaUrl(data.id as string, this.ozoneTypeApi.config);
-            this.set('previewImage', mediaUrl.getPreviewUrl(OzoneImageSize.Small));
-        }).catch(()=> {});
+        await ( this.loadImage(data, OzoneImageSize.Small))
+    }
+
+    private orderEntries(data: Item) {
+        let entries = [];
+        for (let entry in data) {
+            entries.push(entry)
+        }
+        entries.sort();
+        return entries;
     }
 }

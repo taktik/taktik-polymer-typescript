@@ -6,7 +6,7 @@
 import {customElement} from 'decorators'
 import {Item} from 'ozone-type'
 import {OzoneTypeAPI, getOzoneTypeAPI} from 'ozone-type-api'
-
+import {MediaUrl, SizeEnum, OzoneImageSize} from 'mediaUrl'
 
 export interface rawField{
     name:string,
@@ -40,6 +40,8 @@ export declare interface OzoneItemAbstractViewInterface extends PolymerElement {
      * @param {Item} data
      */
     dataChange(data: Item):void;
+
+    loadImage(data: Item, size:SizeEnum):Promise <void>
 }
 
 export declare interface OzoneItemAbstractViewConstructor {
@@ -117,6 +119,17 @@ export  const OzoneItemAbstractView: OzoneItemAbstractViewMixinType  = Polymer.d
          * @param {Item} data
          */
         dataChange(data: Item) {
+        }
+
+
+        async loadImage(data?: Item, size?:SizeEnum){
+            size = size || OzoneImageSize.Small;
+            if(this.ozoneTypeApi && data) {
+                if (await ( this.ozoneTypeApi.ifIsTypeInstanceOf(data.type, 'media'))) {
+                    const mediaUrl = new MediaUrl(data.id as string, this.ozoneTypeApi.config);
+                    this.set('previewImage', mediaUrl.getPreviewUrl(size));
+                }
+            }
         }
     }
     return OzoneItemAbstractViewClass;

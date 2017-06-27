@@ -4,7 +4,8 @@
  */
 
 import {customElement, domElement, jsElement} from 'decorators'
-import {TypeDescriptor, FieldDescriptor} from 'ozone-type'
+import {TypeDescriptor, FieldDescriptor, Grants} from 'ozone-type'
+import GrantsEnum = Grants.GrantsEnum;
 
 export type TypeDescriptorCollection = Map<string, TypeDescriptor>
 
@@ -88,6 +89,14 @@ export class OzoneTypeAPI  extends OzoneApiAjaxMixin(Polymer.Element){
             .generateRequest().completes.then((res:any) => res.response)
     }
 
+    _postRequest(url:string, body:any): Promise<any> {
+        this.$.ozoneAccess.url = url;
+        this.$.ozoneAccess.method = 'POST';
+        this.$.ozoneAccess.body = JSON.stringify(body);
+        return this.$.ozoneAccess
+            .generateRequest().completes.then((res:any)=> res.response)
+    }
+
     /**
      * get list of fields of the collection.
      * @return {Promise<Array<FieldDescriptor>>} list of field
@@ -110,6 +119,15 @@ export class OzoneTypeAPI  extends OzoneApiAjaxMixin(Polymer.Element){
         return getOzoneConfig().configPromise.then((config) => {
             return `${config.host}${config.type}`
                 .replace(/\{type\}/, collection);
+        });
+    }
+    /**
+     *
+     * @private
+     */
+    _buildPermissionsUrl(fields:Array<string>):Promise<string>{
+        return getOzoneConfig().configPromise.then((config) => {
+            return `${config.host}${config.permissions}?fields=${fields.join(',')}`;
         });
     }
 
@@ -168,20 +186,63 @@ export class OzoneTypeAPI  extends OzoneApiAjaxMixin(Polymer.Element){
             })
     }
 
-    ifIsTypeInstanceOf(currentType:string, instance:string): Promise<boolean>{
-        if(currentType == instance){
-            return Promise.resolve(true);
-        } else {
-            return this.getType(currentType)
-                .then(typeDescriptor => {
-                    if (typeDescriptor && typeDescriptor.superType) {
-                        // look in parent if exist
-                        return this.ifIsTypeInstanceOf(typeDescriptor.superType, instance);
-                    } else {
-                        throw new Error('not an instance of')
-                    }
-                });
+    async getAllFields(collection: string):Promise<Array<FieldDescriptor>>{
+        const type = await(this.getType(collection));
+        const fields = type.fields || [];
+        let parentFields:Array<FieldDescriptor> = [];
+        if(type.superType){
+            parentFields = await(this.getAllFields(type.superType));
         }
+        return fields.concat(parentFields);
+    }
+
+    async ifIsTypeInstanceOf(currentType:string, instance:string): Promise<boolean>{
+        if(currentType == instance){
+            return true;
+        } else {
+            const typeDescriptor = await(this.getType(currentType));
+            if (typeDescriptor && typeDescriptor.superType) {
+                // look in parent if exist
+                return await(this.ifIsTypeInstanceOf(typeDescriptor.superType, instance));
+            } else {
+                return false;
+            }
+        }
+    }
+
+    async isFildEditable(){
+        return false
+    }
+
+    async getPermissions(fields:Array<FieldDescriptor>, id:uuid){
+
+        const Ids= [id];
+
+        const fildsId = fields.map(field => field.identifier);
+
+        const url = await(this._buildPermissionsUrl(fildsId));
+
+        const grants:Array<Grants> = await(this._postRequest(url, Ids));
+
+        return new FieldsPermission(grants[0]);
+    }
+}
+
+export class FieldsPermission{
+    grant:Grants;
+    isFieldEditable(fieldName:string):boolean{
+        if(this.grant.fieldGrants && this.grant.fieldGrants.hasOwnProperty(fieldName)) {
+            return typeof (
+                    this.grant.fieldGrants[fieldName]
+                        .find(i => i == 'FIELD_EDIT')
+                ) == 'string';
+        }  else {
+            return false
+        }
+    }
+
+    constructor(grant:Grants){
+        this.grant = grant;
     }
 }
 

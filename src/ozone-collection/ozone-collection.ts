@@ -237,8 +237,8 @@ export class OzoneCollection  extends Polymer.Element{
                 this._verifySource();
                 result = this._getSource.update(item)
                     .then(item => {
-                        this.items[index] = item;
-                        this.notifyPath('items');
+                        //this.items[index] = item;
+                        this.splice('items',index, 1,  item);
                         return index;
                     })
             } else {

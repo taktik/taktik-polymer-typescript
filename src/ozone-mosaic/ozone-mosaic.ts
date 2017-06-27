@@ -6,6 +6,7 @@
 import {customElement, domElement} from 'decorators';
 import {Item} from 'ozone-type';
 import {OzoneItemAPI} from 'ozone-item-api';
+import {OzoneMediaEdit} from 'ozone-media-edit'
 
 
 export interface DomElements {
@@ -14,6 +15,7 @@ export interface DomElements {
         clearTriggers():void
     }
     mosaicCollection:any //TODO import
+    mediaEditor: OzoneMediaEdit
 }
 
 @customElement('ozone-mosaic')
@@ -62,6 +64,10 @@ export class OzoneMosaic  extends Polymer.Element{
             searchString: {
                 type: String
             },
+            selectedAction: {
+                type: Number,
+                value: 0,
+            },
             total: {
                 type: Number,
                 notify:true
@@ -107,5 +113,12 @@ export class OzoneMosaic  extends Polymer.Element{
      */
     requestSearch(){
         this.searchInItems(this.searchString);
+    }
+
+    saveSelectedItem(){
+        const updatedData = this.$.mediaEditor.getUpdatedData();
+        this.$.mosaicCollection.saveOne(updatedData).then((index:number)=>{
+            this.set('selectedItem',  this.items[index]);
+        });
     }
 }

@@ -31,7 +31,7 @@ export class MediaUrl {
         return parseInt('0x' + this.id.split('-')[4])
     }
     _buildBaseUrl(action:Array<string | number>):string{
-        return `${this.config.host}/${this.config.view}/${action.join('/')}`;
+        return `${this.config.host}${this.config.view}/${action.join('/')}`;
     }
 
     getPreviewUrl(size: SizeEnum):string{

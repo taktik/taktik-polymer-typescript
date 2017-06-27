@@ -6,13 +6,17 @@
     <link rel="import" href="../../bower_components/paper-item/paper-item.html">
     <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
+    <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
+    <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+
 
     <link rel="import" href="../ozone-item-api/ozone-item-api.html">
     <link rel="import" href="../ozone-item-preview/ozone-item-preview.html">
     <link rel="import" href="../ozone-item-view/ozone-item-view.html">
     <link rel="import" href="../ozone-collection/ozone-collection.html">
     <link rel="import" href="../ozone-item-view-factory/ozone-item-view-factory.html">
-    <!--link rel="import" href="../ozone-media-edit/ozone-media-edit.html"!-->
+    <link rel="import" href="../ozone-media-edit/ozone-media-edit.html">
 
 </head>
 <body>
@@ -59,8 +63,19 @@
             </div>
         </iron-scroll-threshold>
         </div>
-        <!--ozone-media-edit item-data={{selectedItem}}></ozone-media-edit!-->
-        <ozone-item-view-factory item="[[selectedItem]]"></ozone-item-view-factory>
+        <paper-tabs selected="{{selectedAction}}" scrollable>
+            <paper-tab>View</paper-tab>
+            <paper-tab>Edit</paper-tab>
+        </paper-tabs>
+        <iron-pages selected="{{selectedAction}}">
+            <div>
+                <ozone-item-view-factory item="[[selectedItem]]"></ozone-item-view-factory>
+            </div>
+            <div>
+                <paper-button raised id="saveBtn" on-tap="saveSelectedItem">Save</paper-button>
+                <ozone-media-edit id="mediaEditor" item-data={{selectedItem}}></ozone-media-edit>
+            </div>
+        </iron-pages>
     </template>
     <script src="ozone-mosaic.js"></script>
 </dom-module>
