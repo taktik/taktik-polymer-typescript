@@ -35,12 +35,16 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
     $: DomElements;
     static editEntryClass = 'editEntry'
     selectedTab: number;
+    focusedElement: string;
 
     static properties(){
         return {
             selectedTab: {
                 type: Number,
-            }
+            },
+            focusedElement:{
+                type: String,
+            },
         }
     }
 
@@ -84,6 +88,7 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
         if(typeof(editableItemName) == 'string') {
             const editableItem = document.createElement(editableItemName) as (OzoneEditEntryInterface);
             editableItem.className = OzoneMediaEdit.editEntryClass;
+            editableItem.id = identifier;
             editableItem.identifier = identifier;
             editableItem.type = fieldType;
             editableItem.value = data[identifier];
@@ -120,7 +125,11 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
             case 'blob':
                 editableItemName = 'ozone-edit-text-entry';
                 break;
-
+            case 'integer':
+            case 'float':
+            case 'double':
+                editableItemName = 'ozone-edit-number-entry';
+                break;
         }
         return editableItemName
     }

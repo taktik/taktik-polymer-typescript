@@ -3,7 +3,7 @@
  */
 
 
-/// <amd-module name="ozone-edit-set-entry"/>
+/// <amd-module name="ozone-edit-integer-entry"/>
 
 import {customElement} from 'decorators'
 import {LocalizedString} from 'ozone-type'
@@ -21,8 +21,8 @@ export interface DomElements {
  * ```
  */
 
-@customElement('ozone-edit-set-entry')
-export class OzoneEditSetEntry extends OzoneEditEntryMixin(Polymer.Element) {
+@customElement('ozone-edit-number-entry')
+export class OzoneEditNumberEntry extends OzoneEditEntryMixin(Polymer.Element) {
     textValue:string;
     static get properties(){
         return {
@@ -42,32 +42,29 @@ export class OzoneEditSetEntry extends OzoneEditEntryMixin(Polymer.Element) {
         // NOP prevent default behavior that listen on change event
     }
 
-    textToSet(textValue:string):Array<string>{
-        return textValue.replace(/ /g, '').split(',');
+    textToNumber(textValue:string):Number| null{
+        if(this.textValue == ''){
+            return null;
+        } else {
+            return Number(textValue);
+        }
     }
 
-    setTotext(arrayValue:Array<string>):string{
-        return arrayValue.join(', ')
-    }
 
     isValueAndTextEqual():boolean{
-        let textValue = this.textValue || '';
-        let value = this.value || [];
-        return this.textToSet(textValue).join() == value.join();
+        return this.textToNumber(this.textValue) == this.value;
     }
 
     valueChange () {
         if(! this.isValueAndTextEqual()){
-            this.set('textValue', this.setTotext(this.value));
+            this.set('textValue', this.value);
         }
     }
 
     textChange () {
         if(! this.isValueAndTextEqual()){
-            this.set('value', this.textToSet(this.textValue));
+            this.set('value', this.textToNumber(this.textValue));
             this.set('isModify', true);
         }
     }
-
-
 }
