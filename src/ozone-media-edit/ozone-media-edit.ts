@@ -110,8 +110,10 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
         switch(type){
             case 'string':
             case 'date':
-            case 'set<string>':
                 editableItemName = 'ozone-edit-entry';
+                break;
+            case 'set<string>':
+                editableItemName = 'ozone-edit-set-entry';
                 break;
 
             case 'analyzed_string':
