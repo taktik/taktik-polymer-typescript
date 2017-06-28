@@ -7,7 +7,7 @@
 
 import {customElement} from 'decorators'
 import {Item, FieldDescriptor} from 'ozone-type'
-import {MediaUrl, OzoneImageSize} from 'mediaUrl'
+import {MediaUrl, OzonePreviewSize} from 'mediaUrl'
 import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item-abstract-view'
 import {OzoneEditEntryBehavior} from 'ozone-edit-entry'
 import {FieldsPermission} from 'ozone-type-api'
@@ -57,7 +57,7 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
             }
         }
 
-        await(super.loadImage(data, OzoneImageSize.Small));
+        await(super.loadImage(data, OzonePreviewSize.Small));
     }
 
     private async addInputElement(description:FieldDescriptor, data: Item, permission: FieldsPermission) {

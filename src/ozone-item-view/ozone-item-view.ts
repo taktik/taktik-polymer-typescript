@@ -67,32 +67,37 @@ export class OzoneItemView  extends OzoneItemAbstractView(Polymer.Element) {
 
         let entries = this.orderEntries(data);
 
+
         for (let entry of entries){
             const description = await (this.ozoneTypeApi.findFieldInCollection(data.type, entry));
 
-            if(description){
-                let fieldType;
-                if(description && description.fieldType) {
-                    fieldType = description.fieldType;
-                } else {
-                    fieldType = "unknown";
-                }
-                let fieldName;
-                if(description && description.name) {
-                    fieldName = description.name;
-                } else {
-                    fieldName = {strings: {en: entry + '*'}};
-                }
-
-                this.push('rawFields',{
-                    name:fieldName,
-                    type:fieldType,
-                    value: data[entry]
-                });
+            let fieldType;
+            if(description && description.fieldType) {
+                fieldType = description.fieldType;
+            } else {
+                fieldType = "unknown";
             }
+            let fieldName = this.computeFieldName(entry, description);
+
+            this.push('rawFields',{
+                name:fieldName,
+                type:fieldType,
+                value: data[entry]
+            });
 
         }
         await ( this.loadImage(data, OzonePreviewSize.Small))
+    }
+
+    private computeFieldName(entry:string, description: FieldDescriptor| null) {
+        let fieldName;
+        if (description && description.name) {
+            fieldName = description.name;
+        } else {
+            fieldName = {strings: {en: entry + '*'}};
+            console.log(fieldName)
+        }
+        return fieldName;
     }
 
     private orderEntries(data: Item) {

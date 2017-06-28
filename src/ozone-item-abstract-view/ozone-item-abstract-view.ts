@@ -6,7 +6,7 @@
 import {customElement} from 'decorators'
 import {Item} from 'ozone-type'
 import {OzoneTypeAPI, getOzoneTypeAPI} from 'ozone-type-api'
-import {MediaUrl, SizeEnum, OzoneImageSize} from 'mediaUrl'
+import {MediaUrl, SizeEnum, OzonePreviewSize} from 'mediaUrl'
 
 export interface rawField{
     name:string,
@@ -126,7 +126,7 @@ export  const OzoneItemAbstractView: OzoneItemAbstractViewMixinType  = Polymer.d
 
 
         async loadImage(data?: Item, size?:SizeEnum){
-            size = size || OzoneImageSize.Small;
+            size = size || OzonePreviewSize.Small;
             if(this.ozoneTypeApi && data) {
                 if (await ( this.ozoneTypeApi.ifIsTypeInstanceOf(data.type, 'media'))) {
                     const mediaUrl = new MediaUrl(data.id as string, this.ozoneTypeApi.config);
