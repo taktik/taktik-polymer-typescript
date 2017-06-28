@@ -4,7 +4,7 @@
 
 /// <amd-module name="ozone-item-preview"/>
 import {customElement} from 'decorators'
-import {MediaUrl, OzoneImageSize} from 'mediaUrl'
+import {MediaUrl, OzonePreviewSize} from 'mediaUrl'
 import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item-abstract-view'
 
 
@@ -37,7 +37,7 @@ export class OzoneItemPreview  extends OzoneItemAbstractView(Polymer.Element){
         if(this.ozoneTypeApi) {
             this.ozoneTypeApi.ifIsTypeInstanceOf(data.type, 'media').then(() => {
                 const mediaUrl = new MediaUrl(data.id as string, this.ozoneTypeApi.config);
-                this.set('previewImage', mediaUrl.getPreviewUrl(OzoneImageSize.Small));
+                this.set('previewImage', mediaUrl.getPreviewUrl(OzonePreviewSize.Small));
             }).catch(() => {
             });
         } else {

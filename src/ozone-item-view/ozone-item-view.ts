@@ -7,7 +7,7 @@ import {customElement} from 'decorators'
 import {Item} from 'ozone-type'
 import {FieldDescriptor} from 'ozone-type'
 import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item-abstract-view'
-import {MediaUrl, OzoneImageSize} from 'mediaUrl'
+import {MediaUrl, OzonePreviewSize} from 'mediaUrl'
 
 export interface rawField{
     name:string,
@@ -89,7 +89,7 @@ export class OzoneItemView  extends OzoneItemAbstractView(Polymer.Element) {
         }
         this.ozoneTypeApi.ifIsTypeInstanceOf(data.type, 'media').then(()=> {
             const mediaUrl = new MediaUrl(data.id as string, this.ozoneTypeApi.config);
-            this.set('previewImage', mediaUrl.getPreviewUrl(OzoneImageSize.Small));
+            this.set('previewImage', mediaUrl.getPreviewUrl(OzonePreviewSize.Small));
         }).catch(()=> {});
     }
 }

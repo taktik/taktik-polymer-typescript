@@ -6,8 +6,8 @@
 import {customElement} from 'decorators'
 import {LocalizedString} from "ozone-type";
 
-@customElement('localize-name')
-export class LocalizeName extends Polymer.Element{
+@customElement('localized-string')
+export class LocalizedStringDisplay extends Polymer.Element{
 
     data: LocalizedString;
     language: string;
