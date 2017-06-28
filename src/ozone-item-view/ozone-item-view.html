@@ -6,7 +6,7 @@
     <link rel="import" href="../tool/mediaUrl.html">
     <link rel="import" href="../ozone-item-abstract-view/ozone-item-abstract-view.html">
     <link rel="import" href="../language-selection/language-selection.html">
-    <link rel="import" href="../localize-name/localize-name.html">
+    <link rel="import" href="../localized-string/localized-string.html">
 </head>
 <body>
 <dom-module id="ozone-item-view">
@@ -28,7 +28,7 @@
                 <dom-repeat items="[[rawFields]]">
                     <template>
                         <li>
-                            <div class="label"> <localize-name data="[[item.name]]" language="[[language]]" default-language="en"></localize-name></div>
+                            <div class="label"> <localized-string data="[[item.name]]" language="[[language]]" default-language="en"></localized-string></div>
                             <div class$="[[item.type]]">[[item.value]]</div>
                         </li>
                     </template>
