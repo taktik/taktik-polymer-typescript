@@ -8,7 +8,7 @@ import {jsElement} from 'decorators'
 
 export type SizeEnum = Number;
 @jsElement()
-export class  OzoneImageSize{
+export class  OzonePreviewSize{
     static Small: SizeEnum= 250;
     static Medium: SizeEnum = 500;
     static Large:SizeEnum = 1500;
@@ -20,9 +20,9 @@ export class  OzoneImageSize{
 @jsElement()
 export class MediaUrl {
 
-    id:string;
+    id:uuid;
     config: ConfigType;
-    constructor(id:string, config: ConfigType){
+    constructor(id:uuid, config: ConfigType){
         this.id = id;
         this.config = config;
     }

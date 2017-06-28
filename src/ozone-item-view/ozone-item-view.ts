@@ -7,7 +7,7 @@ import {customElement} from 'decorators'
 import {Item} from 'ozone-type'
 import {FieldDescriptor} from 'ozone-type'
 import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item-abstract-view'
-import {MediaUrl, OzoneImageSize, SizeEnum} from 'mediaUrl'
+import {MediaUrl, OzonePreviewSize} from 'mediaUrl'
 
 export interface rawField{
     name:string,
@@ -92,7 +92,7 @@ export class OzoneItemView  extends OzoneItemAbstractView(Polymer.Element) {
             }
 
         }
-        await ( this.loadImage(data, OzoneImageSize.Small))
+        await ( this.loadImage(data, OzonePreviewSize.Small))
     }
 
     private orderEntries(data: Item) {

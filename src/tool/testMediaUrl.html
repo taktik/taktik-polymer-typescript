@@ -40,7 +40,7 @@
             describe('getPreviewUrl', function () {
                 it('should work with enum', (done)=>{
                     const element = new MediaUrl('00000000-046c-7fc4-0000-000000006030', {host:'ozone', view:'/view'});
-                    expect(element.getPreviewUrl(OzoneImageSize.Small)).to.equal('ozone/view/24624/org.taktik.filetype.image.preview.250');
+                    expect(element.getPreviewUrl(OzonePreviewSize.Small)).to.equal('ozone/view/24624/org.taktik.filetype.image.preview.250');
                     done()
                 });
             });

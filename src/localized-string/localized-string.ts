@@ -10,8 +10,8 @@ import {LocalizedString} from "ozone-type";
  * <localize-name> is an element to display an ozone localize-name.
  *
  */
-@customElement('localize-name')
-export class LocalizeName extends Polymer.Element{
+@customElement('localized-string')
+export class LocalizedStringDisplay extends Polymer.Element{
 
     /**
      * data to display
