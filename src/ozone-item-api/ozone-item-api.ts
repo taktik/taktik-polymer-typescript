@@ -1,15 +1,14 @@
 /// <amd-module name="ozone-item-api"/>
-/// <reference path="../../bower_components/reflect-metadata/Reflect.d.ts" />
 
 /**
  * Created by hubert on 8/06/17.
  */
 
 import {customElement, domElement, jsElement} from 'decorators'
-import {Item, SearchRequest, ItemSearchResult} from 'ozone-type'
+import {Item, SearchRequest, ItemSearchResult, TypeDescriptor, FieldDescriptor} from 'ozone-type'
 
 export interface DomElements {
-    ozoneAccess:IronAjax
+    ozoneAccess:IronAjax,
 }
 export interface BulkResponse {
     response:Array<Item>;
@@ -31,9 +30,15 @@ export interface SearchResult {
  * `ozone-item-api` is low level polymer module to ozone api.
  * It provide CRUD operation and search in a given collection.
  *
- * Example:
+ * By default a `ozone-item-api` will be add in the root document
+ * and can loaded form javaScript using *getOzoneItemAPI*
+ * Example in Html
  * ```html
- * <ozone-api-search collection="item"></ozone-api-search>
+ * <ozone-api-search id="myAPI" collection="item"></ozone-api-search>
+ * ```
+ * Example
+ * ```javaScript
+ * const ozoneApiSearch = getOzoneItemAPI(); // return instance of OzoneItemAPI located in the dom
  * ```
  */
 @customElement('ozone-item-api')
@@ -59,6 +64,7 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
             }
         }
     }
+
     static get observers() {
         return [
             '_collectionChange(collection, config.endPoints.*)'
@@ -72,12 +78,16 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
      * @event configured
      */
 
+    /**
+     * observer on collection
+     * @private
+     */
     _collectionChange(collection: string, endpoints: any): void{
 
         if(collection && endpoints.value && this.config){
-            this.computeServiceUrl(endpoints.value[collection])
-            this.dispatchEvent(new CustomEvent('configured',
-                {bubbles: true, composed: true}));
+            this.computeServiceUrl(endpoints.value[collection]);
+                this.dispatchEvent(new CustomEvent('configured',
+                    {bubbles: true, composed: true}));
         }
     }
 
@@ -166,12 +176,24 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
         return new SearchGenerator(url, search, this.$.ozoneAccess);
     }
 
+    /**
+     *
+     * @private
+     */
     _readItemResponse = (res:ItemResponse) => res.response;
 
+    /**
+     *
+     * @private
+     */
     _readBulkItemResponse =  (res:BulkResponse):Array<Item> => {
         return res.response;
     };
 
+    /**
+     *
+     * @private
+     */
     _postRequest(url:string, body:any, responseFilter:any): Promise<any> {
         this.$.ozoneAccess.url = url;
         this.$.ozoneAccess.method = 'POST';
@@ -180,6 +202,10 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
             .generateRequest().completes.then(responseFilter.bind(this))
     }
 
+    /**
+     *
+     * @private
+     */
     _getRequest(url:string): Promise<any> {
         this.$.ozoneAccess.url = url;
         this.$.ozoneAccess.method = 'GET';
@@ -187,6 +213,10 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
             .generateRequest().completes.then((res:any) => res.response)
     }
 
+    /**
+     *
+     * @private
+     */
     _deleteRequest(url:string): Promise<any> {
         this.$.ozoneAccess.url = url;
         this.$.ozoneAccess.method = 'DELETE';
@@ -194,6 +224,10 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
             .generateRequest().completes.then((res:any) => res.response)
     }
 
+    /**
+     *
+     * @private
+     */
     _buildUrl(action:string):string{
         return `${this.serviceUrl}/${action}`;
     }
@@ -201,6 +235,25 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
 
 
 }
+
+function OzoneItemAPIGenerator() {
+    let ozoneItemAPI;
+
+    return ():OzoneItemAPI => {
+        if (!document.querySelector('#ozoneItemAPI')) {
+            ozoneItemAPI = document.createElement('ozone-item-api');
+            ozoneItemAPI.id = 'ozoneItemAPI';
+            document.body.appendChild(ozoneItemAPI);
+        }
+        return document.querySelector('#ozoneItemAPI') as OzoneItemAPI;
+    }
+}
+/**
+ * return OzoneItemAPI singleton
+ * @type {()=>OzoneItemAPI}
+ */
+export const getOzoneItemAPI = OzoneItemAPIGenerator();
+getOzoneItemAPI();
 
 /**
  * Class helper to create searchQuery.
@@ -293,11 +346,20 @@ export class SearchGenerator {
         this.url = url;
         this.ozoneAccess = ozoneAccess
     }
+
+    /**
+     * load next array of results
+     * @return {Promise<SearchResult>}
+     */
     next(): Promise<SearchResult>{
         this.searchParam.offset = this.offset;
         return this._postRequest(this.url, this.searchParam.searchQuery, this._readSearchResponse);
     }
 
+    /**
+     *
+     * @private
+     */
     _postRequest(url:string, body:string, responseFilter:any): Promise<any> {
         this.ozoneAccess.url = url;
         this.ozoneAccess.method = 'POST';
@@ -306,6 +368,10 @@ export class SearchGenerator {
             .generateRequest().completes.then(responseFilter.bind(this))
     }
 
+    /**
+     *
+     * @private
+     */
     _readSearchResponse (res:SearchResponse):SearchResult {
         this.total = Number(res.response.total);
         this.offset += Number(res.response.size);

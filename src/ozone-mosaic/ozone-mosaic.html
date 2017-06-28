@@ -6,11 +6,17 @@
     <link rel="import" href="../../bower_components/paper-item/paper-item.html">
     <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
+    <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
+    <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+
 
     <link rel="import" href="../ozone-item-api/ozone-item-api.html">
-    <link rel="import" href="../ozone-item/ozone-item.html">
+    <link rel="import" href="../ozone-item-preview/ozone-item-preview.html">
+    <link rel="import" href="../ozone-item-view/ozone-item-view.html">
     <link rel="import" href="../ozone-collection/ozone-collection.html">
-
+    <link rel="import" href="../ozone-item-view-factory/ozone-item-view-factory.html">
+    <link rel="import" href="../ozone-media-edit/ozone-media-edit.html">
 
 </head>
 <body>
@@ -39,26 +45,37 @@
             }
 
         </style>
-        <ozone-item-api collection="item" id="ozoneApi"></ozone-item-api>
         <ozone-collection
                 id="mosaicCollection"
-                items="{{items}}"
+                items="{{searchResults}}"
                 total="{{total}}"
-                data-remain="{{dataRemain}}"
-                source-id="ozoneApi"></ozone-collection>
+                data-remain="{{dataRemain}}"></ozone-collection>
 
-        <div hidden$="[[!items.length]]">
+        <div hidden$="[[!searchResults.length]]">
         <iron-scroll-threshold id="scrollTheshold" on-lower-threshold="toggleThreshold"  >
             <div class="resultList">
-            <iron-list scroll-target="scrollTheshold" items="[[items]]">
+            <iron-list scroll-target="scrollTheshold" items="[[searchResults]]"selected-item="{{selectedItem}}" selection-enabled>
                 <template>
-                    <ozone-item  item-id="[[item.id]]" item-data="[[item]]" class="resultListItem"></ozone-item>
+                    <ozone-item-preview  ozone-type-api-id="ozoneApiType" item-id="[[item.id]]" item-data="[[item]]" class="resultListItem"></ozone-item-preview>
                 </template>
             </iron-list>
             <paper-item class="loader" hidden$="[[!dataRemain]]">Fetching new items...</paper-item>
             </div>
         </iron-scroll-threshold>
         </div>
+        <paper-tabs selected="{{selectedAction}}" scrollable>
+            <paper-tab>View</paper-tab>
+            <paper-tab>Edit</paper-tab>
+        </paper-tabs>
+        <iron-pages selected="{{selectedAction}}">
+            <div>
+                <ozone-item-view-factory item="[[selectedItem]]"></ozone-item-view-factory>
+            </div>
+            <div>
+                <paper-button raised id="saveBtn" on-tap="saveSelectedItem">Save</paper-button>
+                <ozone-media-edit id="mediaEditor" item-data={{selectedItem}}></ozone-media-edit>
+            </div>
+        </iron-pages>
     </template>
     <script src="ozone-mosaic.js"></script>
 </dom-module>

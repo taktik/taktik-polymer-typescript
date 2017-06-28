@@ -1,0 +1,95 @@
+<!doctype html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>ozone-suggest</title>
+
+    <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../bower_components/web-component-tester/browser.js"></script>
+    <script src="../../bower_components/iron-test-helpers/mock-interactions.js"></script>
+    <link rel="import" href="../../bower_components/polymer/polymer.html">
+
+    <!-- Step 1: import the element to test -->
+    <link rel="import" href="localized-string.html">
+
+
+</head>
+<body>
+<test-fixture id="basic">
+    <template>
+        <localized-string id="localizeName" default-language="en"> does not work </localized-string>
+    </template>
+</test-fixture>
+
+
+<script>
+    describe('localized-string', function () {
+        addEventListener('WebComponentsReady', function () {
+            let element,
+                languageSelection;
+            beforeEach((done) => {
+                element = fixture('basic');
+                flush(done); //make sure every components are ready
+            });
+            describe('language parameters', function () {
+                it('should use languageSelection by default', (done) => {
+                    expect(element.defaultLanguage).to.equal('en');
+                    done()
+                });
+
+                it('should use listen on languageSelection current-language-change', (done) => {
+                    element.set('language', 'fr');
+                    flush(()=>{
+                        expect(element.language).to.equal('fr');
+                        expect(element.defaultLanguage).to.equal('en');
+                        done()
+                    });
+                });
+            });
+
+            describe('displayString', function () {
+                it('should contain data according language selection to defaultlanguage', (done) =>{
+                    element.set('data', {strings:{fr:'bonjour', en: 'hello'}});
+                    flush(()=>{
+                        expect(element.displayString).to.equal('hello');
+                        done();
+                    });
+                });
+
+                it('should be update when language change', (done) =>{
+                    element.set('data', {strings:{fr:'bonjour', en: 'hello'}});
+                    element.set('language', 'fr');
+
+                    flush(()=>{
+                        expect(element.displayString).to.equal('bonjour');
+                        done();
+                    });
+                });
+            });
+
+            describe('dom', function () {
+                it('should contain data according language selection', (done) =>{
+                    element.set('data', {strings:{fr:'bonjour', en: 'hello'}});
+                    flush(()=>{
+                        expect(element.root.querySelector('.localized-string').textContent).to.equal('hello');
+                        done();
+                    });
+                });
+
+                it('should be update when language change', (done) =>{
+                    element.set('data', {strings:{fr:'bonjour', en: 'hello'}});
+                    element.set('language', 'fr');
+
+                    flush(()=>{
+                        expect(element.root.querySelector('.localized-string').textContent).to.equal('bonjour');
+                        done();
+                    });
+                });
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

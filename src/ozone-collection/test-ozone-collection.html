@@ -9,40 +9,11 @@
     <script src="../../bower_components/web-component-tester/browser.js"></script>
     <script src="../../bower_components/iron-test-helpers/mock-interactions.js"></script>
     <link rel="import" href="../../bower_components/polymer/polymer.html">
+    <link rel="import" href="ozone-api-fake.html">
 
     <!-- Step 1: import the element to test -->
    <link rel="import" href="ozone-collection.html">
 
-    <dom-module id="ozone-api-fake">
-        <template>
-
-        </template>
-        <script>
-            class OzoneApiFake extends Polymer.Element {
-                static get is () { return 'ozone-api-fake'; }
-
-                ready(){
-                    super.ready();
-                    this.create = sinon.stub();
-
-                    this.update = sinon.stub();
-
-                    this.getOne = sinon.stub();
-
-                    this.deleteOne = sinon.stub();
-
-                    this.bulkGet = sinon.stub();
-
-                    this.bulkDelete = sinon.stub();
-
-                    this.bulkSave = sinon.stub();
-
-                    this.search = sinon.stub();
-                }
-            }
-            window.customElements.define(OzoneApiFake.is, OzoneApiFake);
-        </script>
-    </dom-module>
 </head>
 <body>
 <test-fixture id="basic">
@@ -304,110 +275,10 @@
                     element = fixture('noApi');
                     flush(()=>{done()})
                 });
-                describe('findOne', function () {
-                    it('should throw invalid source error', (done) =>{
-                        element.findOne('any')
-                            .catch((err)=>{
-                                expect(err.message).to.equal('Invalid source')
-                                done();
-                        })
-                    });
-                    it('should throw type error if id is undefined', (done) =>{
-                        element.findOne()
-                            .catch((err)=>{
-                                expect(err.message).to.equal('parameter is undefined')
-                                done();
-                        })
-                    })
-                });
 
-                describe('saveAll', function () {
-                    it('should throw invalid source error', (done) =>{
-                        element.saveAll()
-                            .catch((err)=>{
-                                expect(err.message).to.equal('Invalid source')
-                                done();
-                            });
-                    });
-                });
-
-                describe('saveOne', function () {
-                    it('should throw invalid source error', (done) =>{
-                        element.saveOne('any')
-                            .catch((err)=>{
-                                expect(err.message).to.equal('Invalid source')
-                                done();
-                            })
-                    });
-                    it('should throw type error if id is undefined', (done) =>{
-                        element.saveOne()
-                            .catch((err)=>{
-                                expect(err.message).to.equal('parameter is undefined')
-                                done();
-                            })
-                    })
-                });
-
-                describe('add', function () {
-                    it('should throw invalid source error', (done) =>{
-                        element.add('any')
-                            .catch((err)=>{
-                                expect(err.message).to.equal('Invalid source')
-                                done();
-                            })
-                    });
-                    it('should throw type error if id is undefined', (done) =>{
-                        element.add()
-                            .catch((err)=>{
-                                expect(err.message).to.equal('parameter is undefined')
-                                done();
-                            })
-                    })
-                });
-
-                describe('deleteAll', function () {
-                    it('should throw invalid source error', (done) =>{
-                        element.deleteAll()
-                            .catch((err)=>{
-                                expect(err.message).to.equal('Invalid source')
-                                done();
-                            })
-                    });
-                });
-
-                describe('deleteItems', function () {
-                    it('should throw invalid source error', (done) =>{
-                        element.deleteItems('any')
-                            .catch((err)=>{
-                                expect(err.message).to.equal('Invalid source')
-                                done();
-                            })
-                    });
-                    it('should throw type error if items is undefined', (done) =>{
-                        element.deleteItems()
-                            .catch((err)=>{
-                                expect(err.message).to.equal('parameter is undefined')
-                                done();
-                            })
-                    })
-                });
-
-                describe('deleteOne', function () {
-                    it('should throw invalid source error', (done) =>{
-                        element.deleteOne('any')
-                            .catch((err)=>{
-                                expect(err.message).to.equal('Invalid source')
-                                done();
-                            })
-                    });
-                    it('should throw type error if items is undefined', (done) =>{
-                        element.deleteOne()
-                            .catch((err)=>{
-                                expect(err.message).to.equal('parameter is undefined')
-                                done();
-
-                            });
-                    });
+                it('should use default ozoneAPI', (done) =>{
+                    expect(element._source).to.be.an.instanceof(OzoneItemAPI)
+                    done()
                 });
             });
 

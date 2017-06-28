@@ -13,3 +13,9 @@ interface CustomElementRegistry {
 interface ElementDefinitionOptions {
   extends: string;
 }
+
+interface CustomEventInit extends EventInit {
+  detail?: any;
+  composed?: boolean
+
+}
