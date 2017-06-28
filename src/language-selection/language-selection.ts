@@ -4,6 +4,13 @@
 
 
 import {customElement} from 'decorators'
+/**
+ * <language-selection> is a simple language selection module.
+ * demo
+ * ```html
+ * <language-selection current-language="{{language}}" ></language-selection>
+ * ```
+ */
 
 @customElement('language-selection')
 export class LanguageSelection extends Polymer.Element{

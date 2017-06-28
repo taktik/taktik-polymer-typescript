@@ -14,11 +14,8 @@ export interface DomElements {
 }
 
 /**
- * <my-template> is a template module start an ozone polymer module.
+ * <ozone-edit-number-entry> is an element to edit ozone items fields as set<string>.
  *
- * ```html
- * <my-template> Document usage with code example </my-template>
- * ```
  */
 
 @customElement('ozone-edit-set-entry')

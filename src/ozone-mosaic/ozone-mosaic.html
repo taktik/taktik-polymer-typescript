@@ -47,14 +47,14 @@
         </style>
         <ozone-collection
                 id="mosaicCollection"
-                items="{{items}}"
+                items="{{searchResults}}"
                 total="{{total}}"
                 data-remain="{{dataRemain}}"></ozone-collection>
 
-        <div hidden$="[[!items.length]]">
+        <div hidden$="[[!searchResults.length]]">
         <iron-scroll-threshold id="scrollTheshold" on-lower-threshold="toggleThreshold"  >
             <div class="resultList">
-            <iron-list scroll-target="scrollTheshold" items="[[items]]"selected-item="{{selectedItem}}" selection-enabled>
+            <iron-list scroll-target="scrollTheshold" items="[[searchResults]]"selected-item="{{selectedItem}}" selection-enabled>
                 <template>
                     <ozone-item-preview  ozone-type-api-id="ozoneApiType" item-id="[[item.id]]" item-data="[[item]]" class="resultListItem"></ozone-item-preview>
                 </template>

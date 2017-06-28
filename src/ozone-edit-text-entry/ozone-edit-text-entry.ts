@@ -14,13 +14,9 @@ export interface DomElements {
 }
 
 /**
- * <my-template> is a template module start an ozone polymer module.
+ * <ozone-edit-number-entry> is an element to edit ozone items fields as multi line text.
  *
- * ```html
- * <my-template> Document usage with code example </my-template>
- * ```
  */
-
 @customElement('ozone-edit-text-entry')
 export class OzoneEditTextEntry extends OzoneEditEntryMixin(Polymer.Element) {
 

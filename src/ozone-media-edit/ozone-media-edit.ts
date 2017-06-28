@@ -9,7 +9,7 @@ import {customElement} from 'decorators'
 import {Item, FieldDescriptor} from 'ozone-type'
 import {MediaUrl, OzoneImageSize} from 'mediaUrl'
 import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item-abstract-view'
-import {OzoneEditEntryInterface} from 'ozone-edit-entry'
+import {OzoneEditEntryBehavior} from 'ozone-edit-entry'
 import {FieldsPermission} from 'ozone-type-api'
 
 export interface DomElements {
@@ -23,30 +23,19 @@ export interface EditableFields{
 }
 
 /**
- * <ozone-media-edit> is a template module start an ozone polymer module.
+ * <ozone-media-edit> is an element that provide material design to edit an media Item.
  *
  * ```html
- * <ozone-madia-edit item-data={{item}}>  </my-template>
+ * <ozone-media-edit item-data={{item}}>  </ozone-media-edit>
  * ```
  */
 @customElement('ozone-media-edit')
 export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
 
     $: DomElements;
-    static editEntryClass = 'editEntry'
-    selectedTab: number;
-    focusedElement: string;
 
-    static properties(){
-        return {
-            selectedTab: {
-                type: Number,
-            },
-            focusedElement:{
-                type: String,
-            },
-        }
-    }
+    static editEntryClass = 'editEntry';
+
 
     async dataChange(data:Item){
         if(!data){
@@ -86,7 +75,7 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
         const editableItemName = this.getEditableItemName(fieldType);
 
         if(typeof(editableItemName) == 'string') {
-            const editableItem = document.createElement(editableItemName) as (OzoneEditEntryInterface);
+            const editableItem = document.createElement(editableItemName) as (OzoneEditEntryBehavior);
             editableItem.className = OzoneMediaEdit.editEntryClass;
             editableItem.id = identifier;
             editableItem.identifier = identifier;
@@ -110,7 +99,7 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
         }
     }
 
-    getEditableItemName(type:string):string | undefined{
+    private getEditableItemName(type:string):string | undefined{
         let editableItemName;
         switch(type){
             case 'string':
@@ -134,6 +123,10 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
         return editableItemName
     }
 
+    /**
+     * get the item with it's modifies fields.
+     * @return {Item}
+     */
     getUpdatedData(){
         const entryList = this.getEntryList();
         const updatedItem: Item = {
@@ -141,7 +134,7 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
             id: this.itemData.id,
         };
         for (let index = 0; index < entryList.length; index ++){
-            let entry = entryList.item(index) as OzoneEditEntryInterface;
+            let entry = entryList.item(index) as OzoneEditEntryBehavior;
             if(entry.isModify) {
                 updatedItem[entry.identifier] = entry.value;
             }

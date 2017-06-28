@@ -6,12 +6,33 @@
 import {customElement} from 'decorators'
 import {LocalizedString} from "ozone-type";
 
+/**
+ * <localize-name> is an element to display an ozone localize-name.
+ *
+ */
 @customElement('localize-name')
 export class LocalizeName extends Polymer.Element{
 
+    /**
+     * data to display
+     */
     data: LocalizedString;
+
+    /**
+     * language key used to display the name
+     */
     language: string;
+
+    /**
+     * language default key to use is the selected language is not available.
+     */
     defaultLanguage: string;
+
+    /**
+     * displayed string
+     * @notify
+     */
+    displayString: string;
 
     static get properties() {
         return {
@@ -36,6 +57,10 @@ export class LocalizeName extends Polymer.Element{
         return ['_changes(data, language)'];
     }
 
+    /**
+     *
+     * @private
+     */
     _changes(data: LocalizedString, language: string) {
         if(data && data.strings) {
             if(data.strings.hasOwnProperty(language)) {
