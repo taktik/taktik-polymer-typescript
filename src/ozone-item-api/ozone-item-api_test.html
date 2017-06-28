@@ -9,64 +9,13 @@
     <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../../bower_components/web-component-tester/browser.js"></script>
     <link rel="import" href="../../bower_components/polymer/polymer.html">
+    <link rel="import" href="fake-ozone-config.html">
 
-    <dom-module id="fake-ozone-config">
-        <template>
-
-        </template>
-        <script>
-            class FakeOzoneConfig extends Polymer.Element {
-                static get is () { return 'fake-ozone-config'; }
-
-                static get properties() {
-                    return {
-                        /**
-                         * Ozone config value in a promise.
-                         */
-                        configPromise: {
-                            type: Object,
-                            readOnly: true
-                        }
-                    }
-                }
-
-                constructor() {
-                    super();
-                    this._setConfigPromise(this._createConfigPromise())
-                }
-
-                _createConfigPromise() {
-                    return new Promise(function (resolve) {
-                        let fakeConfig = {
-                            "host": "/ozone",
-                            "endPoints": {
-                                "items": "/rest/v3/items",
-                                "new_Collection": "/rest/v3/new_Collection",
-                                "a_Collection": "/rest/v3/a_Collection"
-                            }
-                        };
-                        resolve(fakeConfig);
-                    })
-                        .then((config) => {
-                            const configReady = new CustomEvent('config-ready', {
-                                bubbles: true,
-                                composed: true,
-                                detail: config,
-                            });
-
-                            this.dispatchEvent(configReady);
-                            return config;
-                        });
-                }
-            }
-            window.customElements.define(FakeOzoneConfig.is, FakeOzoneConfig);
-        </script>
-    </dom-module>
-
-    <link rel="import" href="../../src/ozone-item-api/ozone-item-api.html">
+    <link rel="import" href="ozone-item-api.html">
 </head>
 <body>
-<fake-ozone-config id="ozoneConfig"></fake-ozone-config>
+    <fake-ozone-config id="ozoneConfig"></fake-ozone-config>
+
 <test-fixture id="basic">
     <template>
         <ozone-item-api collection="a_Collection"></ozone-item-api>
@@ -85,7 +34,10 @@
 
                 beforeEach((done) => {
                     element = fixture('basic');
+
                     server = sinon.fakeServer.create();
+
+                    getOzoneConfig().serverRespondWithConfig();
                     flush(done); //make sure every components are ready
                 });
 
@@ -93,6 +45,8 @@
                     server.restore();
                 });
                 it('should create an item', (done) => {
+
+
                     // -- Configure mock server
                     const expectedResponse = {an: 'object', with: "attributes"};
                     server.respondWith(
@@ -300,7 +254,10 @@
 
                 beforeEach((done) => {
                     element = fixture('basic');
+                    element.$.loadType = sinon.stub().returns(Promise.resolve({}));
                     server = sinon.fakeServer.create();
+
+                    getOzoneConfig().serverRespondWithConfig();
                     flush(done); //make sure every components are ready
                 });
                 afterEach(() => {
@@ -419,6 +376,7 @@
                     server.respond(); //Flush server
                 });
             });
+
         });
     });
 </script>

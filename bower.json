@@ -10,7 +10,8 @@
     "paper-button": "^2.0.0",
     "iron-list": "^2.0.0",
     "iron-test-helpers": "^2.0.0",
-    "iron-ajax": "^2.0.2"
+    "iron-ajax": "^2.0.2",
+    "iron-selector": "^2.0.0"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",

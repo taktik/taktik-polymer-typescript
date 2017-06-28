@@ -20,10 +20,32 @@ export class OzoneMosaic  extends Polymer.Element{
     @domElement()
     $: DomElements;
 
-    //@property()
+    /**
+     * id of the source
+     */
     items: Array<Item>;
 
-    searchString:string
+    /**
+     * string to search in the collection
+     */
+    searchString:string;
+
+    /**
+     * total number of items found with the search
+     */
+    total: number;
+
+    /**
+     * true indicate that all the data data still available with this search.
+     * @notify true
+     */
+    dataRemain: boolean;
+
+    /**
+     * Item selected in the collection
+     * @notify true
+     */
+    selectedItem: Item;
 
     static get properties() {
         return {
@@ -35,36 +57,27 @@ export class OzoneMosaic  extends Polymer.Element{
                 notify: true,
                 value: () =>  []
             },
-            /**
-             * string to search in the collection
-             */
             searchString: {
                 type: String
             },
-            /**
-             * total number of items found with the search
-             */
             total: {
                 type: Number,
                 notify:true
             },
-            /**
-             * true indicate that all the data data still available with this search.
-             */
             dataRemain:{
                 type: Boolean,
                 notify:true,
                 value: false
+            },
+            selectedItem:{
+                notify: true,
+                type:Object
             }
         }
     }
 
     ready(){
         super.ready();
-        this.$.ozoneApi.addEventListener('configured', e => {
-
-            //this.$.mosaicCollection.loadItems();
-        });
     }
 
     /**
