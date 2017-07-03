@@ -2,6 +2,7 @@
     <link rel="import" href="../decorators.html">
     <link rel="import" href="../../bower_components/polymer/polymer-element.html">
     <link rel="import" href="../../bower_components/paper-item/paper-item.html">
+    <link rel="import" href="../../bower_components/iron-image/iron-image.html">
 
     <link rel="import" href="../ozone-type-api/ozone-type-api.html">
     <link rel="import" href="../tool/mediaUrl.html">
@@ -11,10 +12,12 @@
 <body>
 <dom-module id="ozone-item-preview">
     <template>
-        <paper-item elevation="2">
-            <img src="[[previewImage]]">
-            [[itemData.name]] [[itemData.id]]
-        </paper-item>
+            <div class="photoContainer">
+                <div class="photoContent" tabindex$="[[tabIndex]]">
+                    <iron-image sizing="cover" src="[[previewImage]]"> </iron-image>
+                    <div class="detail">[[itemData.name]] [[itemData.id]]</div>
+                </div>
+            </div>
     </template>
     <script src="ozone-item-preview.js"></script>
 </dom-module>

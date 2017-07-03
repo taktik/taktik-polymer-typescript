@@ -1,10 +1,33 @@
 <head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no">
+    <link rel="import" href="../decorators.html">
     <link rel="import" href="../decorators.html">
     <link rel="import" href="../../bower_components/polymer/polymer-element.html">
     <link rel="import" href="../../bower_components/iron-list/iron-list.html">
     <link rel="import" href="../../bower_components/iron-scroll-threshold/iron-scroll-threshold.html">
     <link rel="import" href="../../bower_components/paper-item/paper-item.html">
     <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+    <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+    <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
+    <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+
+
+    <link rel="import" href="../ozone-item-api/ozone-item-api.html">
+    <link rel="import" href="../ozone-item-preview/ozone-item-preview.html">
+    <link rel="import" href="../ozone-item-view/ozone-item-view.html">
+    <link rel="import" href="../ozone-collection/ozone-collection.html">
+    <link rel="import" href="../ozone-item-view-factory/ozone-item-view-factory.html">
+    <link rel="import" href="../ozone-media-edit/ozone-media-edit.html">
+
+
+    <link rel="import" href="../../bower_components/polymer/polymer-element.html">
+    <link rel="import" href="../../bower_components/iron-list/iron-list.html">
+    <link rel="import" href="../../bower_components/iron-scroll-threshold/iron-scroll-threshold.html">
+    <link rel="import" href="../../bower_components/paper-item/paper-item.html">
+    <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+    <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
     <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
     <link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
@@ -23,6 +46,10 @@
 <dom-module id="ozone-mosaic">
     <template>
         <style>
+            :host {
+                display: block;
+            }
+            /*
             iron-scroll-threshold {
                 top: 10vh;
                 left: 25vh;
@@ -30,7 +57,8 @@
                 height: 40vh;
                 text-align: center;
                 box-shadow: 0 0 60px rgba(0,0,0,0.5);
-            }
+                width: 100%;
+            }*/
             .loader {
                 background-color: #0b8043;
                 text-align: center;
@@ -39,10 +67,62 @@
                 line-height: 44px;
                 color: white;
             }
-            .resultList {
+            iron-list {
+                 margin-top: 90px;
+                 padding-bottom: 16px;
+             }
+
+            .photoContent {
+                @apply --layout;
+                background-color: #ddd;
+                position: relative;
+                width: 300px;
+                height: 300px;
+                margin: 8px;
             }
-            .resultListItem {
+            .photoContent:hover .detail{
+                opacity: 1;
             }
+            .photoContent > iron-image {
+                @apply --layout-flex;
+            }
+            .photoContent > .detail {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+                color: white;
+                font-size: 20px;
+                font-weight: 100;
+                padding: 20px;
+                opacity: 0;
+                transition: opacity 0.1s;
+            }
+
+            @media (max-width: 800px) {
+                .photoContainer {
+                    width: calc(50% - 16px);
+                }
+                .photoContent {
+                    width: auto;
+                }
+            }
+
+            @media (max-width: 400px) {
+                iron-list {
+                    margin-top: 72px;
+                }
+
+                .photoContainer {
+                    width: 100%;
+                }
+
+                .photoContent > .detail {
+                    opacity: 1;
+                }
+            }
+
 
         </style>
         <ozone-collection
@@ -52,15 +132,25 @@
                 data-remain="{{dataRemain}}"></ozone-collection>
 
         <div hidden$="[[!searchResults.length]]">
-        <iron-scroll-threshold id="scrollTheshold" on-lower-threshold="toggleThreshold"  >
-            <div class="resultList">
-            <iron-list scroll-target="scrollTheshold" items="[[searchResults]]"selected-item="{{selectedItem}}" selection-enabled>
+
+            <div class="resultList" id="resultList">
+            <iron-list
+                    id="ironList"
+                    grid
+                    scroll-target="document"
+                    items="[[searchResults]]"
+                    selected-item="{{selectedItem}}"
+                    selection-enabled>
                 <template>
                     <ozone-item-preview  ozone-type-api-id="ozoneApiType" item-id="[[item.id]]" item-data="[[item]]" class="resultListItem"></ozone-item-preview>
                 </template>
             </iron-list>
             <paper-item class="loader" hidden$="[[!dataRemain]]">Fetching new items...</paper-item>
             </div>
+        <iron-scroll-threshold
+                id="scrollTheshold"
+                on-lower-threshold="toggleThreshold"
+                scroll-target="document">
         </iron-scroll-threshold>
         </div>
         <paper-tabs selected="{{selectedAction}}" scrollable>
