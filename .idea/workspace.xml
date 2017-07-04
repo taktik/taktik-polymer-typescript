@@ -1,0 +1,1427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="84314f86-efa9-4500-9269-508710b31edd" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ozone-item-preview/ozone-item-preview.html" afterPath="$PROJECT_DIR$/src/ozone-item-preview/ozone-item-preview.html" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="elements.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/build/elements.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="40" column="64" lean-forward="false" selection-start-line="40" selection-start-column="64" selection-end-line="40" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="demo.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/build/ozone-material/ozone-manage-connection/demo.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ozone-manage-connection.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/app/elements/ozone-material/ozone-manage-connection/ozone-manage-connection.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1875">
+              <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+              <folding>
+                <marker date="1499094612000" expanded="true" signature="506:821" ph="..." />
+                <marker date="1499094612000" expanded="true" signature="5814:5942" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ozone-mosaic.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ozone-mosaic/ozone-mosaic.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="84" column="13" lean-forward="false" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ozone-mosaic.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ozone-mosaic/ozone-mosaic.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1365">
+              <caret line="98" column="29" lean-forward="false" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ozone-manage-connection.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/build/ozone-material/ozone-manage-connection/ozone-manage-connection.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="885">
+              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+              <folding>
+                <marker date="1499094612000" expanded="true" signature="464:779" ph="..." />
+                <marker date="1499094612000" expanded="true" signature="5772:5900" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ozone-free-text-search.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/app/elements/ozone-material/ozone-free-text-search/ozone-free-text-search.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shared-styles.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/app/styles/shared-styles.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>l</find>
+      <find>login</find>
+      <find>login-</find>
+      <find>login-m</find>
+      <find>login-me</find>
+      <find>login-men</find>
+      <find>login-menu</find>
+      <find>login-enu</find>
+      <find>loginenu</find>
+      <find>loginMenu</find>
+      <find>--ozone-api-login-error-theme</find>
+      <find>ozone-manage-connection</find>
+      <find>--ozone-api-login-signin-input</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/ozone-components-demo/ozone-components-demo.html" />
+        <option value="$PROJECT_DIR$/bower_components/polymer-starter-kit/app/elements/ozone-material/ozone-manage-connection/ozone-manage-connection.html" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-connection/build/ozone-material/ozone-manage-connection/ozone-manage-connection.html" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-connection/app/elements/ozone-material/ozone-manage-connection/ozone-manage-connection.html" />
+        <option value="$PROJECT_DIR$/src/ozone-mosaic/ozone-mosaic.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <gulpfiles>
+      <GulpfileState>
+        <gulpfile-path>$PROJECT_DIR$/gulpfile.js</gulpfile-path>
+      </GulpfileState>
+    </gulpfiles>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1313" />
+    <option name="y" value="23" />
+    <option name="width" value="2124" />
+    <option name="height" value="1332" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ozone-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ozone-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ozone-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ozone-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ozone-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ozone-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ozone-mosaic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ozone-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ozone-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ozone-components-demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ozone-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ozone-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ozone-collection" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ozone-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ozone-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bower_components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SCRATCH_FILE_ID" value="0" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ozone-components" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="84314f86-efa9-4500-9269-508710b31edd" name="Default" comment="" />
+      <created>1498663111064</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1498663111064</updated>
+      <workItem from="1498663113540" duration="8491000" />
+      <workItem from="1499095159053" duration="49000" />
+      <workItem from="1499097172719" duration="16000" />
+      <workItem from="1499097227828" duration="81000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="8637000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1313" y="23" width="2124" height="1332" extended-state="0" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21325648" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ItemRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/MessageQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/TypeDescriptor.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/StockRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Subscription.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/QueriableItemFilter.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Principal.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FilePermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/StockQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/PostingindexRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/BasketSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/GuiQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SurveyResponseSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/PassingtimeRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ItemViewPermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/DocumentQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/GuiRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/RestrictedConstraint.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SurveyIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/EntityClassFilter.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/RoomIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ChannelIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/models.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/BatchIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/GlobalPermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/EshopOrder.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/BoolGlobalFilter.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ItemMeta.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/AuthenticatePermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/BasketQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ListQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SurveyCategoryRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/MessageSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/PostingindexQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ReservationQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Collection.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/TypeQuery.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Stock.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/EntityViewPermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/GuiSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/EshopOrderRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/AdminPermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/VideoIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ArticleRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FolderQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SubscriptionActionSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Folder.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/RestrictedContent.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SubscriptionAction.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/EntityPermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/EntityEditPermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/MessageIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/AudioIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/EntityCreatePermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/VehiclepositionQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Document.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/PassingtimeQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SubscriptionActionIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/RequestError.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SubscriptionActionQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/VehiclepositionRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ValidityError.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FileType.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Aggregation.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FieldPermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/MediaQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FlowrecordingIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ArticleCategorySearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ListSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SurveyCategoryQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/RegexpConstraint.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/BoolItemFilter.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/UploadPermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FlowrconfigRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Grants.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Sort.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SurveyCategorySearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FlowrecordingQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/DeviceInfoSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Item.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FieldViewPermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/LoginAsItemCredentials.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FolderRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ItemQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/DocumentSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/MoreLikeThisQuery.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ItemFilter.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/LoginAsUserCredentials.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ItemPrincipalFieldQuery.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/TermQuery.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Media.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SurveyCategoryIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ListRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ArticleSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/IdsQuery.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/DocumentIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/DocumentRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Batch.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ItemSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/PassingtimeIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/StockIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/EntityDeletePermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Tenant.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SurveyQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/BoolFieldFilter.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ReservationRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/OwnPrincipalQuery.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/StorageUnit.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/OrganizationInfoQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/BatchQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/CollectionIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ArticleCategory.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Flowrconfig.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ChannelSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Recording.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/VehiclepositionIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Point2D.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SubscriptionActionRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Constraint.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Role.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/RequiredConstraint.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SurveyResponse.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/OrganizationInfoRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/List.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SurveyResponseRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/LocalizedString.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SurveyCategory.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/CollectionSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/VideoRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/EshopOrderIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Reservation.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/TagsCustom.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Instance.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/RoomRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/RecordingIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/EshopOrderSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Flowrecording.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Point3D.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/AudioRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/MessageRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ItemPublishPermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ReservationSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Video.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/DeviceInfo.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Image.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/TermsAggregation.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/DownloadPermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Permission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/PassingtimeSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/GuiIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ChannelRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ImageQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Survey.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/RoomQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/RangeQuery.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Channel.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FieldEditPermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ItemDeletePermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/CollectionQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/LoginAsItemBySearchCredentials.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/AudioQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/User.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ItemIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ExistsQuery.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Room.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SubscriptionSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ItemPermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ElementsConstraint.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/MoreLikeThisQueryItem.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/VideoSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/RecordingQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/OrganizationInfo.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FlowrMedia.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/QueryStringQuery.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FolderIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ChannelQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ImageRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ArticleCategoryIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ConstFieldFilter.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FlowrPayperview.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/DeviceInfoIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Audio.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/RegexpQuery.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/MediaIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/BasketRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/OrganizationInfoIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/VehiclepositionSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/CollectionRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SubscriptionIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/OwnTenantEntityFilter.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/TermsQuery.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SurveyResponseIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/MatchAllQuery.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/CurrentUserQuery.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/BoolEntityFilter.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FlowrconfigSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Vehicleposition.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ItemEditPermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ReservationIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SubscriptionQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/AudioSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/EntityFilter.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ItemCreatePermission.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/MediaRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FlowrconfigQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Article.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SurveyResponseQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Basket.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ArticleCategoryQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/BatchSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/PrefixQuery.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/BoolFileFilter.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FileFilter.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Filter.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Postingindex.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/BatchRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FolderSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SearchRequest.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SurveyRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ListIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ArticleQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/OwnTenantQuery.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/RecordingSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/GlobalFilter.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SurveySearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/VideoQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/WildcardQuery.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/TenantNode.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/MissingQuery.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Connector.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/DeviceInfoRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/AuthenticationResponse.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Passingtime.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/PostingindexIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/EshopOrderQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/RecordingRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FlowrconfigIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FlowrecordingSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/StockSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ImageIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/BoolQuery.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FieldFilter.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FieldDescriptor.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/FlowrecordingRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ArticleCategoryRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/BasketIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/MediaSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/DeviceInfoQueryUpdate.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SecurityError.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Query.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ArticleIdsSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/SubscriptionRawSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ItemFileFilterAdapter.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/PostingindexSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/ImageSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Message.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/RoomSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/LoginWithTokenCredentials.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/OrganizationInfoSearchResult.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/MatchQuery.js" />
+        <option value="$PROJECT_DIR$/bower_components/ozone-type/ozone/model/Gui.js" />
+        <option value="$PROJECT_DIR$/bower_components/reflect-metadata/Reflect.js" />
+        <option value="$PROJECT_DIR$/bower_components/reflect-metadata/Reflect.js.map" />
+        <option value="$PROJECT_DIR$/src/decorators.js" />
+        <option value="$PROJECT_DIR$/src/tool/mediaUrl.js" />
+        <option value="$PROJECT_DIR$/src/my-template/my-template.js" />
+        <option value="$PROJECT_DIR$/src/ozone-mosaic/ozone-mosaic.js" />
+        <option value="$PROJECT_DIR$/src/ozone-item-api/ozone-item-api.js" />
+        <option value="$PROJECT_DIR$/src/ozone-type-api/ozone-type-api.js" />
+        <option value="$PROJECT_DIR$/src/ozone-item-view/ozone-item-view.js" />
+        <option value="$PROJECT_DIR$/src/localized-string/localized-string.js" />
+        <option value="$PROJECT_DIR$/src/ozone-collection/ozone-collection.js" />
+        <option value="$PROJECT_DIR$/src/ozone-edit-entry/ozone-edit-entry.js" />
+        <option value="$PROJECT_DIR$/src/ozone-media-edit/ozone-media-edit.js" />
+        <option value="$PROJECT_DIR$/src/language-selection/language-selection.js" />
+        <option value="$PROJECT_DIR$/src/ozone-item-preview/ozone-item-preview.js" />
+        <option value="$PROJECT_DIR$/src/ozone-edit-set-entry/ozone-edit-set-entry.js" />
+        <option value="$PROJECT_DIR$/src/ozone-edit-text-entry/ozone-edit-text-entry.js" />
+        <option value="$PROJECT_DIR$/src/ozone-edit-number-entry/ozone-edit-number-entry.js" />
+        <option value="$PROJECT_DIR$/src/ozone-item-view-factory/ozone-item-view-factory.js" />
+        <option value="$PROJECT_DIR$/src/ozone-item-abstract-view/ozone-item-abstract-view.js" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="516" height="182" key="Git.Branch.Popup" />
+    <state width="516" height="182" key="Git.Branch.Popup/3440.861.1440.900/0.0.3440.1440" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/app/elements/ozone-material/ozone-manage-connection/ozone-manage-connection.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1875">
+          <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+          <folding>
+            <marker date="1499094612000" expanded="true" signature="506:821" ph="..." />
+            <marker date="1499094612000" expanded="true" signature="5814:5942" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ozone-mosaic/ozone-mosaic.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="98" column="29" lean-forward="false" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/build/ozone-material/ozone-manage-connection/ozone-manage-connection.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <marker date="1499094612000" expanded="true" signature="464:779" ph="..." />
+            <marker date="1499094612000" expanded="true" signature="5772:5900" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/app/elements/ozone-material/ozone-free-text-search/ozone-free-text-search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/app/styles/shared-styles.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ozone-mosaic/ozone-mosaic.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1455">
+          <caret line="97" column="30" lean-forward="true" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/build/elements.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="64" lean-forward="false" selection-start-line="40" selection-start-column="64" selection-end-line="40" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/build/ozone-material/ozone-manage-connection/demo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/app/elements/ozone-material/ozone-manage-connection/ozone-manage-connection.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1875">
+          <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+          <folding>
+            <marker date="1499094612000" expanded="true" signature="506:821" ph="..." />
+            <marker date="1499094612000" expanded="true" signature="5814:5942" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ozone-mosaic/ozone-mosaic.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="98" column="29" lean-forward="false" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/build/ozone-material/ozone-manage-connection/ozone-manage-connection.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <marker date="1499094612000" expanded="true" signature="464:779" ph="..." />
+            <marker date="1499094612000" expanded="true" signature="5772:5900" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/app/elements/ozone-material/ozone-free-text-search/ozone-free-text-search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/app/styles/shared-styles.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ozone-mosaic/ozone-mosaic.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="61" column="19" lean-forward="false" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/build/elements.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="64" lean-forward="false" selection-start-line="40" selection-start-column="64" selection-end-line="40" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/build/ozone-material/ozone-manage-connection/demo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/polymer-starter-kit/app/elements/demo-app.html" />
+    <entry file="file://$PROJECT_DIR$/bower_components/polymer-starter-kit/app/elements/ozone-material/ozone-manage-connection/ozone-manage-connection.html" />
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/app/elements/ozone-material/ozone-manage-connection/ozone-manage-connection.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <folding>
+            <marker date="1499094612000" expanded="true" signature="506:821" ph="..." />
+            <marker date="1499094612000" expanded="true" signature="5814:5942" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ozone-mosaic/ozone-mosaic.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1290">
+          <caret line="92" column="29" lean-forward="true" selection-start-line="92" selection-start-column="29" selection-end-line="92" selection-end-column="29" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/build/ozone-material/ozone-manage-connection/ozone-manage-connection.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding>
+            <marker date="1499094612000" expanded="true" signature="464:779" ph="..." />
+            <marker date="1499094612000" expanded="true" signature="5772:5900" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/app/elements/ozone-material/ozone-free-text-search/ozone-free-text-search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/app/styles/shared-styles.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ozone-mosaic/ozone-mosaic.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="19" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ozone-media-edit/ozone-media-edit.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="56" column="13" lean-forward="true" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ozone-item-view/ozone-item-view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ozone-media-edit/ozone-media-edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ozone-collection/ozone-collection.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="31" column="15" lean-forward="true" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/polymer-starter-kit/app/elements/ozone-material/ozone-manage-connection/test-ozone-manage-connection.html" />
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/build/taktik-material/taktik-free-text-search/taktik-free-text-search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4290">
+          <caret line="10" column="71" lean-forward="true" selection-start-line="10" selection-start-column="71" selection-end-line="10" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/polymer-starter-kit/app/elements/ozone-material/ozone-free-text-search/ozone-free-text-search.html" />
+    <entry file="file://$PROJECT_DIR$/bower_components/polymer-starter-kit/app/elements/ozone-material/ozone-manage-connection/demo.html" />
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/build/demo-app.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="54" column="71" lean-forward="true" selection-start-line="54" selection-start-column="71" selection-end-line="54" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/paper-shadow/paper-shadow.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ozone-collection/ozone-collection.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/my-template/my-template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ozone-components-demo/ozone-components-demo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/paper-styles/shadow.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/paper-shadow/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/build/elements.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="64" lean-forward="false" selection-start-line="40" selection-start-column="64" selection-end-line="40" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/build/ozone-material/ozone-manage-connection/demo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/polymer-starter-kit/app/elements/demo-app.html" />
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/app/styles/shared-styles.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/app/styles/app-theme.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2610">
+          <caret line="174" column="0" lean-forward="true" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/app/styles/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/polymer-starter-kit/app/elements/ozone-material/ozone-manage-connection/ozone-manage-connection.html" />
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/app/elements/ozone-material/ozone-free-text-search/ozone-free-text-search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/build/ozone-material/ozone-manage-connection/ozone-manage-connection.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <marker date="1499094612000" expanded="true" signature="464:779" ph="..." />
+            <marker date="1499094612000" expanded="true" signature="5772:5900" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ozone-connection/app/elements/ozone-material/ozone-manage-connection/ozone-manage-connection.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1875">
+          <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+          <folding>
+            <marker date="1499094612000" expanded="true" signature="506:821" ph="..." />
+            <marker date="1499094612000" expanded="true" signature="5814:5942" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ozone-mosaic/ozone-mosaic.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="98" column="29" lean-forward="false" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ozone-mosaic/ozone-mosaic.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="84" column="13" lean-forward="false" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

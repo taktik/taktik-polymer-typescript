@@ -2,7 +2,11 @@
     <link rel="import" href="../decorators.html">
     <link rel="import" href="../../bower_components/polymer/polymer-element.html">
     <link rel="import" href="../../bower_components/paper-item/paper-item.html">
+    <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+ 
     <link rel="import" href="../../bower_components/iron-image/iron-image.html">
+    <link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+    <link rel="import" href="../../bower_components/iron-icons/communication-icons.html">
 
     <link rel="import" href="../ozone-type-api/ozone-type-api.html">
     <link rel="import" href="../tool/mediaUrl.html">
@@ -12,12 +16,85 @@
 <body>
 <dom-module id="ozone-item-preview">
     <template>
+        <style>
+            .photoContent{
+                position: relative;
+                width:300px; 
+                height:200px;
+                margin:10px;
+            }
+          .actions-panel {
+              background:#2C2958;
+              position:absolute;
+              top:0;
+              left:0;
+              width:100%;
+              height:100%;
+              opacity: 0;
+            transform:scaleX(0) scaleY(0);
+              display:flex;
+              flex-direction: row;
+              flex-wrap:wrap;
+              justify-content: space-evenly;
+              align-items: center;
+              align-content: center;
+              transform-origin: center right;
+          }
+          .open{
+            transform-origin: center center;
+            opacity:1;
+            transform: scaleX(1) scaleY(1);
+            animation: expand .375s;
+            animation-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+          }
+
+          @keyframes expand {
+            0% {
+                transform: scaleX(0) scaleY(0);
+            }
+            15% {
+                transform: scaleX(.65) scaleY(0);
+            }
+            100% {
+                transform: scaleX(1) scaleY(1);
+            }
+          }
+          .actions-panel-icon{
+              color:white;
+          }
+          paper-icon-button{
+              color:white;
+              --paper-icon-button-ink-color: white;
+              min-height:30px;
+              min-width:30px;
+          }
+          break{
+            flex-basis: 100%;
+            width: 0px; 
+            height: 0px; 
+            overflow: hidden;
+          }
+          iron-image{
+              height:100%;
+              width:100%;
+          }
+        </style>
             <div class="photoContainer">
-                <div class="photoContent" tabindex$="[[tabIndex]]">
-                    <iron-image sizing="cover" src="[[previewImage]]"> </iron-image>
-                    <div class="detail">[[itemData.name]] [[itemData.id]]</div>
+                <div class="photoContent" tabindex$="[[tabIndex]]" id="photoContent">
+                    <iron-image sizing="cover" src="[[previewImage]]" on-tap="_togglePanel"> </iron-image>
+                    <div class="actions-panel" id="actionsPanel"  on-tap="_togglePanel">
+                        <div class="actions-panel-icon"><paper-icon-button icon="create"></paper-icon-button></div>
+                        <div class="actions-panel-icon"><paper-icon-button icon="favorite"></paper-icon-button></div>
+                        <div class="actions-panel-icon"><paper-icon-button icon="info"></paper-icon-button></div>
+                        <break></break>
+                        <div class="actions-panel-icon"><paper-icon-button icon="communication:rss-feed"></paper-icon-button></div>
+                        <div class="actions-panel-icon"><paper-icon-button icon="file-download"></paper-icon-button></div>
+                        <div class="actions-panel-icon"><paper-icon-button icon="delete"></paper-icon-button></div>
+                        
+                    </div>
+                    <!--<div class="detail">[[itemData.name]] [[itemData.id]]</div>-->
                 </div>
-            </div>
+            </div>  
     </template>
     <script src="ozone-item-preview.js"></script>
 </dom-module>

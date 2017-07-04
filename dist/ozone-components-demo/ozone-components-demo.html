@@ -1,9 +1,9 @@
 <head>
-  <link rel="import" href="../../bower_components/polymer/polymer-element.html">
-  <link rel="import" href="../../bower_components/ozone-connection/build/taktik-material/taktik-free-text-search/taktik-free-text-search.html">
-  <link rel="import" href="../../bower_components/ozone-connection/build/ozone-api/ozone-api-search/ozone-api-search.html">
+  <link rel="import" href="../../../polymer/polymer-element.html">
+  <link rel="import" href="../../../ozone-connection/build/taktik-material/taktik-free-text-search/taktik-free-text-search.html">
+  <link rel="import" href="../../../ozone-connection/build/ozone-api/ozone-api-search/ozone-api-search.html">
   <link rel="import" href="../ozone-mosaic/ozone-mosaic.html">
-  <link rel="import" href="../../bower_components/paper-input/paper-input-container.html">
+  <link rel="import" href="../../../paper-input/paper-input-container.html">
 </head>
 <body>
   <dom-module id="ozone-components-demo">
@@ -12,11 +12,21 @@
 
         <style>
           .customStyle {
+            --taktik-search-button: {
+              background-color: sienna;
+              color: white;
+            };
+            --taktik-auto-complete-items: {
+              font-family: serif;
+            };
+            --taktik-count-result-found:{
+              color: darkgrey;
+            }
           }
         </style>
         <taktik-free-text-search
                 id="freeTextSearch"
-                class=""
+                class="customStyle "
                 search-value="{{search}}"
                 show-item-count
                 search-results></taktik-free-text-search>
