@@ -73,5 +73,8 @@ export class OzoneItemPreview  extends OzoneItemAbstractView(Polymer.Element){
     }
     updateDisplay(){}
 
+    _togglePanel(){
+        this.$.actionsPanel.classList.toggle("open");
+    }
 
 }
