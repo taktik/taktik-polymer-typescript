@@ -2,6 +2,6 @@
 /bower_components/
 /node_modules/
 /doc/
-
+/.idea/
 /src/**/*.js
 /src/**/*.d.ts

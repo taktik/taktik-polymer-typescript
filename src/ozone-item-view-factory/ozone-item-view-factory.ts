@@ -56,7 +56,7 @@ export class OzoneItemViewFactory extends Polymer.Element{
 
     createEntry(data: Item, type: string){
         var toLocal = document.createElement('ozone-item-view') as OzoneItemView;
-        toLocal.id = 'ozoneViewContent'
+        toLocal.id = 'ozoneViewContent';
         toLocal.className = type;
         toLocal.itemData = data;
         this.root.appendChild(toLocal);

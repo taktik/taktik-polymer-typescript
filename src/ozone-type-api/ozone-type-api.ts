@@ -152,7 +152,7 @@ export class OzoneTypeAPI  extends OzoneApiAjaxMixin(Polymer.Element){
      * @param collection
      * @return {TypeDescriptor}
      */
-    getType(collection: string):Promise<TypeDescriptor>{
+    getType(collection: string):Promise<TypeDescriptor |undefined >{
         if(this.typeCached.has(collection)){
             return Promise.resolve(this.typeCached.get(collection));
         } else {
@@ -173,7 +173,7 @@ export class OzoneTypeAPI  extends OzoneApiAjaxMixin(Polymer.Element){
     findFieldInCollection(collection: string, field: string): Promise<FieldDescriptor | null>{
         return this.getType(collection)
             .then(typeDescriptor => {
-                if(typeDescriptor.fields) {
+                if(typeDescriptor && typeDescriptor.fields) {
                     const index = typeDescriptor.fields.findIndex(f => f.identifier == field);
                     if (index > -1) {
                         return typeDescriptor.fields[index];
@@ -188,12 +188,15 @@ export class OzoneTypeAPI  extends OzoneApiAjaxMixin(Polymer.Element){
 
     async getAllFields(collection: string):Promise<Array<FieldDescriptor>>{
         const type = await(this.getType(collection));
-        const fields = type.fields || [];
-        let parentFields:Array<FieldDescriptor> = [];
-        if(type.superType){
-            parentFields = await(this.getAllFields(type.superType));
+        if(type) {
+            const fields = type.fields || [];
+            let parentFields: Array<FieldDescriptor> = [];
+            if (type.superType) {
+                parentFields = await(this.getAllFields(type.superType));
+            }
+            return fields.concat(parentFields);
         }
-        return fields.concat(parentFields);
+        throw new Error('Could not find result for this collection');
     }
 
     async ifIsTypeInstanceOf(currentType:string, instance:string): Promise<boolean>{

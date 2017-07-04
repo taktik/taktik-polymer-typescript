@@ -16,16 +16,11 @@
       "es5",
       "dom"
     ],
-    "mapRoot": "./map",
-    "typeRoots": [
-      // Add each module Path for easy include.
-      "./src/ozone-item-api",
-      "./scr",
-      "./map"
-    ],
+    "types":[],
+    "sourceMap": true,
     "declaration": true,
     /* Generates corresponding '.d.ts' file. */
-    //"rootDir": "./src",
+    "rootDir": "./src",
     /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
     "baseUrl": "./",
     "paths": {
