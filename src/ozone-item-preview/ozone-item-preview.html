@@ -42,23 +42,29 @@
           }
           .open{
             transform-origin: center center;
-            opacity:1;
+            opacity:.85;
             transform: scaleX(1) scaleY(1);
             animation: expand .375s;
-            animation-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+            
+            
           }
 
           @keyframes expand {
             0% {
                 transform: scaleX(0) scaleY(0);
+                transition-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
             }
-            15% {
+            20% {
                 transform: scaleX(.65) scaleY(0);
+                transition-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
             }
+          
             100% {
                 transform: scaleX(1) scaleY(1);
+                 transition-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
             }
           }
+
           .actions-panel-icon{
               color:white;
           }
