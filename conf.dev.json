@@ -7,7 +7,13 @@
       "logout": "/rest/v3/authentication/logout",
       "items": "/rest/v3/items",
       "item": "/rest/v3/items/item",
-      "session": "/rest/v3/authentication/current/session"
+      "session": "/rest/v3/authentication/current/session",
+      "downloadRequest": "/ozone/rest/v2/media/download/request",
+      "uploadStart": "/ozone/rest/v2/media/upload/start",
+      "uploadId": "/ozone/rest/v2/media/upload/newid/",
+      "upload": "/ozone/upload/",
+      "uploadComplete": "/ozone/rest/v2/media/upload/complete/",
+      "wait": "/ozone/rest/v2/task/wait/"
     },
     "type": "/rest/v3/type/{type}",
     "view": "/view",

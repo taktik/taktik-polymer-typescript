@@ -4,8 +4,9 @@
  * Created by hubert on 8/06/17.
  */
 
-import {customElement, domElement, jsElement} from 'decorators'
-import {Item, SearchRequest, ItemSearchResult, TypeDescriptor, FieldDescriptor} from 'ozone-type'
+import {customElement, domElement} from 'decorators'
+import {Item} from 'ozone-type'
+import {SearchGenerator, SearchQuery} from 'ozone-search-helper'
 
 export interface DomElements {
     ozoneAccess:IronAjax,
@@ -13,19 +14,11 @@ export interface DomElements {
 export interface BulkResponse {
     response:Array<Item>;
 }
-export interface SearchResponse {
-    response: ItemSearchResult;
-}
-
 
 export interface ItemResponse {
     response:Item;
 }
 
-export interface SearchResult {
-    results: Array<Item>;
-    total: number;
-}
 /**
  * `ozone-item-api` is low level polymer module to ozone api.
  * It provide CRUD operation and search in a given collection.
@@ -176,6 +169,110 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
         return new SearchGenerator(url, search, this.$.ozoneAccess);
     }
 
+    upload (file: File, folderId:string):Promise<string>{
+        return this._startUploadSession(file, folderId)
+            .then(this._getUploadId.bind(this))
+            .then(this._performUpload.bind(this))
+            .then(this._endUploadSession.bind(this))
+            .then((mediaId:string)=>{
+                console.log("upload session complete", mediaId);
+                return mediaId
+            })
+    }
+
+    _startUploadSession(file: File, folderId:string):Promise<any> {
+        const numeric_id = parseInt('0x' + folderId.split('-')[4]);
+        const body = {
+            mediaUploadChannelIdentifier: 'uploadChannel1',
+            autoCommit: false,
+            mediaMetadatas: [{
+                "type": {
+                    "type": "PROPERTY",
+                    "identifier": "org.taktik.metadata.folderId"
+                }
+            }]
+        };
+        const url = this._buildUrl('uploadStart');
+        return this._postRequest(url, body, (req)=>{
+            return {
+                file: file,
+                sessionId: req.response.result
+            }
+        });
+    }
+
+    _getUploadId (data):Promise<any>  {
+        const url = this._buildUrl('uploadId') + '/' + data.sessionId;
+        return this._getRequest(url).then( (response)=>{
+            data.uploadId = response.result;
+            return data;
+        })
+    }
+
+    _performUpload(data):Promise<any> {
+
+        var form = new FormData()
+        form.append('files', data.file)
+        const url =  this._buildUrl('upload')  + '/' + data.uploadId;
+        return this._postRequest(url, form, (req)=>{
+            return data
+        })
+    }
+
+    _endUploadSession(data):Promise<any>  {
+
+        return new Promise((resolve, reject)=>{
+            const url = this._buildUrl('uploadComplete');
+            const body = {
+                selectedFileFieldNames: [["files"]]
+            };
+            return this._postRequest(url, body, (req)=>{
+                this.waitForTask(req.response.files).then((data)=>{
+
+                    //resolve(data)
+                    this.waitForTask(data.secondaryTaskId).then(()=>{
+                        resolve(data.mediaId)
+                    })
+                })
+            })
+        });
+    }
+
+    waitForTask(taskId:string, pollInterval:number = 500):Promise<any>{
+        var tid = taskId;
+
+
+        return new Promise((resolve, reject)=>{
+            var interval = setInterval(()=>{
+                this.awaitTask(taskId)
+                    .then((data)=>{
+                        if (data.taskExecutions[taskId].isComplete) {
+                            clearInterval(interval);
+                            if (data.taskExecutions[taskId].taskResult){
+                                resolve({
+                                    mediaId: data.taskExecutions[taskId].taskResult.mediaId,
+                                    secondaryTaskId: data.taskExecutions[taskId].taskResult.asyncTasksGroupId
+                                })
+                            }
+                            else {
+                                resolve(true)
+                            }
+                        }
+                })
+                .catch((error)=>{
+                    clearInterval(interval);
+                    throw error;
+                })
+            }, pollInterval)
+        });
+
+    }
+
+    awaitTask (taskId:string): Promise<any>{
+        const url = this._buildUrl('wait') + '/' + taskId + '/' + 120;
+        return this._getRequest(url);
+    }
+
     /**
      *
      * @private
@@ -254,133 +351,3 @@ function OzoneItemAPIGenerator() {
  */
 export const getOzoneItemAPI = OzoneItemAPIGenerator();
 getOzoneItemAPI();
-
-/**
- * Class helper to create searchQuery.
- * Example:
- * ```javaScript
- *   let searchQuery = new SearchQuery();
- *   searchQuery.quicksearch('');
- *   const searchGenerator = ozoneItemApi.search(searchQuery);
- *
- * ```
- */
-@jsElement()
-export class SearchQuery {
-    _searchRequest: SearchRequest = {
-        size: 10
-    };
-
-    get searchQuery () {return JSON.stringify(this._searchRequest)}
-
-    get size(): number{return this._searchRequest.size || 0;}
-    set size(size: number) {this._searchRequest.size = size;}
-    get offset(): number{return this._searchRequest.offset || 0;}
-    set offset(size: number) {this._searchRequest.offset = size;}
-
-
-    /**
-     *
-     * @param searchString
-     */
-    quicksearch(searchString: string): void {
-
-        let searchParam:SearchRequest = {};
-
-        searchParam.size = this.size;
-        searchParam.query = {
-            "$type": "QueryStringQuery",
-            "field": "_quicksearch",
-            "queryString": `${searchString}*`
-        };
-
-        this._searchRequest = searchParam;
-    }
-
-    suggestion(searchString: string, lastTerm?:string){
-        let searchParam:SearchRequest = {};
-        if(lastTerm) {
-            searchParam.aggregations = [{
-                "$type": "TermsAggregation",
-                "name": "suggest",
-                "field": "_quicksearch",
-                "order": "COUNT_DESC",
-                "size": this.size,
-                "includePattern": `${lastTerm}.*`
-            }];
-        }
-        searchParam.query = {
-            "$type": "QueryStringQuery",
-            "field": "_quicksearch",
-            "queryString": `${searchString}*`
-        };
-
-    }
-
-}
-/**
- * Class helper to iterate on search result.
- * Example:
- * ```javaScript
- *   let searchQuery = new SearchQuery();
- *   searchQuery.quicksearch('');
- *   const searchGenerator = ozoneItemApi.search(searchQuery);
- *   searchGenerator.next().then((searchResult)=>{
- *               searchResult.results.forEach((item)=>{
- *                   this.push('items', item);
- *               })
- *           });
- * ```
- */
-@jsElement()
-export class SearchGenerator {
-    searchParam:SearchQuery;
-    url:string;
-    total: number;
-    ozoneAccess:IronAjax;
-    offset:number = 0;
-    done:boolean = false;
-
-    constructor(url:string, searchParam: SearchQuery, ozoneAccess:any){
-        this.searchParam = searchParam;
-        this.url = url;
-        this.ozoneAccess = ozoneAccess
-    }
-
-    /**
-     * load next array of results
-     * @return {Promise<SearchResult>}
-     */
-    next(): Promise<SearchResult>{
-        this.searchParam.offset = this.offset;
-        return this._postRequest(this.url, this.searchParam.searchQuery, this._readSearchResponse);
-    }
-
-    /**
-     *
-     * @private
-     */
-    _postRequest(url:string, body:string, responseFilter:any): Promise<any> {
-        this.ozoneAccess.url = url;
-        this.ozoneAccess.method = 'POST';
-        this.ozoneAccess.body = body;
-        return this.ozoneAccess
-            .generateRequest().completes.then(responseFilter.bind(this))
-    }
-
-    /**
-     *
-     * @private
-     */
-    _readSearchResponse (res:SearchResponse):SearchResult {
-        this.total = Number(res.response.total);
-        this.offset += Number(res.response.size);
-        this.done = this.offset < this.total;
-        let results = res.response.results || [];
-        return {
-            results,
-            total: this.total
-        };
-    }
-
-}
