@@ -17,6 +17,22 @@
 <dom-module id="ozone-item-preview">
     <template>
         <style>
+            :host {
+                --actions-panel-colors: {
+                    background:#2C2958;
+                    background: -webkit-linear-gradient(rgba(44,41,88,.82) 30%, rgba(4,0,47,1) 100%);
+                    background: -moz-linear-gradient(rgba(44,41,88,.82) 30%, rgba(4,0,47,1) 100%);
+                    background: -o-linear-gradient(rgba(44,41,88,.82) 30%, rgba(4,0,47,1) 100%);
+                    background: linear-gradient(rgba(44,41,88,.82) 30%, rgba(4,0,47,1) 100%);
+                };
+                --actions-panel-icons-color: {
+                    color:white;    
+                };
+                --detail-colors: {
+                    background: rgba(0,0,0,0.7);
+                    color: white;
+                };
+            }
             .photoContent{
                 position: relative;
                 width:300px; 
@@ -24,8 +40,7 @@
                 margin:10px;
             }
           .actions-panel {
-              background:#2C2958;
-              background: linear-gradient(to bottom, rgba(44,41,88,.82) 30%, rgba(4,0,47,1) 100%);
+              @apply --actions-panel-colors;
               position:absolute;
               top:0;
               left:0;
@@ -65,18 +80,17 @@
             }
           }
 
-          .actions-panel-icon{
-              color:white;
-          }
           paper-icon-button{
-              color:white;
-              --paper-icon-button-ink-color: white;
-              min-height:30px;
-              min-width:30px;
-              --paper-icon-button-hover: {
-                  background: rgba(255,255,255,.1);
-                  border-radius:50%;
-              }
+            @apply --actions-panel-icons-color;
+            min-height:30px;
+            min-width:30px;
+            
+            --paper-icon-button-hover: {
+                background: rgba(255,255,255,.1);
+                border-radius:50%;
+            };
+              
+              
           }
           break{
             flex-basis: 100%;
@@ -92,9 +106,8 @@
               display:flex;
           }
           .detail{
+            @apply --detail-colors;
             display:none;
-            background: rgba(0,0,0,0.7);
-            color: white;
             position: absolute;
             left: 0;
             bottom: 0;
@@ -112,13 +125,13 @@
                 <div class="photoContent" tabindex$="[[tabIndex]]" id="photoContent">
                     <iron-image sizing="cover" src="[[previewImage]]" on-tap="_togglePanel"> </iron-image>
                     <div class="actions-panel" id="actionsPanel"  on-tap="_togglePanel">
-                        <div class="actions-panel-icon"><paper-icon-button icon="create"></paper-icon-button></div>
-                        <div class="actions-panel-icon"><paper-icon-button icon="favorite"></paper-icon-button></div>
-                        <div class="actions-panel-icon"><paper-icon-button icon="info"></paper-icon-button></div>
+                        <div class="actions-panel-icon"><paper-icon-button icon="create" on-tap="_editItem"></paper-icon-button></div>
+                        <div class="actions-panel-icon"><paper-icon-button icon="favorite" disabled></paper-icon-button></div>
+                        <div class="actions-panel-icon"><paper-icon-button icon="info" disabled></paper-icon-button></div>
                         <break></break>
-                        <div class="actions-panel-icon"><paper-icon-button icon="communication:rss-feed"></paper-icon-button></div>
-                        <div class="actions-panel-icon"><paper-icon-button icon="file-download"></paper-icon-button></div>
-                        <div class="actions-panel-icon"><paper-icon-button icon="delete"></paper-icon-button></div>
+                        <div class="actions-panel-icon"><paper-icon-button icon="communication:rss-feed" disabled></paper-icon-button></div>
+                        <div class="actions-panel-icon"><paper-icon-button icon="file-download" disabled></paper-icon-button></div>
+                        <div class="actions-panel-icon"><paper-icon-button icon="delete" disabled></paper-icon-button></div>
                     </div>
                     <div class="detail">[[itemData.name]]</div>
                 </div>

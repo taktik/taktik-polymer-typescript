@@ -12,6 +12,15 @@
         <style>
           .customStyle {
           }
+          .found{
+            text-align:left;
+            width:100%;
+            font-family: 'Roboto', sans-serif;
+            font-size:12px;
+            width:800px;
+            margin:0 auto;
+            color:rgba(0,0,0,0.42);
+          }
         </style>
         <taktik-free-text-search
                 id="freeTextSearch"
@@ -20,8 +29,8 @@
                 show-item-count
                 search-results></taktik-free-text-search>
 
-        <ozone-api-search id="autoCompleteAPI" suggest auto size="5" ></ozone-api-search>
-        found [[numberOfResults]] results with "{{search}}".
+        <ozone-api-search id="autoCompleteAPI" suggest auto size="5"  ></ozone-api-search>
+        <p class="found">found <b>[[numberOfResults]]</b> results with <b>"{{search}}"</b>.</p>
       </paper-material>
       <ozone-mosaic total="{{numberOfResults}}" id="searchDisplay"></ozone-mosaic>
     </template>

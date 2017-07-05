@@ -36,6 +36,11 @@ export class OzoneItemPreview  extends OzoneItemAbstractView(Polymer.Element){
         }
     }
 
+    _editItem(e: Event){
+        this.dispatchEvent(new CustomEvent('edit-item',
+            {bubbles: true, composed: true, detail:{selectedItem: this}}));
+    }
+
     dataChange(data:any){
         if(this.ozoneTypeApi) {
             this.ozoneTypeApi.ifIsTypeInstanceOf(data.type, 'media').then((isTypeInstanceOf) => {

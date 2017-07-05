@@ -68,7 +68,7 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
         const fieldName = description.name || {strings: {en: identifier + '*'}};
 
 
-        const listEntry = document.createElement('li');
+        const listEntry = document.createElement('div');
         listEntry.className = 'ozoneEditItemContent';
 
 
@@ -91,7 +91,6 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
 
             listEntry.appendChild(editableItem);
             this.$.editableList.appendChild(listEntry);
-
             editableItem.inputElement.addEventListener('value-changed', (d:Event) => {
                 this.dispatchEvent(new CustomEvent('value-changed',
                     {bubbles: true, composed: true}));
@@ -146,9 +145,11 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
         return this.$.editableList.getElementsByClassName(OzoneMediaEdit.editEntryClass);
     }
     private removeEntryIfExist(){
-        const entryList = this.$.editableList.getElementsByTagName('li');
+        const entryList = this.$.editableList.getElementsByClassName('ozoneEditItemContent');
         while (entryList.length > 0){
             entryList[0].remove();
         }
     }
+
+
 }

@@ -37,6 +37,11 @@ export interface OzoneEditEntryBehavior extends PolymerElement{
     name: LocalizedString;
 
     /**
+     * computed label of the field
+     */
+    label: string;
+
+    /**
      * language to use in LocalizedName
      */
     language: string;
@@ -93,6 +98,7 @@ export const OzoneEditEntryMixin:OzoneEditEntryMixinType = Polymer.dedupingMixin
         identifier: string;
         disabled: boolean;
         isModify:boolean;
+        label: string;
 
         static get properties(){
             return {
@@ -101,6 +107,10 @@ export const OzoneEditEntryMixin:OzoneEditEntryMixinType = Polymer.dedupingMixin
                 },
                 language:{
                     type: String,
+                },
+                 label:{
+                    type: String,
+                    computed: "toLabel(name, language)"
                 },
                 type:{
                     type: String,
@@ -122,6 +132,10 @@ export const OzoneEditEntryMixin:OzoneEditEntryMixinType = Polymer.dedupingMixin
                     notify: true
                 }
             }
+        }
+
+        toLabel(name: LocalizedString, language: string){
+            if(name && name.strings && language) return name.strings[language];
         }
 
         /**

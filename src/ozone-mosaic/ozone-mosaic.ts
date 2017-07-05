@@ -92,6 +92,8 @@ export class OzoneMosaic  extends Polymer.Element implements  TaktikSearchApiBeh
      */
     auto: boolean;
 
+    isSelectedItem: boolean;
+
     availableWidth= 300
     itemWidth = 30
 
@@ -121,9 +123,29 @@ export class OzoneMosaic  extends Polymer.Element implements  TaktikSearchApiBeh
             },
             selectedItem:{
                 notify: true,
-                type:Object
+                type:Object,
+            },
+            isSelectedItem:{
+                type:Boolean,
+                value: false,
             }
         }
+    }
+
+    _listenEditItem(event: Event){
+        this.set("selectedItem", event.detail.selectedItem.itemData);
+        if(this.selectedItem && this.selectedItem.id){
+            this.set("isSelectedItem", true);
+            
+        } else {
+            this.set("isSelectedItem", false) 
+        }
+    }
+
+
+
+    _closePanel() {
+        this.set("isSelectedItem", false)
     }
 
     /**
@@ -132,7 +154,7 @@ export class OzoneMosaic  extends Polymer.Element implements  TaktikSearchApiBeh
      */
     searchInItems(searchString:string){
         this.set('searchResults', []);
-        this.$.mosaicCollection.quickSearch(searchString);
+        this.$.mosaicCollection.quickSearch(searchString, 50);
     }
 
     /**
@@ -330,6 +352,8 @@ export class OzoneMosaic  extends Polymer.Element implements  TaktikSearchApiBeh
             i++;
         }
     }
+
+
 
 }
 

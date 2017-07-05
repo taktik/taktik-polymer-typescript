@@ -7,9 +7,16 @@
 <body>
 <dom-module id="ozone-edit-text-entry">
     <template>
-        <localized-string data="[[name]]" language="[[language]]" default-language="en"></localized-string>
-        <paper-textarea id="input" label="[[type]]" type="text" value="{{value}}" disabled$="[[disabled]]"></paper-textarea>
-
+         <style>
+            .helper-text{
+                font-size: 12px;
+                margin: 0;
+                color:rgba(0,0,0,0.42);
+            }
+        </style>
+        <!--<localized-string data="[[name]]" language="[[language]]" default-language="en"></localized-string>-->
+        <paper-textarea always-float-label="true" id="input" label="[[label]]" type="text" value="{{value}}" disabled$="[[disabled]]"></paper-textarea>
+        <p class="helper-text">[[type]]</p>
     </template>
     <script src="ozone-edit-text-entry.js"></script>
 </dom-module>
