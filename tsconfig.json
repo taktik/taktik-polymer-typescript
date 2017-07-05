@@ -17,7 +17,6 @@
       "dom"
     ],
     "types":[],
-    "sourceMap": true,
     "declaration": true,
     /* Generates corresponding '.d.ts' file. */
     "rootDir": "./src",

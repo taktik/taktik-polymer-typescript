@@ -31,6 +31,13 @@ gulp.task('ts', function(){
 });
 
 /**
+ *  Rerun ts task when a ts file changes
+ */
+gulp.task('ts:watch', function() {
+    gulp.watch(['src/**/*.ts','!src/**/*.d.ts'], ['ts']);
+});
+
+/**
  * build task
  * Generate a bower ready package. in dist directory
  **/
