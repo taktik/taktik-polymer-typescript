@@ -11,7 +11,9 @@
 interface Constructor<T> {
   new (...args: any[]): T;
 }
-
+interface PolymerEvent extends Event{
+  detail: any;
+}
 /**
  * An interface to match all Objects, but not primitives.
  */

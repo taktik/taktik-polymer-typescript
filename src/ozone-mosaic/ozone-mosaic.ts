@@ -132,7 +132,7 @@ export class OzoneMosaic  extends Polymer.Element implements  TaktikSearchApiBeh
         }
     }
 
-    _listenEditItem(event: Event){
+    _listenEditItem(event: PolymerEvent){
         this.set("selectedItem", event.detail.selectedItem.itemData);
         if(this.selectedItem && this.selectedItem.id){
             this.set("isSelectedItem", true);
