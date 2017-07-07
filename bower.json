@@ -19,7 +19,7 @@
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
-    "ozone-connection": "ssh://git.taktik.be/poly/polymer-ozone.git#v2.0.4"
+    "ozone-connection": "ssh://git.taktik.be/poly/polymer-ozone.git#feature/OPC-43-improve-search-bar-module-design"
   },
   "resolutions": {
     "polymer": "1.9 - 2",

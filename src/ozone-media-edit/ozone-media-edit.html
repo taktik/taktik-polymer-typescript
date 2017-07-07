@@ -41,7 +41,14 @@
                 margin-bottom:1em;
             }
             .ozoneEditItemContent {
-                margin: 16px 0;
+                margin: 16px;
+                flex-grow:1;
+                min-width: calc(50% - 32px);
+            }
+            .fields-container{
+                width:calc(100% - 16px);
+                display:flex;
+                flex-wrap:wrap;
             }
         </style>
         <div class="item-view">

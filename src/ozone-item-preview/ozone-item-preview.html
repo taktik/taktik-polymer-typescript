@@ -53,8 +53,9 @@
               justify-content: space-evenly;
               align-items: center;
               align-content: center;
-              transform-origin: center right;
+              transform-origin: bottom center;
               z-index: 2;
+              transition: transform 0.375s cubic-bezier(0.0, 0.0, 0.2, 1);
           }
           .open{
             transform-origin: center center;
@@ -101,6 +102,9 @@
           iron-image{
               height:100%;
               width:100%;
+              --iron-image-placeholder: {
+                  background:#fafafa;
+              }
           }
           .photoContent:hover > .detail{
               display:flex;
@@ -123,7 +127,7 @@
         </style>
             <div class="photoContainer">
                 <div class="photoContent" tabindex$="[[tabIndex]]" id="photoContent">
-                    <iron-image sizing="cover" src="[[previewImage]]" on-tap="_togglePanel"> </iron-image>
+                    <iron-image sizing="contain" src="[[previewImage]]" on-tap="_togglePanel" preload fade placeholder="[[placeholder(itemData)]]"> </iron-image>
                     <div class="actions-panel" id="actionsPanel"  on-tap="_togglePanel">
                         <div class="actions-panel-icon"><paper-icon-button icon="create" on-tap="_editItem"></paper-icon-button></div>
                         <div class="actions-panel-icon"><paper-icon-button icon="favorite" disabled></paper-icon-button></div>
@@ -135,7 +139,8 @@
                     </div>
                     <div class="detail">[[itemData.name]]</div>
                 </div>
-            </div>  
+
+            </div>
     </template>
     <script src="ozone-item-preview.js"></script>
 </dom-module>
