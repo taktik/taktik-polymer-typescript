@@ -14,7 +14,7 @@ import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item
  *
  * Example in html:
  * ```html
- * <ozone-item-preview itemData=[[item]]></ozone-item-view>
+ * <ozone-item-preview itemData=[[item]]></ozone-item-preview>
  * ```
  *
  */
