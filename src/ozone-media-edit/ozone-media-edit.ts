@@ -57,7 +57,7 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
             }
         }
 
-        await(super.loadImage(data, OzonePreviewSize.Small));
+        await(super.loadImage(data, OzonePreviewSize.Medium));
     }
 
     private async addInputElement(description:FieldDescriptor, data: Item, permission: FieldsPermission) {
