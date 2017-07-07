@@ -49,7 +49,7 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
 
         const permission  = await(this.ozoneTypeApi.getPermissions(fields, data.id||''));
 
-        fields.sort((a, b)=>{return a.identifier.localeCompare(b.identifier)});
+        fields.sort((a, b)=>{return a.fieldType.localeCompare(b.fieldType)});
 
         for(let description of fields){
             if(description){
