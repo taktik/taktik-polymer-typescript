@@ -64,17 +64,17 @@ export class SearchQuery {
         if(lastTerm) {
             searchParam.aggregations = [{
                 "$type": "TermsAggregation",
-                "name": "suggest",
-                "field": "_quicksearch",
-                "order": "COUNT_DESC",
-                "size": this.size,
-                "includePattern": `${lastTerm}.*`
+                name: "suggest",
+                field: "_quicksearch",
+                order: "COUNT_DESC",
+                size: this.size,
+                includePattern: `${lastTerm}.*`
             }];
         }
         searchParam.query = {
-            "$type": "QueryStringQuery",
-            "field": "_quicksearch",
-            "queryString": `${searchString}*`
+            $type: "QueryStringQuery",
+            field: "_quicksearch",
+            queryString: `${searchString}*`
         };
 
     }

@@ -11,6 +11,10 @@ declare interface ConfigType {
     host:string,
     view: string,
     permissions: string,
+
+    endPoints: {
+        [key: string]: string
+    }
 }
 
 declare interface OzoneApiAjaxMixinConstructor {
