@@ -130,7 +130,7 @@ export  const OzoneItemAbstractView: OzoneItemAbstractViewMixinType  = Polymer.d
             if(this.ozoneTypeApi && data) {
                 if (await ( this.ozoneTypeApi.ifIsTypeInstanceOf(data.type, 'media'))) {
                     const mediaUrl = new MediaUrl(data.id as string, this.ozoneTypeApi.config);
-                    this.set('previewImage', mediaUrl.getPreviewUrl(size));
+                    this.set('previewImage', mediaUrl.getPreviewUrlPng(size));
                 } else {
                     //TODO define preview
                     this.set('previewImage', undefined);

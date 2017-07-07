@@ -1,10 +1,13 @@
 <head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no">
+    <link rel="import" href="../decorators.html">
     <link rel="import" href="../decorators.html">
     <link rel="import" href="../../bower_components/polymer/polymer-element.html">
     <link rel="import" href="../../bower_components/iron-list/iron-list.html">
     <link rel="import" href="../../bower_components/iron-scroll-threshold/iron-scroll-threshold.html">
     <link rel="import" href="../../bower_components/paper-item/paper-item.html">
     <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+    <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
     <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
     <link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
@@ -13,35 +16,137 @@
 
     <link rel="import" href="../ozone-item-api/ozone-item-api.html">
     <link rel="import" href="../ozone-item-preview/ozone-item-preview.html">
-    <link rel="import" href="../ozone-item-view/ozone-item-view.html">
     <link rel="import" href="../ozone-collection/ozone-collection.html">
-    <link rel="import" href="../ozone-item-view-factory/ozone-item-view-factory.html">
     <link rel="import" href="../ozone-media-edit/ozone-media-edit.html">
+
+
+    <link rel="import" href="../../bower_components/polymer/polymer-element.html">
+    <link rel="import" href="../../bower_components/iron-list/iron-list.html">
+    <link rel="import" href="../../bower_components/iron-scroll-threshold/iron-scroll-threshold.html">
+    <link rel="import" href="../../bower_components/paper-item/paper-item.html">
+    <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+    <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+    <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
+    <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 
 </head>
 <body>
 <dom-module id="ozone-mosaic">
     <template>
         <style>
-            iron-scroll-threshold {
-                top: 10vh;
-                left: 25vh;
-                right: 25vh;
-                height: 40vh;
-                text-align: center;
-                box-shadow: 0 0 60px rgba(0,0,0,0.5);
+            :host {
+                display: block;
+                --loader-color: {
+                    background-color: #585185;
+                    color: white;
+                };
+                --details-panel-background-color: {
+                     background:#FAFAFA;
+                };
+                --save-button-colors: {
+                    background: #2C2958;
+                    color:white;
+                }
+                --actions-icon-color: {
+                    color:#2C2958;
+                }
+                --details-panel-shade: {
+                    background:rgba(0,0,0,0.42);
+                }
+                --actions-background-color: {
+                    background: #fafafa;
+                }
             }
             .loader {
-                background-color: #0b8043;
+                @apply --loader-color;
+                position:relative;
+                bottom:0;
+                left:0;
+                right:0;
                 text-align: center;
                 height: 44px;
-                font: 13px arial;
+                font-family:'Roboto', sans-serif;
+                font-size: 13px;
                 line-height: 44px;
-                color: white;
+                margin:0 -10px -10px;
             }
-            .resultList {
+            iron-list {
+                 margin-top: 90px;
+                 padding-bottom: 16px;
+             }
+            .details-panel{
+                @apply --details-panel-background-color;
+                position:fixed;
+                height:100%;
+                width:50%;
+                top:0;
+                left:0;
+                overflow-Y:auto;
+                padding: 90px 16px;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 
+                            0 1px 5px 0 rgba(0, 0, 0, 0.12), 
+                            0 3px 1px -2px rgba(0, 0, 0, 0.2);
+                z-index: 3;
+
             }
-            .resultListItem {
+            .details-panel:after{
+                content:'';
+                position:fixed;
+                height:100%;
+                width:calc(50% - 16px);
+                top:0;
+                right:0;
+                @apply --details-panel-shade;
+                z-index:2;
+            }
+            .actions{
+                position: fixed;
+                top: 0;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-bottom: 16px;
+                width: 50%;
+                z-index: 30;
+                padding:16px 0;
+                @apply --actions-background-color;
+            }
+            .actions-item{
+                display:flex;
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+            .actions-icon{
+                @apply --actions-icon-color;
+            }
+            .actions-icon:first-child{
+                margin-left:-10px;
+            }
+            .save-btn{
+                @apply --save-button-colors;
+            }
+            .resultList{
+                width:100%;
+                height:100%;
+            }
+            .actions-button-container{
+                margin-right:10px;
+            }
+
+            @media (max-width: 400px) {
+                iron-list {
+                    margin-top: 72px;
+                }
+
+                .photoContainer {
+                    width: 100%;
+                }
+
+                .photoContent > .detail {
+                    opacity: 1;
+                }
             }
 
         </style>
@@ -52,30 +157,50 @@
                 data-remain="{{dataRemain}}"></ozone-collection>
 
         <div hidden$="[[!searchResults.length]]">
-        <iron-scroll-threshold id="scrollTheshold" on-lower-threshold="toggleThreshold"  >
-            <div class="resultList">
-            <iron-list scroll-target="scrollTheshold" items="[[searchResults]]"selected-item="{{selectedItem}}" selection-enabled>
+
+            <div class="resultList" id="resultList">
+            <iron-list
+                    id="ironList"
+                    grid
+                    scroll-target="document"
+                    items="[[searchResults]]"
+                    on-edit-item="_listenEditItem" 
+                    selection-enabled>
                 <template>
                     <ozone-item-preview  ozone-type-api-id="ozoneApiType" item-id="[[item.id]]" item-data="[[item]]" class="resultListItem"></ozone-item-preview>
                 </template>
             </iron-list>
             <paper-item class="loader" hidden$="[[!dataRemain]]">Fetching new items...</paper-item>
             </div>
+        <iron-scroll-threshold
+                id="scrollTheshold"
+                on-lower-threshold="toggleThreshold"
+                scroll-target="document">
         </iron-scroll-threshold>
         </div>
-        <paper-tabs selected="{{selectedAction}}" scrollable>
-            <paper-tab>View</paper-tab>
-            <paper-tab>Edit</paper-tab>
-        </paper-tabs>
-        <iron-pages selected="{{selectedAction}}">
+        <div class="details-panel" id="detailsPanel" hidden$="[[!isSelectedItem]]">
+            
             <div>
-                <ozone-item-view-factory item="[[selectedItem]]"></ozone-item-view-factory>
-            </div>
-            <div>
-                <paper-button raised id="saveBtn" on-tap="saveSelectedItem">Save</paper-button>
+                <div class="actions" id="actions">
+                    <div class="actions-item">
+                        <div class="actions-icon"><paper-icon-button icon="favorite"></paper-icon-button></div>
+                        <div class="actions-icon"><paper-icon-button icon="info"></paper-icon-button></div>
+                        <break></break>
+                        <div class="actions-icon"><paper-icon-button icon="communication:rss-feed"></paper-icon-button></div>
+                        <div class="actions-icon"><paper-icon-button icon="file-download"></paper-icon-button></div>
+                        <div class="actions-icon"><paper-icon-button icon="delete"></paper-icon-button></div>
+                    </div>
+                    <div class="actions-button-container">
+                        <paper-button class="close-btn" id="closeBtn" on-tap="_closePanel">Close</paper-button>
+                        <paper-button class="save-btn"  id="saveBtn" on-tap="saveSelectedItem">Save</paper-button>
+                    </div>
+                </div>
+                
                 <ozone-media-edit id="mediaEditor" item-data={{selectedItem}}></ozone-media-edit>
+                
             </div>
-        </iron-pages>
+
+        </div>
     </template>
     <script src="ozone-mosaic.js"></script>
 </dom-module>

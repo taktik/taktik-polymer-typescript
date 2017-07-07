@@ -7,7 +7,7 @@
 
 import {customElement} from 'decorators'
 import {Item, FieldDescriptor} from 'ozone-type'
-import {OzonePreviewSize} from 'mediaUrl'
+import {MediaUrl, OzonePreviewSize} from 'mediaUrl'
 import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item-abstract-view'
 import {OzoneEditEntryBehavior} from 'ozone-edit-entry'
 import {FieldsPermission} from 'ozone-type-api'
@@ -49,7 +49,7 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
 
         const permission  = await(this.ozoneTypeApi.getPermissions(fields, data.id||''));
 
-        fields.sort((a, b)=>{return a.identifier.localeCompare(b.identifier)});
+        fields.sort((a, b)=>{return a.fieldType.localeCompare(b.fieldType)});
 
         for(let description of fields){
             if(description){
@@ -57,7 +57,7 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
             }
         }
 
-        await(super.loadImage(data, OzonePreviewSize.Small));
+        await(super.loadImage(data, OzonePreviewSize.Medium));
     }
 
     private async addInputElement(description:FieldDescriptor, data: Item, permission: FieldsPermission) {
@@ -68,7 +68,7 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
         const fieldName = description.name || {strings: {en: identifier + '*'}};
 
 
-        const listEntry = document.createElement('li');
+        const listEntry = document.createElement('div');
         listEntry.className = 'ozoneEditItemContent';
 
 
@@ -146,9 +146,11 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
         return this.$.editableList.getElementsByClassName(OzoneMediaEdit.editEntryClass);
     }
     private removeEntryIfExist(){
-        const entryList = this.$.editableList.getElementsByTagName('li');
+        const entryList = this.$.editableList.getElementsByClassName('ozoneEditItemContent');
         while (entryList.length > 0){
             entryList[0].remove();
         }
     }
+
+
 }

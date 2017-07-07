@@ -41,5 +41,12 @@ export class MediaUrl {
             ._buildBaseUrl([this.getNumericId(), preview])
 
     }
+    getPreviewUrlPng(size: SizeEnum):string{
+        const preview = 'preview.png.'
+                        + size;
+        return this
+            ._buildBaseUrl([this.getNumericId(), preview])
+
+    }
 
 }
