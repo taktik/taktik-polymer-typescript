@@ -5,6 +5,7 @@
   <link rel="import" href="../../bower_components/ozone-connection/build/ozone-api/ozone-api-search/ozone-api-search.html">
   <link rel="import" href="../../bower_components/ozone-connection/build/ozone-material/ozone-login/ozone-login.html">
   <link rel="import" href="../ozone-mosaic/ozone-mosaic.html">
+  <link rel="import" href="../ozone-upload/ozone-upload.html">
 </head>
 
 <body>
@@ -54,7 +55,7 @@
             overflow:hidden;
           }
         </style>
-        
+
         <ozone-login is-connected="{{isConnected}}"></ozone-login>
 
 
@@ -88,11 +89,14 @@
                   </g>
               </g>
           </svg>
-          
+
         </template>
 
         <div hidden$="[[!isConnected]]">
            <demo-header></demo-header>
+
+            <ozone-upload>Not found</ozone-upload>
+
            <taktik-free-text-search id="freeTextSearch" class="" search-value="{{search}}" show-item-count search-results></taktik-free-text-search>
 
             <ozone-api-search id="autoCompleteAPI" suggest auto size="5"></ozone-api-search>
@@ -131,7 +135,7 @@
 
         _isConnectedChange(value) {
           if(this.isConnected){
-           
+
             this.$.freeTextSearch.registerAutoCompleteAPI(this.$.autoCompleteAPI);
             this.$.freeTextSearch.registerSearchAPI(this.$.searchDisplay)
           }

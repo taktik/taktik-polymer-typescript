@@ -152,7 +152,7 @@ export class OzoneTypeAPI  extends OzoneApiAjaxMixin(Polymer.Element){
      * @param collection
      * @return {TypeDescriptor}
      */
-    getType(collection: string):Promise<TypeDescriptor |undefined >{
+    getType(collection: string):Promise<TypeDescriptor|undefined>{
         if(this.typeCached.has(collection)){
             return Promise.resolve(this.typeCached.get(collection));
         } else {
@@ -188,15 +188,13 @@ export class OzoneTypeAPI  extends OzoneApiAjaxMixin(Polymer.Element){
 
     async getAllFields(collection: string):Promise<Array<FieldDescriptor>>{
         const type = await(this.getType(collection));
-        if(type) {
+        if(type && type.superType){
             const fields = type.fields || [];
-            let parentFields: Array<FieldDescriptor> = [];
-            if (type.superType) {
-                parentFields = await(this.getAllFields(type.superType));
-            }
+            let parentFields:Array<FieldDescriptor> = [];
+            parentFields = await(this.getAllFields(type.superType));
             return fields.concat(parentFields);
         }
-        throw new Error('Could not find result for this collection');
+        return [];
     }
 
     async ifIsTypeInstanceOf(currentType:string, instance:string): Promise<boolean>{

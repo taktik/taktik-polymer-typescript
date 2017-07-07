@@ -236,7 +236,7 @@
 
                     describe('ifIsTypeInstanceOf', function(){
 
-                        it('should resolve if types are equal', (done)=>{
+                        it('should resolve with true if types are equal', (done)=>{
                             element.ifIsTypeInstanceOf('a', 'a').then(()=>{
                                 done();
                             })
@@ -249,12 +249,13 @@
                             element.getType.withArgs('child').returns(Promise.resolve(type1));
                             element.getType.withArgs('super').returns(Promise.resolve(type2));
 
-                            element.ifIsTypeInstanceOf('child', 'super').then(()=>{
+                            element.ifIsTypeInstanceOf('child', 'super').then((result)=>{
+                                assert.isTrue(result);
                                 done();
                             })
                         });
 
-                        it('should return false if is not an instance', (done)=>{
+                        it('should resolve with false if is not an instance', (done)=>{
                             const type1 =  {fields:[{identifier: 'id', value: 'any'}], superType: 'super'};
                             const type2 =  {fields:[{identifier: 'parentId', value: 'some'}]};
                             element.getType = sinon.stub();

@@ -3,8 +3,8 @@
  */
 import {customElement, domElement} from 'decorators';
 import {Item} from 'ozone-type';
-import {OzoneItemAPI, SearchGenerator, SearchQuery, getOzoneItemAPI} from 'ozone-item-api';
-
+import {OzoneItemAPI, getOzoneItemAPI} from 'ozone-item-api';
+import {SearchGenerator, SearchQuery} from 'ozone-search-helper'
 
 export interface DomElements {
     ozoneApi:OzoneItemAPI

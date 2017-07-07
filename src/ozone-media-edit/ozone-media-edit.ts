@@ -7,7 +7,7 @@
 
 import {customElement} from 'decorators'
 import {Item, FieldDescriptor} from 'ozone-type'
-import {MediaUrl, OzonePreviewSize} from 'mediaUrl'
+import {MediaUrl, OzoneImageSize} from 'mediaUrl'
 import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item-abstract-view'
 import {OzoneEditEntryBehavior} from 'ozone-edit-entry'
 import {FieldsPermission} from 'ozone-type-api'
@@ -91,6 +91,7 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
 
             listEntry.appendChild(editableItem);
             this.$.editableList.appendChild(listEntry);
+
             editableItem.inputElement.addEventListener('value-changed', (d:Event) => {
                 this.dispatchEvent(new CustomEvent('value-changed',
                     {bubbles: true, composed: true}));
