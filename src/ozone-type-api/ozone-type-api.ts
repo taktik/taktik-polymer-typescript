@@ -152,7 +152,7 @@ export class OzoneTypeAPI  extends OzoneApiAjaxMixin(Polymer.Element){
      * @param collection
      * @return {TypeDescriptor}
      */
-    getType(collection: string):Promise<TypeDescriptor | undefined >{
+    getType(collection: string):Promise<TypeDescriptor|undefined>{
         if(this.typeCached.has(collection)){
             return Promise.resolve(this.typeCached.get(collection));
         } else {

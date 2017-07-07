@@ -9,6 +9,34 @@ const browserSync = require('browser-sync');
 const reload = browserSync.reload;
 const historyApiFallback = require('connect-history-api-fallback');
 const proxy = require('proxy-middleware');
+const ts = require('gulp-typescript');
+const merge = require('merge2');
+const flatten = require('gulp-flatten');
+
+/**
+ * compile project's typeScript code
+ */
+gulp.task('ts', function(){
+    const tsProject = ts.createProject('tsconfig.json');
+
+    var tsResult = tsProject.src()
+        .pipe(tsProject());
+
+    return merge([ // Merge the two output streams, so this task is finished when the IO of both operations is done.
+        tsResult.dts
+            .pipe(flatten())
+            .pipe(gulp.dest('src')),
+        tsResult.js.pipe(gulp.dest('src'))
+    ]);
+});
+
+/**
+ *  Rerun ts task when a ts file changes
+ */
+gulp.task('ts:watch', function() {
+    gulp.watch(['src/**/*.ts','!src/**/*.d.ts'], ['ts']);
+});
+
 /**
  * build task
  * Generate a bower ready package. in dist directory

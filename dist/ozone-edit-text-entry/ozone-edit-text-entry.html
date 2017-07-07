@@ -1,0 +1,16 @@
+<head>
+    <link rel="import" href="../decorators.html">
+    <link rel="import" href="../../../polymer/polymer-element.html">
+    <link rel="import" href="../../../paper-input/paper-textarea.html">
+    <link rel="import" href="../ozone-edit-entry/ozone-edit-entry.html">
+</head>
+<body>
+<dom-module id="ozone-edit-text-entry">
+    <template>
+        <localized-string data="[[name]]" language="[[language]]" default-language="en"></localized-string>
+        <paper-textarea id="input" label="[[type]]" type="text" value="{{value}}" disabled$="[[disabled]]"></paper-textarea>
+
+    </template>
+    <script src="ozone-edit-text-entry.js"></script>
+</dom-module>
+</body>
