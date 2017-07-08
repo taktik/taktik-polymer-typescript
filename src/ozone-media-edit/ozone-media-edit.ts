@@ -36,7 +36,14 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
 
     static editEntryClass = 'editEntry';
 
+    /**
+     * Clappr player element
+     */
     player: any;
+
+    /**
+     * hide element and pose the player.
+     */
     hidden: boolean;
 
     ready(){
@@ -44,16 +51,19 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
     }
     static get properties(){
         return {
-            'hidden': {
+            hidden: {
                 type: Boolean,
                 value: false,
                 observer: 'visibilityChange'
             },
-            'isVideo': {
+            isVideo: {
                 type: Boolean,
                 value: false,
-                observer: 'visibilityChange'
-            }
+            },
+            player: {
+                type: Object,
+                value: false,
+            },
         }
     }
 
@@ -188,7 +198,6 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
             if (await ( this.ozoneTypeApi.ifIsTypeInstanceOf(data.type, 'video'))) {
                 const mediaUrl = new MediaUrl(data.id as string, this.ozoneTypeApi.config);
                 const url = mediaUrl.getVideoUrl();
-                console.log (url)
 
                 this.player = new Clappr.Player({
                     source: url,
