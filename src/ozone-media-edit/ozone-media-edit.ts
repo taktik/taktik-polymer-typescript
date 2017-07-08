@@ -14,6 +14,7 @@ import {FieldsPermission} from 'ozone-type-api'
 
 export interface DomElements {
     editableList: Element,
+    player: Element,
 }
 
 export interface EditableFields{
@@ -21,7 +22,6 @@ export interface EditableFields{
     name: string,
     value:string,
 }
-
 /**
  * <ozone-media-edit> is an element that provide material design to edit an media Item.
  *
@@ -36,6 +36,32 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
 
     static editEntryClass = 'editEntry';
 
+    player: any;
+    hidden: boolean;
+
+    ready(){
+        super.ready();
+    }
+    static get properties(){
+        return {
+            'hidden': {
+                type: Boolean,
+                value: false,
+                observer: 'visibilityChange'
+            },
+            'isVideo': {
+                type: Boolean,
+                value: false,
+                observer: 'visibilityChange'
+            }
+        }
+    }
+
+    visibilityChange(){
+        if(this.hidden && this.player){
+            this.player.pause();
+        }
+    }
 
     async dataChange(data:Item){
         if(!data){
@@ -58,6 +84,7 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
         }
 
         await(super.loadImage(data, OzonePreviewSize.Medium));
+        await(this.loadVideo(data));
     }
 
     private async addInputElement(description:FieldDescriptor, data: Item, permission: FieldsPermission) {
@@ -149,6 +176,32 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
         const entryList = this.$.editableList.getElementsByClassName('ozoneEditItemContent');
         while (entryList.length > 0){
             entryList[0].remove();
+        }
+        if(this.player){
+            this.player.destroy();
+        }
+        this.set('isVideo', false);
+    }
+
+    async loadVideo(data?: Item){
+        if(this.ozoneTypeApi && data && Clappr) {
+            if (await ( this.ozoneTypeApi.ifIsTypeInstanceOf(data.type, 'video'))) {
+                const mediaUrl = new MediaUrl(data.id as string, this.ozoneTypeApi.config);
+                const url = mediaUrl.getVideoUrl();
+                console.log (url)
+
+                this.player = new Clappr.Player({
+                    source: url,
+                    poster: this.previewImage,
+                    height: 360,
+                    width: 640});
+
+                var playerElement = document.createElement('div');
+                this.$.player.appendChild(playerElement);
+                this.player.attachTo(playerElement);
+
+                this.set('isVideo', true);
+            }
         }
     }
 

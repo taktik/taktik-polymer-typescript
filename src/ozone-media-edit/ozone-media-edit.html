@@ -8,6 +8,7 @@
     <link rel="import" href="../ozone-edit-set-entry/ozone-edit-set-entry.html">
     <link rel="import" href="../ozone-edit-number-entry/ozone-edit-number-entry.html">
     <link rel="import" href="../ozone-type-api/ozone-type-api.html">
+
 </head>
 <body>
 <dom-module id="ozone-media-edit">
@@ -65,10 +66,14 @@
                 margin-bottom:1em;
             }
         </style>
-        <div class="item-view">
-            
-            
-            <div class="img-container"><img src="[[previewImage]]"></div>
+        <div class="item-view" hidden$="[[hidden]]">
+
+            <div class="img-container">
+                <template is="dom-if" if="[[!isVideo]]">
+                    <img src="[[previewImage]]">
+                </template>
+                <div id="player"></div>
+            </div>
             <div class="name">[[itemData.name]]</div>
             <div class="flex-row"><div class="type">Type: [[itemData.type]]</div><div class="ID">ID: [[itemData.id]]</div></div>
             <div class="fields-container" id="editableList">

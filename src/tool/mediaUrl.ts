@@ -48,5 +48,16 @@ export class MediaUrl {
             ._buildBaseUrl([this.getNumericId(), preview])
 
     }
+    getVideoUrl():string{
+        return this
+            ._buildBaseUrl([this.getNumericId(),
+                'org.taktik.filetype.flowr.video',
+                'index.m3u8'])
+    }
+    getVideoUrlMp4():string{
+        return this
+            ._buildBaseUrl([this.getNumericId(),
+                'org.taktik.filetype.video.mp4'])
+    }
 
 }

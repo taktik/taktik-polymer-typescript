@@ -15,7 +15,8 @@
     "paper-tabs": "^2.0.0",
     "iron-pages": "^2.0.0",
     "iron-image": "^2.1.1",
-    "vaadin-upload": "v2.0.0-beta1"
+    "vaadin-upload": "v2.0.0-beta1",
+    "clappr": "^0.2.67"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",
