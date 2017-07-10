@@ -1,2 +1,2 @@
 FROM nginx:alpine
-ADD dist/ /usr/share/nginx/html/
+ADD src/ /usr/share/nginx/html/
