@@ -1,6 +1,6 @@
 <head>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no">
-    <link rel="import" href="../decorators.html">
+
     <link rel="import" href="../../bower_components/polymer/polymer-element.html">
     <link rel="import" href="../../bower_components/iron-list/iron-list.html">
     <link rel="import" href="../../bower_components/iron-scroll-threshold/iron-scroll-threshold.html">
@@ -8,11 +8,8 @@
     <link rel="import" href="../../bower_components/paper-button/paper-button.html">
     <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
-    <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
-    <link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
-    <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 
-
+    <link rel="import" href="../decorators.html">
     <link rel="import" href="../ozone-item-api/ozone-item-api.html">
     <link rel="import" href="../ozone-item-preview/ozone-item-preview.html">
     <link rel="import" href="../ozone-collection/ozone-collection.html">
@@ -62,76 +59,14 @@
                  margin-top: 90px;
                  padding-bottom: 16px;
              }
-            .details-panel{
-                @apply --details-panel-background-color;
-                position:fixed;
-                height:100%;
-                width:50%;
-                top:0;
-                left:0;
-                overflow-Y:auto;
-                padding: 90px 16px;
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-                            0 1px 5px 0 rgba(0, 0, 0, 0.12),
-                            0 3px 1px -2px rgba(0, 0, 0, 0.2);
-                z-index: 3;
-
-            }
-            .details-panel:after{
-                content:'';
-                position:fixed;
-                height:100%;
-                width:calc(50% - 16px);
-                top:0;
-                right:0;
-                @apply --details-panel-shade;
-                z-index:2;
-            }
-            .actions{
-                position: fixed;
-                top: 0;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                margin-bottom: 16px;
-                width: 50%;
-                z-index: 30;
-                padding:16px 0;
-                @apply --actions-background-color;
-            }
-            .actions-item{
-                display:flex;
-                flex-direction: row;
-                justify-content: flex-start;
-            }
-            .actions-icon{
-                @apply --actions-icon-color;
-            }
-            .actions-icon:first-child{
-                margin-left:-10px;
-            }
-            .save-btn{
-                @apply --save-button-colors;
-            }
             .resultList{
                 width:100%;
                 height:100%;
-            }
-            .actions-button-container{
-                margin-right:10px;
             }
 
             @media (max-width: 400px) {
                 iron-list {
                     margin-top: 72px;
-                }
-
-                .photoContainer {
-                    width: 100%;
-                }
-
-                .photoContent > .detail {
-                    opacity: 1;
                 }
             }
 
