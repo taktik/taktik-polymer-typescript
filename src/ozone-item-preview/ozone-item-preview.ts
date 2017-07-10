@@ -17,6 +17,10 @@ import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item
  * <ozone-item-preview itemData=[[item]]></ozone-item-preview>
  * ```
  *
+ *  * ### Events
+ *
+ * - -edit-item- fire on click on close button.
+ *
  */
 @customElement('ozone-item-preview')
 export class OzoneItemPreview  extends OzoneItemAbstractView(Polymer.Element){
@@ -31,7 +35,7 @@ export class OzoneItemPreview  extends OzoneItemAbstractView(Polymer.Element){
         return {
             previewImage: {
                 type: String
-            }
+            },
         }
     }
     placeholder(itemData:Item):string {
@@ -64,10 +68,11 @@ export class OzoneItemPreview  extends OzoneItemAbstractView(Polymer.Element){
     }
     _editItem(e: Event){
         this.dispatchEvent(new CustomEvent('edit-item',
-            {bubbles: true, composed: true, detail:{selectedItem: this}}));
+            {bubbles: true, composed: true, detail:this.itemData}));
     }
 
-    dataChange(data:any){
+    dataChange(data:Item){
+        this.removeFocus();
         if(this.ozoneTypeApi) {
             this.ozoneTypeApi.ifIsTypeInstanceOf(data.type, 'media').then((isTypeInstanceOf) => {
                 if(isTypeInstanceOf) {
@@ -82,30 +87,13 @@ export class OzoneItemPreview  extends OzoneItemAbstractView(Polymer.Element){
             throw new Error('ozoneTypeApi is not define')
         }
     }
-    getMinRatio():number{
-        const item: Media = this.itemData as Media ;
-        return item.previewRatio || 1;
-    }
-
-    setDesiredPreviewHeight(desiredPreviewHeight:number){
-        this.style.height = String(desiredPreviewHeight);
-    }
-    setMarginTop(margin:number){
-        this.style.marginTop = String(margin);
-    }
-    setMarginBottom(margin:number){
-        this.style.marginBottom = String(margin);
-    }
-    setMarginLeft(margin:number){
-        this.style.marginLeft = String(margin);
-    }
-    setMarginRight(margin:number){
-        this.style.marginRight = String(margin);
-    }
-    updateDisplay(){}
 
     _togglePanel(){
         this.$.actionsPanel.classList.toggle("open");
+    }
+
+    removeFocus(){
+        this.$.actionsPanel.classList.remove('open');
     }
 
 }

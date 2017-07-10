@@ -1,7 +1,6 @@
 <head>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no">
     <link rel="import" href="../decorators.html">
-    <link rel="import" href="../decorators.html">
     <link rel="import" href="../../bower_components/polymer/polymer-element.html">
     <link rel="import" href="../../bower_components/iron-list/iron-list.html">
     <link rel="import" href="../../bower_components/iron-scroll-threshold/iron-scroll-threshold.html">
@@ -17,19 +16,6 @@
     <link rel="import" href="../ozone-item-api/ozone-item-api.html">
     <link rel="import" href="../ozone-item-preview/ozone-item-preview.html">
     <link rel="import" href="../ozone-collection/ozone-collection.html">
-    <link rel="import" href="../ozone-media-edit/ozone-media-edit.html">
-
-
-    <link rel="import" href="../../bower_components/polymer/polymer-element.html">
-    <link rel="import" href="../../bower_components/iron-list/iron-list.html">
-    <link rel="import" href="../../bower_components/iron-scroll-threshold/iron-scroll-threshold.html">
-    <link rel="import" href="../../bower_components/paper-item/paper-item.html">
-    <link rel="import" href="../../bower_components/paper-button/paper-button.html">
-    <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
-
-    <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
-    <link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
-    <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 
 </head>
 <body>
@@ -85,8 +71,8 @@
                 left:0;
                 overflow-Y:auto;
                 padding: 90px 16px;
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 
-                            0 1px 5px 0 rgba(0, 0, 0, 0.12), 
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                            0 1px 5px 0 rgba(0, 0, 0, 0.12),
                             0 3px 1px -2px rgba(0, 0, 0, 0.2);
                 z-index: 3;
 
@@ -164,10 +150,14 @@
                     grid
                     scroll-target="document"
                     items="[[searchResults]]"
-                    on-edit-item="_listenEditItem" 
                     selection-enabled>
                 <template>
-                    <ozone-item-preview  ozone-type-api-id="ozoneApiType" item-id="[[item.id]]" item-data="[[item]]" class="resultListItem"></ozone-item-preview>
+                    <ozone-item-preview
+                            ozone-type-api-id="ozoneApiType"
+                            item-id="[[item.id]]"
+                            item-data="[[item]]"
+                            class="resultListItem"
+                    ></ozone-item-preview>
                 </template>
             </iron-list>
             <paper-item class="loader" hidden$="[[!dataRemain]]">Fetching new items...</paper-item>
@@ -178,29 +168,7 @@
                 scroll-target="document">
         </iron-scroll-threshold>
         </div>
-        <div class="details-panel" id="detailsPanel" hidden$="[[!isSelectedItem]]">
-            
-            <div>
-                <div class="actions" id="actions">
-                    <div class="actions-item">
-                        <div class="actions-icon"><paper-icon-button icon="favorite"></paper-icon-button></div>
-                        <div class="actions-icon"><paper-icon-button icon="info"></paper-icon-button></div>
-                        <break></break>
-                        <div class="actions-icon"><paper-icon-button icon="communication:rss-feed"></paper-icon-button></div>
-                        <div class="actions-icon"><paper-icon-button icon="file-download"></paper-icon-button></div>
-                        <div class="actions-icon"><paper-icon-button icon="delete"></paper-icon-button></div>
-                    </div>
-                    <div class="actions-button-container">
-                        <paper-button class="close-btn" id="closeBtn" on-tap="_closePanel">Close</paper-button>
-                        <paper-button class="save-btn"  id="saveBtn" on-tap="saveSelectedItem">Save</paper-button>
-                    </div>
-                </div>
-                
-                <ozone-media-edit id="mediaEditor" item-data={{selectedItem}} hidden="[[!isSelectedItem]]"></ozone-media-edit>
-                
-            </div>
-
-        </div>
+        <ozone-edit-panel></ozone-edit-panel>
     </template>
     <script src="ozone-mosaic.js"></script>
 </dom-module>
