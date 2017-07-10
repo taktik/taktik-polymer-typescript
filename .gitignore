@@ -1,6 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 /bower_components/
 .idea/workspace.xml
+/dist/
 /node_modules/
 /doc/
 /.idea/
