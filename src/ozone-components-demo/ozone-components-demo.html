@@ -7,9 +7,9 @@
   <link rel="import" href="../../bower_components/ozone-connection/build/ozone-api/ozone-api-search/ozone-api-search.html">
   <link rel="import" href="../../bower_components/ozone-connection/build/ozone-material/ozone-login/ozone-login.html">
   <link rel="import" href="../ozone-mosaic/ozone-mosaic.html">
+  <link rel="import" href="../ozone-edit-panel/ozone-edit-panel.html">
   <link rel="import" href="../ozone-upload/ozone-upload.html">
 </head>
-
 <body>
   <dom-module id="ozone-components-demo">
     <template>
@@ -103,7 +103,12 @@
 
             <ozone-api-search id="autoCompleteAPI" suggest auto size="5"></ozone-api-search>
             <p class="found">found <b>[[numberOfResults]]</b> results with <b>"{{search}}"</b>.</p>
-            <ozone-mosaic total="{{numberOfResults}}" id="searchDisplay"></ozone-mosaic>
+            <ozone-mosaic id="searchDisplay"
+                          total="{{numberOfResults}}"
+            ></ozone-mosaic>
+
+            <ozone-edit-panel id="editPanel"
+            ></ozone-edit-panel>
         </div>
 
 
@@ -134,6 +139,23 @@
             }
           };
         }
+
+          ready(){
+              super.ready();
+              this.$.editPanel.addEventListener('save-tap', (event)=>{
+                  this.$.searchDisplay.saveSelectedItem(event.detail)
+                      .then((item)=>{
+                          this.$.editPanel.set('selectedItem', item)
+                      });
+              });
+              this.$.editPanel.addEventListener('close-tap', (event)=>{
+                  this.$.editPanel.set('display', false);
+              });
+              this.$.searchDisplay.addEventListener('edit-item', (event)=>{
+                  this.$.editPanel.set('display', true);
+                  this.$.editPanel.set('selectedItem', event.detail);
+              })
+          }
 
         _isConnectedChange(value) {
           if(this.isConnected){
