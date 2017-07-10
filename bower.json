@@ -5,7 +5,6 @@
     "polymer": "Polymer/polymer#^2.0.0",
     "reflect-metadata": "^0.1.10",
     "imd": "^1.0.0",
-    "ozone-type": "ssh://git.taktik.be/sandbox/ozone-type.git#master",
     "iron-scroll-threshold": "PolymerElements/iron-scroll-threshold#^2.0.0",
     "paper-button": "^2.0.0",
     "iron-list": "^2.0.0",
@@ -16,12 +15,13 @@
     "iron-pages": "^2.0.0",
     "iron-image": "^2.1.1",
     "vaadin-upload": "v2.0.0-beta1",
-    "clappr": "^0.2.67"
+    "clappr": "^0.2.67",
+    "ozone-type": "https://bitbucket.taktik.be/scm/sandbox/ozone-type.git",
+    "ozone-connection": "https://bitbucket.taktik.be/scm/poly/polymer-ozone.git#feature/OPC-43-improve-search-bar-module-design"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
-    "ozone-connection": "ssh://git.taktik.be/poly/polymer-ozone.git#feature/OPC-43-improve-search-bar-module-design"
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
   },
   "resolutions": {
     "polymer": "1.9 - 2",
