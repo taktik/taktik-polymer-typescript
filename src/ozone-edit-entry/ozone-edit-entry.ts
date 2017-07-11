@@ -1,15 +1,8 @@
-/**
- * Created by hubert on 23/06/17.
- */
-
-
 /// <amd-module name="ozone-edit-entry"/>
 
 import {customElement} from 'decorators'
 import {LocalizedString} from 'ozone-type'
-export interface DomElements {
-    input: PolymerElement
-}
+
 export interface PaperInputBehavior extends PolymerElement{
 
 }
@@ -18,7 +11,9 @@ export interface PaperInputBehavior extends PolymerElement{
  * OzoneEditEntryBehavior is a generic interface to different items fields editor.
  */
 export interface OzoneEditEntryBehavior extends PolymerElement{
-    $: DomElements;
+    $: {
+        input: PolymerElement
+    };
 
     /**
      * ozone type of the entry
@@ -38,6 +33,7 @@ export interface OzoneEditEntryBehavior extends PolymerElement{
 
     /**
      * computed label of the field
+     * @readonly
      */
     label: string;
 
@@ -46,10 +42,6 @@ export interface OzoneEditEntryBehavior extends PolymerElement{
      */
     language: string;
 
-    /**
-     * field identifier
-     */
-    identifier: string;
 
     /**
      * Set to true to disable this input.
@@ -89,13 +81,14 @@ export const OzoneEditEntryMixin:OzoneEditEntryMixinType = Polymer.dedupingMixin
     return class extends parentClass  {
 
 
-        $: DomElements;
+        $: {
+            input: PolymerElement
+        };
 
         type: string;
         value: any;
         name: LocalizedString;
         language: any;
-        identifier: string;
         disabled: boolean;
         isModify:boolean;
         label: string;
@@ -118,9 +111,6 @@ export const OzoneEditEntryMixin:OzoneEditEntryMixinType = Polymer.dedupingMixin
                 value:{
                     type: Object,
                     notify: true
-                },
-                identifier:{
-                    type: Object,
                 },
                 disabled:{
                     type: Boolean,

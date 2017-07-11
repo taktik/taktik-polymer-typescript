@@ -1,16 +1,21 @@
-/**
- * Created by hubert on 20/06/17.
- */
+/// <amd-module name="language-selection"/>
 
 
 import {customElement} from 'decorators'
 /**
  * <language-selection> is a simple language selection module.
- * demo
+ *
  * ```html
  * <language-selection current-language="{{language}}" ></language-selection>
  * ```
+ *
+ * ### Events
+ *
+ * *current-language-change* Fired when language change.
+ * This event will be fired if currentLanguage change.
+ *
  */
+
 
 @customElement('language-selection')
 export class LanguageSelection extends Polymer.Element{
@@ -55,13 +60,6 @@ export class LanguageSelection extends Polymer.Element{
             }
         }
     }
-
-    /**
-     * Fired when language change.
-     * This event will be fired if currentLanguage change.
-     *
-     * @event current-language-change
-     */
 
     /**
      * _currentLanguageChange

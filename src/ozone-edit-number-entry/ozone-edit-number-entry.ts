@@ -1,17 +1,8 @@
-/**
- * Created by hubert on 23/06/17.
- */
-
-
-/// <amd-module name="ozone-edit-integer-entry"/>
+/// <amd-module name="ozone-edit-number-entry"/>
 
 import {customElement} from 'decorators'
-import {LocalizedString} from 'ozone-type'
 import {OzoneEditEntry, OzoneEditEntryMixin, OzoneEditEntryConstructor} from 'ozone-edit-entry'
-export interface DomElements {
-    input: PolymerElement
-   // Declare id: type of you dom elements
-}
+
 
 /**
  * <ozone-edit-number-entry> is an element to edit ozone items fields as number.
@@ -40,7 +31,8 @@ export class OzoneEditNumberEntry extends OzoneEditEntryMixin(Polymer.Element) {
     }
 
     textToNumber(textValue:string):Number| null{
-        if(this.textValue == ''){
+
+        if(this.textValue === ''){
             return null;
         } else {
             return Number(textValue);

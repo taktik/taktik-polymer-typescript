@@ -1,14 +1,13 @@
-/**
- * Created by hubert on 20/06/17.
- */
-
-
+/// <amd-module name="localized-string"/>
 import {customElement} from 'decorators'
 import {LocalizedString} from "ozone-type";
 
 /**
  * <localize-name> is an element to display an ozone localize-name.
  *
+ * ```html
+ * <localize-name language=en  data="[[localizeName]]"></localize-name>
+ * ```
  */
 @customElement('localized-string')
 export class LocalizedStringDisplay extends Polymer.Element{

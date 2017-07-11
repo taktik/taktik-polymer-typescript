@@ -1,17 +1,9 @@
-/**
- * Created by hubert on 8/06/17.
- */
+/// <amd-module name="ozone-collection"/>
 import {customElement, domElement} from 'decorators';
 import {Item} from 'ozone-type';
 import {OzoneItemAPI, getOzoneItemAPI} from 'ozone-item-api';
 import {SearchGenerator, SearchQuery} from 'ozone-search-helper'
 
-export interface DomElements {
-    ozoneApi:OzoneItemAPI
-    scrollTheshold:{
-        clearTriggers():void
-    }
-}
 /**
  * <ozone-collection> is a generic component to manage collection of item.
  */
@@ -19,7 +11,12 @@ export interface DomElements {
 export class OzoneCollection  extends Polymer.Element{
 
     @domElement()
-    $: DomElements;
+    $: {
+        ozoneApi: OzoneItemAPI
+        scrollTheshold: {
+            clearTriggers(): void
+        }
+    };
 
 
     /**
@@ -27,16 +24,6 @@ export class OzoneCollection  extends Polymer.Element{
      * By default it use default ozone-item-api
      */
     sourceId: string;
-
-    /**
-     * @private
-     */
-    _source: OzoneItemAPI | null;
-
-    /**
-     * @private
-     */
-    get _getSource() {return this._source as OzoneItemAPI};
 
     /**
      * Array of items loaded from the source
@@ -56,19 +43,17 @@ export class OzoneCollection  extends Polymer.Element{
      */
     dataRemain: Boolean;
 
-    /**
-     * @private
-     */
-    _searchIterator: SearchGenerator;
+    private _source: OzoneItemAPI | null;
+
+    private get _getSource() {return this._source as OzoneItemAPI};
+
+    private _searchIterator: SearchGenerator;
 
     static get properties() {
         return {
             sourceId: {
                 type: String,
                 observer: "_updateSource"
-            },
-            _source: {
-                type: Object
             },
             items: {
                 type: Array,
@@ -96,10 +81,9 @@ export class OzoneCollection  extends Polymer.Element{
             this._source = getOzoneItemAPI();
         }
     }
-    /**
-     * @private
-     */
-    _updateSource(sourceId: string){
+
+
+    private _updateSource(sourceId: string){
         if(! (this.parentNode == null)) {
             this._source = this.parentNode.querySelector(`#${this.sourceId}`) as OzoneItemAPI;
         }
@@ -339,14 +323,14 @@ export class OzoneCollection  extends Polymer.Element{
         }
     }
 
-    _removeOne (id:uuid) {
+    private _removeOne (id:uuid) {
         const index = this.getIndexById(id);
         if (index > -1 ){
             this.splice('items', index, 1);
         }
     }
 
-    _verifySource() {
+    private _verifySource() {
         if(!this._source){
             throw new Error('Invalid source')
         }
