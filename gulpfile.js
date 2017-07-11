@@ -86,8 +86,15 @@ gulp.task('serve', function() {
         //       will present a certificate warning in the browser.
         // https: true,
         server: {
-            baseDir: ['.tmp', './'],
-            middleware: [historyApiFallback(), proxy(proxyOptions)]
+            baseDir: ['./'],
+            middleware: [historyApiFallback(), proxy(proxyOptions), function(req,res,next){
+                if (req.url === '/index.html') {
+                    console.log('redirect to demo.html');
+                    req.url = '/demo.html';
+                }
+                return next();
+            }],
+            index: "/demo.html"
         }
     });
 
