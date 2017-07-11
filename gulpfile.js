@@ -42,7 +42,7 @@ gulp.task('ts:watch', function() {
  * build task
  * Generate a bower ready package. in dist directory
  **/
-gulp.task('build:package', function() {
+gulp.task('dist', function() {
     return gulp.src(['./src/**/*'] )
         .pipe(replace(/bower_components/g, '..'))
         .pipe(gulp.dest('./dist'));
@@ -52,13 +52,13 @@ gulp.task('build:package', function() {
  * Clean build directory
  */
 gulp.task('clean', function() {
-    return gulp.src(['./dist'] )
+    return gulp.src(['./build', './dist'] )
         .pipe(clean());
 });
 
 
 
-const ozoneConfig = require('./conf.dev.json').ozoneApi;
+const ozoneConfig = require('./conf.ozone.json').ozoneApi;
 const ozoneServer = ozoneConfig.hostProxy;
 //const ozoneEndpoint = ozoneConfig.endpoint;
 const proxyOptions = url.parse(ozoneServer);
@@ -148,12 +148,18 @@ function throughObjToPromise(obj) {
 require('web-component-tester').gulp.init(gulp);
 
 
+
+gulp.task('build:conf', function() {
+    return gulp.src(['conf.ozone.json'] )
+        .pipe(gulp.dest('./build'));
+});
+
 const PolymerProject = require('polymer-build').PolymerProject;
 const mergeStream = require('merge-stream');
 
 // Create a build pipeline to bundle our application before writing to the 'build/' dir
 
-gulp.task('build', function() {
+gulp.task('build', ['build:conf'],  function() {
     const project = new PolymerProject(require('./polymer.json'));
     mergeStream(project.sources(), project.dependencies())
         .pipe(project.bundler())
