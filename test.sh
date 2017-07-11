@@ -19,3 +19,4 @@ gulp test:browserstack
 
 
 echo 'build frontend'
+gulp build

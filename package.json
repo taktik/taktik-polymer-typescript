@@ -22,6 +22,7 @@
     "gulp-save": "^1.2.1",
     "junit-reporter": "0.0.2",
     "merge2": "^1.1.0",
+    "polymer-build": "^1.6.0",
     "proxy-middleware": "^0.15.0",
     "run-sequence": "^2.0.0",
     "url": "^0.11.0",

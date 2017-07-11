@@ -42,7 +42,7 @@ gulp.task('ts:watch', function() {
  * build task
  * Generate a bower ready package. in dist directory
  **/
-gulp.task('build', function() {
+gulp.task('build:package', function() {
     return gulp.src(['./src/**/*'] )
         .pipe(replace(/bower_components/g, '..'))
         .pipe(gulp.dest('./dist'));
@@ -146,3 +146,17 @@ function throughObjToPromise(obj) {
 // Load tasks for web-component-tester
 // Adds tasks for `gulp test:local` and `gulp test:remote`
 require('web-component-tester').gulp.init(gulp);
+
+
+const PolymerProject = require('polymer-build').PolymerProject;
+const mergeStream = require('merge-stream');
+
+// Create a build pipeline to bundle our application before writing to the 'build/' dir
+
+gulp.task('build', function() {
+    const project = new PolymerProject(require('./polymer.json'));
+    mergeStream(project.sources(), project.dependencies())
+        .pipe(project.bundler())
+        .pipe(gulp.dest('build/'));
+});
+
