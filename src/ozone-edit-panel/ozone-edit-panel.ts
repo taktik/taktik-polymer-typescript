@@ -4,10 +4,6 @@ import {customElement, domElement} from 'decorators';
 import {Item} from 'ozone-type';
 import {OzoneMediaEdit} from 'ozone-media-edit'
 
-export interface DomElements {
-    mediaEditor: OzoneMediaEdit;
-}
-
 /**
  * <ozone-edit-panel> is an element that display an ozone media edit in a panel.
  *
@@ -17,15 +13,17 @@ export interface DomElements {
  *
  * ### Events
  *
- * - -close-tap- fire on click on close button.
- * - -save-tap- fire on click on save button.
+ * * *close-tap* fire on click on close button.
+ * * *save-tap* fire on click on save button.
  *
  */
 @customElement('ozone-edit-panel')
 export class OzoneEditPanel  extends Polymer.Element {
 
     @domElement()
-    $: DomElements;
+    $: {
+        mediaEditor: OzoneMediaEdit;
+    };;
 
     /**
      * Item to edit
@@ -46,11 +44,11 @@ export class OzoneEditPanel  extends Polymer.Element {
         }
     }
 
-    _closePanel() {
+    private _closePanel() {
         this.dispatchEvent(new CustomEvent('close-tap', {bubbles: true}));
     }
 
-    _save(){
+    private _save(){
         const updatedData = this.$.mediaEditor.getUpdatedData();
         this.dispatchEvent(new CustomEvent('save-tap', {bubbles: true, detail: updatedData}));
     }

@@ -10,14 +10,6 @@ import {OzoneMediaEdit} from 'ozone-media-edit'
 import {OzoneCollection} from 'ozone-collection'
 import {OzoneItemPreview} from 'ozone-item-preview'
 
-export interface DomElements {
-    ozoneApi:OzoneItemAPI
-    scrollTheshold:{
-        clearTriggers():void
-    }
-    mosaicCollection: OzoneCollection;
-    ironList: PolymerElement;
-}
 
 /**
  * `TaktikSearchApiBehavior` defines standard behavior for search modules compatible with *taktik-free-text-search*.
@@ -55,17 +47,24 @@ export interface TaktikSearchApiBehavior{
  *
  *  ### Events
  *
- * - -results-found- Fired when results are found by the API.
+ * * *results-found* Fired when results are found by the API.
  *
  * ### Implements
  *
- *  -TaktikSearchApiBehavior-
+ *  *TaktikSearchApiBehavior*
  */
 @customElement('ozone-mosaic')
 export class OzoneMosaic  extends Polymer.Element implements  TaktikSearchApiBehavior{
 
     @domElement()
-    $: DomElements;
+    $: {
+        ozoneApi:OzoneItemAPI
+        scrollTheshold:{
+            clearTriggers():void
+        }
+        mosaicCollection: OzoneCollection;
+        ironList: PolymerElement;
+    };
 
     /**
      * id of the source

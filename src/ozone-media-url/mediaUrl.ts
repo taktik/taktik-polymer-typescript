@@ -30,7 +30,7 @@ export class MediaUrl {
     getNumericId():number{
         return parseInt('0x' + this.id.split('-')[4])
     }
-    _buildBaseUrl(action:Array<string | number>):string{
+    private _buildBaseUrl(action:Array<string | number>):string{
         return `${this.config.host}${this.config.view}/${action.join('/')}`;
     }
 

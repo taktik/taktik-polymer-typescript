@@ -19,7 +19,7 @@ export interface SearchResult {
 
 /**
  * Class helper to create searchQuery.
- * Example:
+ * * Example:
  * ```javaScript
  *   let searchQuery = new SearchQuery();
  *   searchQuery.quicksearch('');
@@ -82,7 +82,7 @@ export class SearchQuery {
 }
 /**
  * Class helper to iterate on search result.
- * Example:
+ * * Example:
  * ```javaScript
  *   let searchQuery = new SearchQuery();
  *   searchQuery.quicksearch('');
@@ -118,11 +118,7 @@ export class SearchGenerator {
         return this._postRequest(this.url, this.searchParam.searchQuery, this._readSearchResponse);
     }
 
-    /**
-     *
-     * @private
-     */
-    _postRequest(url:string, body:string, responseFilter:any): Promise<any> {
+    private _postRequest(url:string, body:string, responseFilter:any): Promise<any> {
         this.ozoneAccess.url = url;
         this.ozoneAccess.method = 'POST';
         this.ozoneAccess.body = body;
@@ -130,11 +126,7 @@ export class SearchGenerator {
             .generateRequest().completes.then(responseFilter.bind(this))
     }
 
-    /**
-     *
-     * @private
-     */
-    _readSearchResponse (res:SearchResponse):SearchResult {
+    private _readSearchResponse (res:SearchResponse):SearchResult {
         this.total = Number(res.response.total);
         this.offset += Number(res.response.size);
         this.done = this.offset < this.total;

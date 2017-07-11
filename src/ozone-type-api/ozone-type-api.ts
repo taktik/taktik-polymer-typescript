@@ -16,11 +16,11 @@ export type TypeDescriptorCollection = Map<string, Promise<TypeDescriptor>>
  * By default it create a instance of OzoneTypeAPI in the dom.
  * You can retrieve the default ItemApi with *getOzoneTypeAPI*
  *
- * Example:
+ *  * Example in html
  * ```html
  * <ozone-type-api id="ozoneTypeApi" ></ozone-type-api>
  * ```
- *  * Example
+ *  * Example in javaScript
  * ```javaScript
  * const ozoneTypeAPI = getOzoneTypeAPI(); // return instance of OzoneTypeAPI located in the dom
  * ```
@@ -152,7 +152,7 @@ export class OzoneTypeAPI  extends OzoneApiAjaxMixin(Polymer.Element){
      */
     async getType(collection: string): Promise<TypeDescriptor | undefined>{
         const cache = await(this.setType(collection));
-        return  cache.get(collection);
+        return cache.get(collection);
     }
 
     /**

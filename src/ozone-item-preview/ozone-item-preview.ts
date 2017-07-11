@@ -17,9 +17,9 @@ import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item
  * <ozone-item-preview itemData=[[item]]></ozone-item-preview>
  * ```
  *
- *  * ### Events
+ * ### Events
  *
- * - -edit-item- fire on click on close button.
+ * * *edit-item* fire on click on close button.
  *
  */
 @customElement('ozone-item-preview')
@@ -66,7 +66,7 @@ export class OzoneItemPreview  extends OzoneItemAbstractView(Polymer.Element){
         }
         return placeholder;
     }
-    _editItem(e: Event){
+    private _editItem(e: Event){
         this.dispatchEvent(new CustomEvent('edit-item',
             {bubbles: true, composed: true, detail:this.itemData}));
     }
@@ -88,7 +88,7 @@ export class OzoneItemPreview  extends OzoneItemAbstractView(Polymer.Element){
         }
     }
 
-    _togglePanel(){
+    private _togglePanel(){
         this.$.actionsPanel.classList.toggle("open");
     }
 

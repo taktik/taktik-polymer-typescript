@@ -54,9 +54,9 @@ export interface XMLHttpRequestLike {
  *  uploader.send(formData);
  * ```
  *
- * Events
- * -ozone-upload-completed-: *CustomEvent*
- * Fired when upload is complete with detail: {mediaId: uuid}
+ * ### Events
+ * * *ozone-upload-completed*: *CustomEvent*
+ *    Fired when upload is complete with detail: {mediaId: uuid}
 *
 */
 @jsElement()

@@ -12,11 +12,6 @@ import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item
 import {OzoneEditEntryBehavior} from 'ozone-edit-entry'
 import {FieldsPermission} from 'ozone-type-api'
 
-export interface DomElements {
-    editableList: Element,
-    player: Element,
-}
-
 export interface EditableFields{
     fieldType: string,
     name: string,
@@ -32,7 +27,10 @@ export interface EditableFields{
 @customElement('ozone-media-edit')
 export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
 
-    $: DomElements;
+    $: {
+        editableList: Element,
+        player: Element,
+    };
 
     static editEntryClass = 'editEntry';
 
@@ -115,7 +113,6 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
             const editableItem = document.createElement(editableItemName) as (OzoneEditEntryBehavior);
             editableItem.className = OzoneMediaEdit.editEntryClass;
             editableItem.id = identifier;
-            editableItem.identifier = identifier;
             editableItem.type = fieldType;
             editableItem.value = data[identifier];
             editableItem.language = 'en';
@@ -164,7 +161,7 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
      * get the item with it's modifies fields.
      * @return {Item}
      */
-    getUpdatedData(){
+    getUpdatedData():Item{
         const entryList = this.getEntryList();
         const updatedItem: Item = {
             type: this.itemData.type,
@@ -173,7 +170,7 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
         for (let index = 0; index < entryList.length; index ++){
             let entry = entryList.item(index) as OzoneEditEntryBehavior;
             if(entry.isModify) {
-                updatedItem[entry.identifier] = entry.value;
+                updatedItem[entry.id] = entry.value;
             }
         }
         return updatedItem

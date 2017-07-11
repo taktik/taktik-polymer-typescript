@@ -8,9 +8,6 @@ import {customElement, domElement} from 'decorators'
 import {Item} from 'ozone-type'
 import {SearchGenerator, SearchQuery} from 'ozone-search-helper'
 
-export interface DomElements {
-    ozoneAccess:IronAjax,
-}
 export interface BulkResponse {
     response:Array<Item>;
 }
@@ -25,20 +22,29 @@ export interface ItemResponse {
  *
  * By default a `ozone-item-api` will be add in the root document
  * and can loaded form javaScript using *getOzoneItemAPI*
- * Example in Html
+ *
+ * * Example in Html
  * ```html
  * <ozone-api-search id="myAPI" collection="item"></ozone-api-search>
  * ```
- * Example
+ * * Example
  * ```javaScript
  * const ozoneApiSearch = getOzoneItemAPI(); // return instance of OzoneItemAPI located in the dom
  * ```
+ *
+ * ### Events
+ *
+ * *configured* Fired when element is configured.
+ *  This event will be fired if the config change.
+ *
  */
 @customElement('ozone-item-api')
 export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
 
     @domElement()
-    $: DomElements;
+    $: {
+        ozoneAccess:IronAjax,
+    };
 
 
     /**
@@ -65,17 +71,10 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
     }
 
     /**
-     * Fired when element is configured.
-     * This event will be fired if the config change.
-     *
-     * @event configured
-     */
-
-    /**
      * observer on collection
      * @private
      */
-    _collectionChange(collection: string, endpoints: any): void{
+    private _collectionChange(collection: string, endpoints: any): void{
 
         if(collection && endpoints.value && this.config){
             this.computeServiceUrl(endpoints.value[collection]);
@@ -169,25 +168,13 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
         return new SearchGenerator(url, search, this.$.ozoneAccess);
     }
 
-    /**
-     *
-     * @private
-     */
-    _readItemResponse = (res:ItemResponse) => res.response;
+    private _readItemResponse = (res:ItemResponse) => res.response;
 
-    /**
-     *
-     * @private
-     */
-    _readBulkItemResponse =  (res:BulkResponse):Array<Item> => {
+    private _readBulkItemResponse =  (res:BulkResponse):Array<Item> => {
         return res.response;
     };
 
-    /**
-     *
-     * @private
-     */
-    _postRequest(url:string, body:any, responseFilter:any): Promise<any> {
+    private _postRequest(url:string, body:any, responseFilter:any): Promise<any> {
         this.$.ozoneAccess.url = url;
         this.$.ozoneAccess.method = 'POST';
         this.$.ozoneAccess.body = JSON.stringify(body);
@@ -195,33 +182,21 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
             .generateRequest().completes.then(responseFilter.bind(this))
     }
 
-    /**
-     *
-     * @private
-     */
-    _getRequest(url:string): Promise<any> {
+    private _getRequest(url:string): Promise<any> {
         this.$.ozoneAccess.url = url;
         this.$.ozoneAccess.method = 'GET';
         return this.$.ozoneAccess
             .generateRequest().completes.then((res:any) => res.response)
     }
 
-    /**
-     *
-     * @private
-     */
-    _deleteRequest(url:string): Promise<any> {
+    private _deleteRequest(url:string): Promise<any> {
         this.$.ozoneAccess.url = url;
         this.$.ozoneAccess.method = 'DELETE';
         return this.$.ozoneAccess
             .generateRequest().completes.then((res:any) => res.response)
     }
 
-    /**
-     *
-     * @private
-     */
-    _buildUrl(action:string):string{
+    private _buildUrl(action:string):string{
         return `${this.serviceUrl}/${action}`;
     }
 

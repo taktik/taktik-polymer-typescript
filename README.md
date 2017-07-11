@@ -1,6 +1,8 @@
-# \<ozone-components\>
+# ozone-components
 
-# usage
+# Demo
+
+See demo application [demo](demo.html)
 
 
 

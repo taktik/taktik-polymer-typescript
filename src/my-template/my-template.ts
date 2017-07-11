@@ -7,9 +7,6 @@
 
 import {customElement} from 'decorators'
 
-export interface DomElements {
-   // Declare id: type of you dom elements
-}
 
 /**
  * <my-template> is a template module start an ozone polymer module.
@@ -21,7 +18,9 @@ export interface DomElements {
 @customElement('my-template')
 export class MyTemplate extends Polymer.Element {
 
-    $: DomElements;
+    $: {
+        // Declare id: type of you dom elements
+    };
 
     /**
      * Attribute declaration

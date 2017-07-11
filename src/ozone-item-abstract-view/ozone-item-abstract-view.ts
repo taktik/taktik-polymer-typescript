@@ -87,9 +87,6 @@ export  const OzoneItemAbstractView: OzoneItemAbstractViewMixinType  = Polymer.d
 
         static get properties() {
             return {
-                /**
-                 * item data
-                 */
                 itemData: {
                     type: Object,
                     notify: true,
