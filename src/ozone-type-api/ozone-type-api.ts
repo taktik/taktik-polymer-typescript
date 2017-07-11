@@ -7,7 +7,7 @@ import {customElement, domElement, jsElement} from 'decorators'
 import {TypeDescriptor, FieldDescriptor, Grants} from 'ozone-type'
 import GrantsEnum = Grants.GrantsEnum;
 
-export type TypeDescriptorCollection = Map<string, TypeDescriptor>
+export type TypeDescriptorCollection = Map<string, Promise<TypeDescriptor>>
 
 /**
  * `ozone-type-api` is low level polymer module to ozone type.
@@ -58,7 +58,7 @@ export class OzoneTypeAPI  extends OzoneApiAjaxMixin(Polymer.Element){
             },
             typeCached:{
                 type: Object,
-                value: ():TypeDescriptorCollection =>{return new Map<string, TypeDescriptor>()}
+                value: ():TypeDescriptorCollection =>{return new Map<string, Promise<TypeDescriptor>>()}
             }
         }
     }
@@ -136,14 +136,12 @@ export class OzoneTypeAPI  extends OzoneApiAjaxMixin(Polymer.Element){
      * @param collection
      * @return {Promise<TypeDescriptorCollection>} promise resolve with collection of typeDescription cached.
      */
-    setType(collection: string):Promise<TypeDescriptorCollection>{
+    async setType(collection: string): Promise<TypeDescriptorCollection>{
         if(this.typeCached.has(collection)){
-            return Promise.resolve(this.typeCached);
+            return this.typeCached;
         } else {
-            return this.loadType(collection)
-                .then((typeDescrition)=>{
-                    return this.typeCached.set(collection, typeDescrition);
-                })
+            return this.typeCached.set(collection,
+                    this.loadType(collection));
         }
     }
 
@@ -152,15 +150,9 @@ export class OzoneTypeAPI  extends OzoneApiAjaxMixin(Polymer.Element){
      * @param collection
      * @return {TypeDescriptor}
      */
-    getType(collection: string):Promise<TypeDescriptor|undefined>{
-        if(this.typeCached.has(collection)){
-            return Promise.resolve(this.typeCached.get(collection));
-        } else {
-            return this.setType(collection)
-                .then((typeCollection)=>{
-                    return typeCollection.get(collection);
-                })
-        }
+    async getType(collection: string): Promise<TypeDescriptor | undefined>{
+        const cache = await(this.setType(collection));
+        return  cache.get(collection);
     }
 
     /**

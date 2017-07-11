@@ -106,10 +106,8 @@
                         element.set('language', 'en');
                         element.set('name', {strings: {en: 'a Name'}});
                         element.set('type', 'string');
-                        debugger
                         element.set('value', 0);
                         flush(()=>{
-                            debugger
                             element.inputElement.set('value', '99')
                             done()
                         })

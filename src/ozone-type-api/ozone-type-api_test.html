@@ -173,11 +173,12 @@
                         it('should resolve with cached value if exist', (done)=>{
 
                             element.typeCached.set('an_Other', {value: 'any'});
-                            element.setType = sinon.stub().returns(Promise.resolve());
+                            element.setType = sinon.stub().returns(Promise.resolve(element.typeCached));
+                            element.loadType = sinon.stub().returns(Promise.resolve());
 
                             element.getType('an_Other').then((result)=>{
                                 expect(result).to.deep.equal({value: 'any'});
-                                assert.isFalse(element.setType.called, 'loadType should not has been called');
+                                assert.isFalse(element.loadType.called, 'loadType should not has been called');
                                 done();
                             });
                         });
