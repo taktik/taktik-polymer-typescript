@@ -1,0 +1,56 @@
+
+<script>
+  /**
+   * `TaktikSearchApiBehavior` defines standard behavior for search modules compatible with *taktik-free-text-search*.
+   *
+   * @polymerMixin
+   */
+
+  TaktikSearchApiMixin = Polymer.dedupingMixin(function(superClass) {
+    return class TaktikSearchApiMixin extends superClass {
+
+      static get properties() {
+        return {
+          /**
+           * searchString string for search query.
+           */
+          searchString: {
+            type: String
+          },
+          /**
+           * Array of search results
+           */
+          searchResults:{
+            type: Array,
+            notify: true,
+            observer: '_resultsFound',
+            readOnly: true
+
+          },
+          /**
+           * If true, automatically performs an Ajax request when either *searchString*, *itemType* or *size* changes.
+           */
+          auto:{
+            type: Boolean,
+            value: false
+          }
+        };
+      }
+
+      /**
+       * Fired when results are found by the API.
+       *
+       * @event results-found
+       */
+      _resultsFound (results){
+        this.dispatchEvent(new CustomEvent('results-found',
+          {
+            bubbles: true,
+            composed: true,
+            detail: results
+          }));
+      }
+
+    };
+  });
+</script>

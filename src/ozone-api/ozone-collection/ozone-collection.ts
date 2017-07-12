@@ -4,6 +4,7 @@ import {Item} from 'ozone-type';
 import {OzoneItemAPI, getOzoneItemAPI} from 'ozone-api/ozone-item-api/ozone-item-api';
 import {SearchGenerator, SearchQuery} from 'ozone-helper/ozone-search-helper/ozone-search-helper'
 
+export type uuid = string;
 /**
  * <ozone-collection> is a generic component to manage collection of item.
  */

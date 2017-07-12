@@ -1,0 +1,114 @@
+<link rel="import" href="../ozone-config/ozone-config.html">
+
+<script>
+
+  function ozoneConfigGenerator() {
+      let ozoneConfig;
+
+      return () => {
+        if (!document.querySelector('#ozoneConfig')) {
+            ozoneConfig = document.createElement('ozone-config');
+          ozoneConfig.id = 'ozoneConfig';
+            document.body.appendChild(ozoneConfig);
+          }
+        return document.querySelector('#ozoneConfig')
+      }
+  }
+  let getOzoneConfig = ozoneConfigGenerator();
+
+  /**
+   * `OzoneApiBehavior` defines standard behavior for Ozone API.
+   *
+   * *OzoneApiBehavior* come in two flavors.
+   *  - *OzoneApiAjaxBehavior* : for elements using iron-ajax
+   *  - *OzoneApiFormBehavior* : for elements using iron-form
+   *
+   * @polymerMixin
+   */
+  OzoneApiMixin = Polymer.dedupingMixin(function(superClass) {
+      return class OzoneApiMixin extends superClass {
+
+          static get properties() {
+              return {
+                  /**
+                   * Ozone Config property
+                   */
+                  config: {
+                      type: Object,
+                      readOnly: true
+                  },
+
+                  /**
+                   * Service URL to be used by each ozone-api instance.
+                   * Its value is automatically set by computeServiceUrl method.
+                   */
+                  serviceUrl: {
+                      type: String,
+                      readOnly: true
+                  }
+              };
+          }
+
+          /**
+           * Fired when connection to ozone succeeds.
+           *
+           * @event ozone-request-success
+           */
+
+          /**
+           * Fired when connection to ozone fails.
+           * Event detail contains status and statusText.
+           *
+           * @event ozone-request-error
+           */
+
+          /**
+           * Component ready method.
+           * Instance of Ozone api should not implement ready function.
+           * They should implement apiBehaviorReady called ones the api-behavior is ready.
+           *
+           */
+          ready() {
+              super.ready();
+              this._getConfig();
+          }
+
+          /**
+           * Compute url of each service.
+           * This method is foreseen to be called in the observers
+           * Example:
+           *       `observers: ['computeServiceUrl(config.endPoints.login)'],`
+           * @param ozoneEndPoint (String) Api end point as define in the config file.
+           */
+          computeServiceUrl(ozoneEndPoint) {
+              this._setServiceUrl(this.config.host + ozoneEndPoint);
+          }
+
+        /**
+         *
+         * @private
+         */
+          _getConfig() {
+            getOzoneConfig().configPromise.then((config) => {
+              this._setConfig(config);
+            });
+          }
+
+          _ozoneResponse(event) {
+              this.dispatchEvent(new CustomEvent('ozone-request-success',
+                {bubbles: true, composed: true, detail: event.detail}));
+          }
+
+          _ozoneError(response) {
+              // Notify everyone
+              this.dispatchEvent(new CustomEvent('ozone-request-error', {
+                  bubbles: true, composed: true,
+                  detail: {
+                      status: response.detail.request.status,
+                      statusText: response.detail.request.statusText
+                  }
+              }));
+          }
+      }
+  });
+</script>

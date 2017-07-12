@@ -3,6 +3,12 @@
  */
 
 declare type uuid = string;
+
+/**
+ * Extended OzoneApiMixin for ajax kind of query.
+ *
+ * @polymerMixin OzoneApiAjaxMixin
+ */
 declare function OzoneApiAjaxMixin(element: any):OzoneApiAjaxMixinConstructor
 
 declare interface ConfigType {
@@ -21,6 +27,18 @@ declare interface OzoneApiAjaxMixinConstructor {
     new(): OzoneApiAjaxMixinType;
 }
 declare function getOzoneConfig(): {configPromise: Promise<ConfigType>};
+
+/**
+ *
+ * @polymerMixin OzoneApiAjaxMixin
+ * ### Events
+ *
+ * * *ozone-request-success* Fired when connection to ozone succeeds.
+ *
+ * * *ozone-request-error* Fired when connection to ozone fails.
+ * Event detail contains status and statusText.
+ *
+ */
 declare class OzoneApiAjaxMixinType extends PolymerElement{
 
     /**
@@ -42,38 +60,5 @@ declare class OzoneApiAjaxMixinType extends PolymerElement{
      * @param ozoneEndPoint (String) Api end point as define in the config file.
      */
     computeServiceUrl(ozoneEndPoint: string): void;
-
-    /**
-     * Fired when connection to ozone succeeds.
-     *
-     * @event ozone-request-success
-     */
-
-    /**
-     * Fired when connection to ozone fails.
-     * Event detail contains status and statusText.
-     *
-     * @event ozone-request-error
-     */
-
-}
-
-
-declare function TaktikSearchApiMixin(element: any):TaktikSearchApiMixinConstructor
-
-declare interface TaktikSearchApiMixinConstructor {
-    new(): TaktikSearchApiMixinType;
-}
-declare interface TaktikSearchApiMixinType extends PolymerElement{
-    searchString: string;
-
-    searchResults:string;
-
-    _setSearchResults():void
-
-    auto:string;
-
-    _resultsFound():void
-
 
 }

@@ -1,0 +1,108 @@
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>ozone-api-logout</title>
+
+  <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../../bower_components/web-component-tester/browser.js"></script>
+  <script src="../../../bower_components/iron-test-helpers/mock-interactions.js"></script>
+
+  <!-- Step 1: import the element to test -->
+  <link rel="import" href="../ozone-config/fake-ozone-config.html">
+  <link rel="import" href="ozone-api-logout.html">
+
+
+</head>
+<body>
+<fake-ozone-config id="ozoneConfig"></fake-ozone-config>
+<test-fixture id="basic">
+  <template>
+    <ozone-api-logout id="moduleUnderTest"></ozone-api-logout>
+  </template>
+</test-fixture>
+
+<script>
+  addEventListener('WebComponentsReady', function() {
+    describe('ozone-api-logout tests', function () {
+
+      let element,
+        afterFunctions = [],
+        server,
+        responseHeaders = {json: {'Content-Type': 'application/json'}};
+
+
+      beforeEach((done) => {
+        element = fixture('basic');
+        server = sinon.fakeServer.create();
+        flush(done); //make sure every components are ready
+
+      });
+      afterEach(() => {
+        server.restore();
+
+        afterFunctions.map((cleanup) => {
+          cleanup()
+        });
+        afterFunctions = [];
+
+      });
+
+      it('should send logout query on ozoneDisconnect call', (done) => {
+
+        // -- Prepare expect function
+        let expectToBeCall = (request) => {
+          expect(request.method.toLowerCase()).to.be.equal('get');
+          expect(request.url).to.be.equal('/ozone/rest/v3/authentication/logout');
+          done();
+        };
+        // -- Configure mock server
+        server.respondWith(expectToBeCall);
+
+        // -- start test
+        element.ozoneDisconnect();
+        server.respond(); //Flush server
+      });
+
+      it('should fire ozone-logout on disconnection succeed', (done) => {
+
+        let eventToWatch = 'ozone-logout';
+        element.isConnected = true;
+
+        // -- Prepare expect function
+        let expectToBeCall = () => {
+          done();
+        };
+
+        // -- Configure Listener
+        afterFunctions.push(() => {
+          if (element.removeEventListener) {
+            element.removeEventListener(eventToWatch, expectToBeCall);
+          }
+        });
+        element.addEventListener(eventToWatch, expectToBeCall);
+
+        // -- Configure mock server
+        server.respondWith(
+          'GET',
+          "/ozone/rest/v3/authentication/logout",
+          [
+            200,
+            responseHeaders.json,
+            '{"message": ""}'
+          ]
+        );
+
+        // -- start test
+        element.ozoneDisconnect();
+        server.respond(); //Flush server
+      });
+
+
+    });
+  });
+</script>
+
+</body>
+</html>

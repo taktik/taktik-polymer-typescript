@@ -7,6 +7,7 @@
 import {customElement, domElement} from 'decorators'
 import {Item} from 'ozone-type'
 import {SearchGenerator, SearchQuery} from 'ozone-helper/ozone-search-helper/ozone-search-helper';
+
 export interface BulkResponse {
     response:Array<Item>;
 }

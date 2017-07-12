@@ -1,0 +1,18 @@
+<link rel="import" href="ozone-api-mixin.html">
+
+<script>
+  /**
+   * `OzoneApiFormBehavior` extend `OzoneApiBehavior` for API using iron-form,
+   *
+   * @polymerBehavior OzoneApiFormBehavior
+   */
+  OzoneApiFormMixin = Polymer.dedupingMixin(function(superClass) {
+      return class OzoneApiFormMixin extends OzoneApiMixin(superClass) {
+            ready (){
+              super.ready();
+              this.$.ozoneAccess.addEventListener('iron-form-response', (e) => this._ozoneResponse(e));
+              this.$.ozoneAccess.addEventListener('iron-form-error', (e) => this._ozoneError(e));
+          }
+      };
+  });
+</script>

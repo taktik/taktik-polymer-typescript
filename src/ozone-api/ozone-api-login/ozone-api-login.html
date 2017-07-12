@@ -1,0 +1,127 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../ozone-api/behaviors/ozone-api-ajax-mixin.html">
+
+<!--
+
+
+`ozone-api-login` is a Login facility for Ozone.
+
+Example:
+
+```html
+<ozone-api-login></ozone-api-login>
+```
+
+
+-->
+<dom-module id="ozone-api-login">
+  <template>
+
+    <iron-ajax
+      id="ozoneAccess"
+      url="[[serviceUrl]]"
+      method="POST"
+      content-type="application/json; charset=utf-8"
+      withCredentials>
+    </iron-ajax>
+  </template>
+  <script>
+    class OzoneApiLogin extends OzoneApiAjaxMixin(Polymer.Element) {
+      static get is () { return 'ozone-api-login'; }
+
+      static get properties() {
+        return {
+          /**
+           * Username to use for login.
+           */
+          username: {
+            type: String,
+            value: undefined,
+            notify: true
+          },
+          /**
+           * Password to use for login.
+           */
+          password: {
+            type: String,
+            value: undefined,
+            notify: false
+          },
+          /**
+           * Error message display to explain why the connection fail.
+           *
+           */
+          displayedMessage: {
+            type: String,
+            value: undefined,
+            readOnly: true,
+            notify: true
+          }
+        };
+      }
+
+      static get observers() {
+        return ['computeServiceUrl(config.endPoints.login)'];
+      }
+
+      /**
+       * Fired when login to ozone succeeds.
+       *
+       * @event ozone-login
+       */
+
+      /**
+       *
+       */
+      ready (){
+        super.ready();
+        this.addEventListener("ozone-request-success", (e) => this._handle_response(e));
+        this.addEventListener("ozone-request-error", (e) => this._handle_error(e));
+      }
+
+      /**
+       * Submit the from with parameters filled in
+       */
+      ozoneConnect () {
+        this.$.ozoneAccess.body = JSON.stringify({
+          username: this.username,
+          password: this.password,
+        });
+        this.$.ozoneAccess.generateRequest();
+      }
+
+      /**
+       * Reset element
+       */
+      reset () {
+        this.set('username', undefined);
+        this.set('password', undefined);
+        this._setDisplayedMessage(undefined);
+      }
+
+      _handle_response() {
+        this._setDisplayedMessage(undefined);
+        this.dispatchEvent(new CustomEvent('ozone-login', {
+          bubbles: true, composed: true,
+        }));
+      }
+
+      _handle_error(response) {
+         // Reset state
+        this.set('password', undefined);
+
+        // Set message to display
+        if (response.detail.status == 403) {
+          this._setDisplayedMessage('Invalid login or password');
+        }
+        else {
+          this._setDisplayedMessage('Connection error');
+        }
+      }
+
+    }
+    window.customElements.define(OzoneApiLogin.is, OzoneApiLogin);
+  </script>
+</dom-module>
