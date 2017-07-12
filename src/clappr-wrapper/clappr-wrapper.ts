@@ -1,6 +1,5 @@
 /// <amd-module name="clappr-wrapper"/>
 
-debugger
 declare var Clappr: ClapprType | undefined ;
 export var ClapprWrapper: ClapprType | undefined = Clappr;
 

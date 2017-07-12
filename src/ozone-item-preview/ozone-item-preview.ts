@@ -30,14 +30,28 @@ export class OzoneItemPreview  extends OzoneItemAbstractView(Polymer.Element){
      */
     previewImage: string;
 
+    /**
+     * the element appear select when set at true
+     */
+    selected: boolean;
+
     static defaultImagePath = ""
+
     static get properties() {
         return {
             previewImage: {
-                type: String
+                type: String,
+            },
+            selected: {
+                type: Boolean,
             },
         }
     }
+
+    static get observers(){
+        return ['_selectionChange(selected)'];
+    }
+
     placeholder(itemData:Item):string {
         let placeholder: string = "";
         switch(itemData.type) {
@@ -69,10 +83,12 @@ export class OzoneItemPreview  extends OzoneItemAbstractView(Polymer.Element){
     private _editItem(e: Event){
         this.dispatchEvent(new CustomEvent('edit-item',
             {bubbles: true, composed: true, detail:this.itemData}));
+
+        e.preventDefault();
+        e.stopPropagation();
     }
 
     dataChange(data:Item){
-        this.removeFocus();
         if(this.ozoneTypeApi) {
             this.ozoneTypeApi.ifIsTypeInstanceOf(data.type, 'media').then((isTypeInstanceOf) => {
                 if(isTypeInstanceOf) {
@@ -88,12 +104,20 @@ export class OzoneItemPreview  extends OzoneItemAbstractView(Polymer.Element){
         }
     }
 
-    private _togglePanel(){
-        this.$.actionsPanel.classList.toggle("open");
+    private _setFocus(){
+        this.$.actionsPanel.classList.add("open");
     }
 
-    removeFocus(){
+    private _removeFocus(){
         this.$.actionsPanel.classList.remove('open');
+    }
+
+    private _selectionChange(selected: boolean){
+        if(selected){
+            this._setFocus();
+        } else {
+            this._removeFocus();
+        }
     }
 
 }
