@@ -17,7 +17,7 @@
     "vaadin-upload": "v2.0.0-beta1",
     "clappr": "^0.2.67",
     "ozone-type": "https://bitbucket.taktik.be/scm/sandbox/ozone-type.git",
-    "ozone-connection": "https://bitbucket.taktik.be/scm/poly/polymer-ozone.git#develop"
+    "ozone-connection": "https://bitbucket.taktik.be/scm/poly/polymer-ozone.git#v2.0.9"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",

@@ -1,7 +1,14 @@
 /// <amd-module name="taktik-helper/clappr-wrapper/clappr-wrapper"/>
 
 declare var Clappr: ClapprType | undefined ;
-export var ClapprWrapper: ClapprType | undefined = Clappr;
+var clapperCopy: ClapprType | undefined;
+try {
+    clapperCopy = Clappr;
+} catch (err) {
+    clapperCopy = undefined;
+}
+
+export var ClapprWrapper: ClapprType | undefined = clapperCopy;
 
 export interface ClapprType {
     Player: {new(param:ClapprParam): ClapprPlayer}

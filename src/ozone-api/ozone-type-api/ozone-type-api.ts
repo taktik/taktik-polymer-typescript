@@ -257,4 +257,3 @@ function OzoneTypeAPIGenerator(){
  * @type {()=>OzoneItemAPI}
  */
 export const getOzoneTypeAPI = OzoneTypeAPIGenerator();
-getOzoneTypeAPI();
