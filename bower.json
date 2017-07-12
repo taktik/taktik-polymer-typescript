@@ -16,7 +16,13 @@
     "iron-image": "^2.1.1",
     "vaadin-upload": "v2.0.0-beta1",
     "clappr": "^0.2.67",
-    "ozone-type": "https://bitbucket.taktik.be/scm/sandbox/ozone-type.git"
+    "ozone-type": "https://bitbucket.taktik.be/scm/sandbox/ozone-type.git",
+    "paper-input": "^2.0.1",
+    "paper-item": "^2.0.0",
+    "paper-listbox": "^2.0.0",
+    "iron-icons": "^2.0.1",
+    "iron-collapse": "^2.0.0",
+    "iron-form": "^2.0.0"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",

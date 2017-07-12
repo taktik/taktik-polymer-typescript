@@ -13,7 +13,6 @@ bower install --allow-root
 gulp clean
 
 gulp ts
-gulp ts
 
 echo "Run unit test"
 gulp test:browserstack
