@@ -11,6 +11,7 @@ var ALL_BROWSERS =
         },
         {
             maxInstances: 1,
+            version:54,
             browserName: 'firefox',
             os: 'OS X',
             os_version: 'Sierra',

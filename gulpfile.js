@@ -15,6 +15,7 @@ const flatten = require('gulp-flatten');
 const runSequence = require('run-sequence');
 
 /**
+ * gulp ts
  * compile project's typeScript code
  */
 gulp.task('ts', function(){
@@ -32,15 +33,16 @@ gulp.task('ts', function(){
 });
 
 /**
- *  Rerun ts task when a ts file changes
+ * gulp ts:watch
+ * Rerun ts task when a ts file changes
  */
 gulp.task('ts:watch', function() {
     gulp.watch(['src/**/*.ts','!src/**/*.d.ts'], ['ts']);
 });
 
 /**
- * build task
- * Generate a bower ready package. in dist directory
+ * gulp dist
+ * Generate a bower ready package in dist directory
  **/
 gulp.task('dist', function() {
     return gulp.src(['./src/**/*'] )
@@ -49,6 +51,7 @@ gulp.task('dist', function() {
 });
 
 /**
+ * gulp clean
  * Clean build directory
  */
 gulp.task('clean', function() {
@@ -65,6 +68,13 @@ const proxyOptions = url.parse(ozoneServer);
 proxyOptions.route = ozoneConfig.host;
 proxyOptions.cookieRewrite = true;
 // Watch files for changes & reload
+
+/**
+ * gulp serve
+ * Run demo application localy
+ * with a proxy to ozone api
+ *
+ */
 gulp.task('serve', function() {
 
     console.log(proxyOptions);
@@ -103,9 +113,11 @@ gulp.task('serve', function() {
 });
 
 
-
-// Runs WCT on BrowserStack. Requires two environment variables:
-// BROWSERSTACK_KEY and BROWSERSTACK_USER.
+/**
+ * gulp test:browserstack
+ * Runs WCT on BrowserStack. Requires two environment variables:
+ * BROWSERSTACK_KEY and BROWSERSTACK_USER.
+ */
 gulp.task('test:browserstack', function(cb) {
     var user = process.env.BROWSERSTACK_USER;
     var key = process.env.BROWSERSTACK_KEY;
@@ -122,6 +134,7 @@ gulp.task('test:browserstack', function(cb) {
         'stoptunnel',
         cb);
 });
+
 
 var browserStack = require('gulp-browserstack');
 // Starts BrowserStack tunnel
@@ -149,13 +162,19 @@ function throughObjToPromise(obj) {
     return p;
 }
 
-
-// Load tasks for web-component-tester
-// Adds tasks for `gulp test:local` and `gulp test:remote`
+/**
+ * gulp test
+ * Alias for wct
+ * Load tasks for web-component-tester
+ * Adds tasks for `gulp test:local` and `gulp test:remote`
+ */
 require('web-component-tester').gulp.init(gulp);
 
 
-
+/**
+ * gulp build:conf
+ * copy config file in build directory
+ */
 gulp.task('build:conf', function() {
     return gulp.src(['conf.ozone.json'] )
         .pipe(gulp.dest('./build'));
@@ -164,8 +183,10 @@ gulp.task('build:conf', function() {
 const PolymerProject = require('polymer-build').PolymerProject;
 const mergeStream = require('merge-stream');
 
-// Create a build pipeline to bundle our application before writing to the 'build/' dir
-
+/**
+ * gulp build
+ * vulcanize application to build directory.
+ */
 gulp.task('build', ['build:conf'],  function() {
     const project = new PolymerProject(require('./polymer.json'));
     mergeStream(project.sources(), project.dependencies())
