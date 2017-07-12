@@ -12,6 +12,8 @@ import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item
 import {OzoneEditEntryBehavior} from 'ozone-edit-entry'
 import {FieldsPermission} from 'ozone-type-api'
 
+import {ClapprWrapper, ClapprType, ClapprPlayer} from 'clappr-wrapper'
+
 export interface EditableFields{
     fieldType: string,
     name: string,
@@ -21,7 +23,9 @@ export interface EditableFields{
  * <ozone-media-edit> is an element that provide material design to edit an media Item.
  *
  * ```html
- * <ozone-media-edit item-data={{item}}>  </ozone-media-edit>
+ *  <link rel="import" href="../ozone-media-edit/ozone-media-edit.html">
+ *      ...
+ *  <ozone-media-edit item-data={{item}}>  </ozone-media-edit>
  * ```
  */
 @customElement('ozone-media-edit')
@@ -37,7 +41,7 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
     /**
      * Clappr player element
      */
-    player: any;
+    player: ClapprPlayer | undefined;
 
     /**
      * hide element and pose the player.
@@ -191,16 +195,14 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
     }
 
     async loadVideo(data?: Item){
-        if(this.ozoneTypeApi && data && Clappr) {
+        if(this.ozoneTypeApi && data && ClapprWrapper) {
             if (await ( this.ozoneTypeApi.ifIsTypeInstanceOf(data.type, 'video'))) {
                 const mediaUrl = new MediaUrl(data.id as string, this.ozoneTypeApi.config);
                 const url = mediaUrl.getVideoUrl();
 
-                this.player = new Clappr.Player({
+                this.player = new (ClapprWrapper as ClapprType).Player({
                     source: url,
-                    poster: this.previewImage,
-                    height: 360,
-                    width: 640});
+                    poster: this.previewImage,});
 
                 var playerElement = document.createElement('div');
                 this.$.player.appendChild(playerElement);
