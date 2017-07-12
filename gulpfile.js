@@ -25,9 +25,9 @@ gulp.task('ts', function(){
 
     return merge([ // Merge the two output streams, so this task is finished when the IO of both operations is done.
         tsResult.dts
-            .pipe(flatten())
             .pipe(gulp.dest('src')),
-        tsResult.js.pipe(gulp.dest('src'))
+        tsResult.js
+            .pipe(gulp.dest('src'))
     ]);
 });
 

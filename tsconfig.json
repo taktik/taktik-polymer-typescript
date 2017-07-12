@@ -25,6 +25,21 @@
     "paths": {
       "ozone-type": [
         "./bower_components/ozone-type/ozone/include"
+        ],
+      "ozone-api": [
+        "./src/ozone-api"
+        ],
+      "ozone-material": [
+        "./src/ozone-material"
+        ],
+      "ozone-helper": [
+        "./src/ozone-helper"
+        ],
+      "taktik-material": [
+        "./src/taktik-material"
+        ],
+      "taktik-helper": [
+        "./src/taktik-helper"
         ]
       }
     },
