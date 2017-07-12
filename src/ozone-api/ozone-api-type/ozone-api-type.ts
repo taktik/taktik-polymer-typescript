@@ -1,4 +1,4 @@
-/// <amd-module name="ozone-api/ozone-type-api/ozone-type-api"/>
+/// <amd-module name="ozone-api/ozone-api-type/ozone-api-type"/>
 /**
  * Created by hubert on 19/06/17.
  */
@@ -10,23 +10,23 @@ import GrantsEnum = Grants.GrantsEnum;
 export type TypeDescriptorCollection = Map<string, Promise<TypeDescriptor>>
 
 /**
- * `ozone-type-api` is low level polymer module to ozone type.
+ * `ozone-api-type` is low level polymer module to ozone type.
  * It provide read operation on collection type.
  *
- * By default it create a instance of OzoneTypeAPI in the dom.
- * You can retrieve the default ItemApi with *getOzoneTypeAPI*
+ * By default it create a instance of OzoneApiType in the dom.
+ * You can retrieve the default ItemApi with *getOzoneApiType*
  *
  *  * Example in html
  * ```html
- * <ozone-type-api id="ozoneTypeApi" ></ozone-type-api>
+ * <ozone-api-type id="ozoneTypeApi" ></ozone-api-type>
  * ```
  *  * Example in javaScript
  * ```javaScript
- * const ozoneTypeAPI = getOzoneTypeAPI(); // return instance of OzoneTypeAPI located in the dom
+ * const ozoneTypeAPI = getOzoneApiType(); // return instance of OzoneApiType located in the dom
  * ```
  */
-@customElement('ozone-type-api')
-export class OzoneTypeAPI  extends OzoneApiAjaxMixin(Polymer.Element){
+@customElement('ozone-api-type')
+export class OzoneApiType  extends OzoneApiAjaxMixin(Polymer.Element){
 
     /**
      * collection type.
@@ -239,21 +239,21 @@ export class FieldsPermission{
     }
 }
 
-function OzoneTypeAPIGenerator(){
+function OzoneApiTypeGenerator(){
     let ozoneTypeAPI;
 
-    return (): OzoneTypeAPI => {
+    return (): OzoneApiType => {
         if (!document.querySelector('#ozoneTypeAPI')) {
-            ozoneTypeAPI = document.createElement('ozone-type-api');
+            ozoneTypeAPI = document.createElement('ozone-api-type');
             ozoneTypeAPI.id = 'ozoneTypeAPI';
             document.body.appendChild(ozoneTypeAPI);
         }
-        return (document.querySelector('#ozoneTypeAPI')) as OzoneTypeAPI
+        return (document.querySelector('#ozoneTypeAPI')) as OzoneApiType
     }
 }
 
 /**
- * return OzoneTypeAPI singleton
- * @type {()=>OzoneItemAPI}
+ * return OzoneApiType singleton
+ * @type {()=>OzoneApiItem}
  */
-export const getOzoneTypeAPI = OzoneTypeAPIGenerator();
+export const getOzoneApiType = OzoneApiTypeGenerator();

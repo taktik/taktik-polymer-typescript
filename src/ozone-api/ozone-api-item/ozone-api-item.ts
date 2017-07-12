@@ -1,4 +1,4 @@
-/// <amd-module name="ozone-api/ozone-item-api/ozone-item-api"/>
+/// <amd-module name="ozone-api/ozone-api-item/ozone-api-item"/>
 
 /**
  * Created by hubert on 8/06/17.
@@ -17,11 +17,11 @@ export interface ItemResponse {
 }
 
 /**
- * `ozone-item-api` is low level polymer module to ozone api.
+ * `ozone-api-item` is low level polymer module to ozone api.
  * It provide CRUD operation and search in a given collection.
  *
- * By default a `ozone-item-api` will be add in the root document
- * and can loaded form javaScript using *getOzoneItemAPI*
+ * By default a `ozone-api-item` will be add in the root document
+ * and can loaded form javaScript using *getOzoneApiItem*
  *
  * * Example in Html
  * ```html
@@ -29,7 +29,7 @@ export interface ItemResponse {
  * ```
  * * Example
  * ```javaScript
- * const ozoneApiSearch = getOzoneItemAPI(); // return instance of OzoneItemAPI located in the dom
+ * const ozoneApiSearch = getOzoneApiItem(); // return instance of OzoneApiItem located in the dom
  * ```
  *
  * ### Events
@@ -38,8 +38,8 @@ export interface ItemResponse {
  *  This event will be fired if the config change.
  *
  */
-@customElement('ozone-item-api')
-export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
+@customElement('ozone-api-item')
+export class OzoneApiItem  extends OzoneApiAjaxMixin(Polymer.Element){
 
     @domElement()
     $: {
@@ -204,20 +204,20 @@ export class OzoneItemAPI  extends OzoneApiAjaxMixin(Polymer.Element){
 
 }
 
-function OzoneItemAPIGenerator() {
+function OzoneApiItemGenerator() {
     let ozoneItemAPI;
 
-    return ():OzoneItemAPI => {
+    return ():OzoneApiItem => {
         if (!document.querySelector('#ozoneItemAPI')) {
-            ozoneItemAPI = document.createElement('ozone-item-api');
+            ozoneItemAPI = document.createElement('ozone-api-item');
             ozoneItemAPI.id = 'ozoneItemAPI';
             document.body.appendChild(ozoneItemAPI);
         }
-        return document.querySelector('#ozoneItemAPI') as OzoneItemAPI;
+        return document.querySelector('#ozoneItemAPI') as OzoneApiItem;
     }
 }
 /**
- * return OzoneItemAPI singleton
- * @type {()=>OzoneItemAPI}
+ * return OzoneApiItem singleton
+ * @type {()=>OzoneApiItem}
  */
-export const getOzoneItemAPI = OzoneItemAPIGenerator();
+export const getOzoneApiItem = OzoneApiItemGenerator();

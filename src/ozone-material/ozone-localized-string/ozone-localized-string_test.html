@@ -11,20 +11,20 @@
     <link rel="import" href="../../../bower_components/polymer/polymer.html">
 
     <!-- Step 1: import the element to test -->
-    <link rel="import" href="localized-string.html">
+    <link rel="import" href="ozone-localized-string.html">
 
 
 </head>
 <body>
 <test-fixture id="basic">
     <template>
-        <localized-string id="localizeName" default-language="en"> does not work </localized-string>
+        <ozone-localized-string id="localizeName" default-language="en"> does not work </ozone-localized-string>
     </template>
 </test-fixture>
 
 
 <script>
-    describe('localized-string', function () {
+    describe('ozone-localized-string', function () {
         addEventListener('WebComponentsReady', function () {
             let element,
                 languageSelection;
@@ -72,7 +72,7 @@
                 it('should contain data according language selection', (done) =>{
                     element.set('data', {strings:{fr:'bonjour', en: 'hello'}});
                     flush(()=>{
-                        expect(element.root.querySelector('.localized-string').textContent).to.equal('hello');
+                        expect(element.root.querySelector('.ozone-localized-string').textContent).to.equal('hello');
                         done();
                     });
                 });
@@ -82,7 +82,7 @@
                     element.set('language', 'fr');
 
                     flush(()=>{
-                        expect(element.root.querySelector('.localized-string').textContent).to.equal('bonjour');
+                        expect(element.root.querySelector('.ozone-localized-string').textContent).to.equal('bonjour');
                         done();
                     });
                 });

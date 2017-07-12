@@ -2,13 +2,13 @@
     <link rel="import" href="../../decorators.html">
     <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
     <link rel="import" href="../../../bower_components/iron-ajax/iron-ajax.html">
-    <link rel="import" href="../../ozone-api/behaviors/ozone-api-ajax-mixin.html">
+    <link rel="import" href="../ozone-api-behaviors/ozone-api-ajax-mixin.html">
 </head>
 <body>
 <!--
 
 
-`ozone-item-api` is low level ozone api module.
+`ozone-api-item` is low level ozone api module.
 It provide CRUD operation and search in a given collection.
 
 Example:
@@ -19,12 +19,12 @@ Example:
 
 @demo
 -->
-    <dom-module id="ozone-type-api">
+    <dom-module id="ozone-api-type">
     <template>
         <iron-ajax id="ozoneAccess"
                    content-type="application/json"
         ></iron-ajax>
     </template>
-    <script src="ozone-type-api.js"></script>
+    <script src="ozone-api-type.js"></script>
     </dom-module>
 </body>

@@ -1,7 +1,7 @@
-/// <amd-module name="ozone-api/ozone-collection/ozone-collection"/>
+/// <amd-module name="ozone-helper/ozone-collection/ozone-collection"/>
 import {customElement, domElement} from 'decorators';
 import {Item} from 'ozone-type';
-import {OzoneItemAPI, getOzoneItemAPI} from 'ozone-api/ozone-item-api/ozone-item-api';
+import {OzoneApiItem, getOzoneApiItem} from 'ozone-api/ozone-api-item/ozone-api-item';
 import {SearchGenerator, SearchQuery} from 'ozone-helper/ozone-search-helper/ozone-search-helper'
 
 export type uuid = string;
@@ -13,7 +13,7 @@ export class OzoneCollection  extends Polymer.Element{
 
     @domElement()
     $: {
-        ozoneApi: OzoneItemAPI
+        ozoneApi: OzoneApiItem
         scrollTheshold: {
             clearTriggers(): void
         }
@@ -21,8 +21,8 @@ export class OzoneCollection  extends Polymer.Element{
 
 
     /**
-     * id of the OzoneItemAPI element to be use as source
-     * By default it use default ozone-item-api
+     * id of the OzoneApiItem element to be use as source
+     * By default it use default ozone-api-item
      */
     sourceId: string;
 
@@ -44,9 +44,9 @@ export class OzoneCollection  extends Polymer.Element{
      */
     dataRemain: Boolean;
 
-    private _source: OzoneItemAPI | null;
+    private _source: OzoneApiItem | null;
 
-    private get _getSource() {return this._source as OzoneItemAPI};
+    private get _getSource() {return this._source as OzoneApiItem};
 
     private _searchIterator: SearchGenerator;
 
@@ -79,14 +79,14 @@ export class OzoneCollection  extends Polymer.Element{
     ready(){
         super.ready();
         if(! this._source) {
-            this._source = getOzoneItemAPI();
+            this._source = getOzoneApiItem();
         }
     }
 
 
     private _updateSource(sourceId: string){
         if(! (this.parentNode == null)) {
-            this._source = this.parentNode.querySelector(`#${this.sourceId}`) as OzoneItemAPI;
+            this._source = this.parentNode.querySelector(`#${this.sourceId}`) as OzoneApiItem;
         }
     }
 

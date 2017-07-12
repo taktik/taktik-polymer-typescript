@@ -1,4 +1,4 @@
-/// <amd-module name="ozone-material/localized-string/localized-string"/>
+/// <amd-module name="ozone-material/ozone-localized-string/ozone-localized-string"/>
 import {customElement} from 'decorators'
 import {LocalizedString} from "ozone-type";
 
@@ -9,7 +9,7 @@ import {LocalizedString} from "ozone-type";
  * <localize-name language=en  data="[[localizeName]]"></localize-name>
  * ```
  */
-@customElement('localized-string')
+@customElement('ozone-localized-string')
 export class LocalizedStringDisplay extends Polymer.Element{
 
     /**

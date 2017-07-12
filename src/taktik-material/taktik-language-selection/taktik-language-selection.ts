@@ -1,12 +1,12 @@
-/// <amd-module name="taktik-helper/language-selection/language-selection"/>
+/// <amd-module name="taktik-helper/taktik-language-selection/taktik-language-selection"/>
 
 
 import {customElement} from 'decorators'
 /**
- * <language-selection> is a simple language selection module.
+ * <taktik-language-selection> is a simple language selection module.
  *
  * ```html
- * <language-selection current-language="{{language}}" ></language-selection>
+ * <taktik-language-selection current-language="{{language}}" ></taktik-language-selection>
  * ```
  *
  * ### Events
@@ -17,8 +17,8 @@ import {customElement} from 'decorators'
  */
 
 
-@customElement('language-selection')
-export class LanguageSelection extends Polymer.Element{
+@customElement('taktik-language-selection')
+export class TaktikLanguageSelection extends Polymer.Element{
 
     /**
      * currentLanguage

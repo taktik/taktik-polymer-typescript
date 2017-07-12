@@ -5,7 +5,7 @@
 
 import {customElement} from 'decorators'
 import {Item} from 'ozone-type'
-import {OzoneTypeAPI, getOzoneTypeAPI} from 'ozone-api/ozone-type-api/ozone-type-api'
+import {OzoneApiType, getOzoneApiType} from 'ozone-api/ozone-api-type/ozone-api-type'
 import {MediaUrl, SizeEnum, OzonePreviewSize} from 'ozone-helper/ozone-media-url/mediaUrl'
 
 export interface rawField{
@@ -23,10 +23,10 @@ export declare interface OzoneItemAbstractViewInterface extends PolymerElement {
 
     /**
      * reference to ozoneTypeApi to use to introspect fields types
-     * By default it use getOzoneTypeAPI() to get the API
+     * By default it use getOzoneApiType() to get the API
      * Use this field if you don't need the default TypeApi
      */
-    ozoneTypeApi: OzoneTypeAPI;
+    ozoneTypeApi: OzoneApiType;
 
     /**
      * url of the image preview
@@ -74,10 +74,10 @@ export  const OzoneItemAbstractView: OzoneItemAbstractViewMixinType  = Polymer.d
 
         /**
          * reference to ozoneTypeApi to use to introspect fields types
-         * By default it use getOzoneTypeAPI() to get the API
+         * By default it use getOzoneApiType() to get the API
          * Use this field if you don't need the default TypeApi
          */
-        ozoneTypeApi: OzoneTypeAPI;
+        ozoneTypeApi: OzoneApiType;
 
         /**
          * url of the image preview
@@ -108,7 +108,7 @@ export  const OzoneItemAbstractView: OzoneItemAbstractViewMixinType  = Polymer.d
 
 
         connectedCallback() {
-            this.ozoneTypeApi = getOzoneTypeAPI();
+            this.ozoneTypeApi = getOzoneApiType();
             super.connectedCallback();
         }
 

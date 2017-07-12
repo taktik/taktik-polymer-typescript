@@ -9,23 +9,23 @@
     <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../../../bower_components/web-component-tester/browser.js"></script>
     <link rel="import" href="../../../bower_components/polymer/polymer.html">
-    <link rel="import" href="../ozone-item-api/fake-ozone-config.html">
+    <link rel="import" href="../ozone-api-item/fake-ozone-config.html">
 
 
-    <link rel="import" href="ozone-type-api.html">
+    <link rel="import" href="ozone-api-type.html">
 </head>
 <body>
 <fake-ozone-config id="ozoneConfig"></fake-ozone-config>
 <test-fixture id="basic">
     <template>
-        <ozone-type-api collection="a_Collection"></ozone-type-api>
+        <ozone-api-type collection="a_Collection"></ozone-api-type>
     </template>
 </test-fixture>
 
 
 <script>
     addEventListener('WebComponentsReady', function() {
-        describe('ozone-type-api tests', function () {
+        describe('ozone-api-type tests', function () {
             describe('default collection', function () {
 
                 let element,

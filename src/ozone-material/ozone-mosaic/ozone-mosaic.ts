@@ -5,8 +5,8 @@
 /// <amd-module name="ozone-material/ozone-mosaic/ozone-mosaic"/>
 import {customElement, domElement} from 'decorators';
 import {Item} from 'ozone-type';
-import {OzoneItemAPI} from 'ozone-api/ozone-item-api/ozone-item-api';
-import {OzoneCollection} from 'ozone-api/ozone-collection/ozone-collection';
+import {OzoneApiItem} from 'ozone-api/ozone-api-item/ozone-api-item';
+import {OzoneCollection} from 'ozone-helper/ozone-collection/ozone-collection';
 
 
 /**
@@ -56,7 +56,7 @@ export class OzoneMosaic  extends Polymer.Element implements  TaktikSearchApiBeh
 
     @domElement()
     $: {
-        ozoneApi:OzoneItemAPI
+        ozoneApi:OzoneApiItem
         scrollTheshold:{
             clearTriggers():void
         }

@@ -10,9 +10,9 @@ import {Item, FieldDescriptor} from 'ozone-type'
 import {MediaUrl, OzonePreviewSize} from 'ozone-helper/ozone-media-url/mediaUrl'
 import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-material/ozone-item-abstract-view/ozone-item-abstract-view'
 import {OzoneEditEntryBehavior} from 'ozone-material/ozone-edit-entry/ozone-edit-entry'
-import {FieldsPermission} from 'ozone-api/ozone-type-api/ozone-type-api'
+import {FieldsPermission} from 'ozone-api/ozone-api-type/ozone-api-type'
 
-import {ClapprWrapper, ClapprType, ClapprPlayer} from 'taktik-helper/clappr-wrapper/clappr-wrapper'
+import {ClapprWrapper, ClapprType, ClapprPlayer} from 'taktik-helper/taktik-clappr-wrapper/taktik-clappr-wrapper'
 
 export interface EditableFields{
     fieldType: string,
