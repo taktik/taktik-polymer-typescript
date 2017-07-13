@@ -1,0 +1,69 @@
+<link rel="import" href="../../../../polymer/polymer.html">
+
+<link rel="import" href="../../../../iron-ajax/iron-ajax.html">
+<link rel="import" href="../ozone-api-behaviors/ozone-api-ajax-mixin.html">
+
+<!--
+
+
+`ozone-api-logout` is a Logout facility for Ozone.
+
+Example:
+
+```html
+<ozone-api-logout></ozone-api-logout>
+```
+
+
+### Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--ozone-api-logout-button` | css mixin for logout button | `{}`
+
+
+-->
+<dom-module id="ozone-api-logout">
+  <template>
+    <iron-ajax id="ozoneAccess"
+               url="[[serviceUrl]]"
+    ></iron-ajax>
+  </template>
+  <script>
+    class OzoneApiLogout extends OzoneApiAjaxMixin(Polymer.Element) {
+      static get is () { return 'ozone-api-logout';}
+
+      static get observers() {
+        return ['computeServiceUrl(config.endPoints.logout)'];
+      }
+        /**
+         * Submit ozone logout query
+         */
+        ozoneDisconnect () {
+          this.$.ozoneAccess.generateRequest();
+        }
+
+      /**
+       * Fired when logout to ozone succeeds.
+       *
+       * @event ozone-logout
+       */
+
+      /**
+       *
+       */
+      ready (){
+        super.ready();
+        this.addEventListener("ozone-request-success", (e) => this._handle_response(e));
+      }
+      _handle_response() {
+        this.dispatchEvent(new CustomEvent('ozone-logout', {
+          bubbles: true, composed: true,
+        }));
+      }
+    }
+    window.customElements.define(OzoneApiLogout.is, OzoneApiLogout);
+  </script>
+</dom-module>

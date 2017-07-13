@@ -1,0 +1,140 @@
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>ozone-api-login</title>
+
+  <script src="../../../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../../../web-component-tester/browser.js"></script>
+
+  <!-- Step 1: import the element to test -->
+  <link rel="import" href="../ozone-config/fake-ozone-config.html">
+  <link rel="import" href="ozone-api-authentication.html">
+
+
+</head>
+<body>
+<fake-ozone-config id="ozoneConfig"></fake-ozone-config>
+<test-fixture id="basic">
+  <template>
+    <ozone-api-authentication id="moduleUnderTest"></ozone-api-authentication>
+  </template>
+</test-fixture>
+
+<script>
+  addEventListener('WebComponentsReady', function() {
+    describe('ozone-api-authentication', function () {
+
+      //replace('ozone-config').with('fake-ozone-config');
+
+      let element,
+        afterFunctions = [],
+        server,
+        responseHeaders = {json: {'Content-Type': 'application/json'}};
+
+      beforeEach((done) => {
+        element = fixture('basic');
+        server = sinon.fakeServer.create();
+        flush(done); //make sure every components are ready
+      });
+
+      afterEach(() => {
+        server.restore();
+
+        afterFunctions.map((cleanup) => {
+          cleanup()
+        });
+        afterFunctions = [];
+      });
+      describe('checkConnectionStatus', function () {
+      it('should set connectionStatus to connected when server response with 200', (done) => {
+        // -- Configure mock server
+        server.respondWith(
+          'GET',
+          "/ozone/rest/v3/authentication/current/session",
+          [
+            200,
+            responseHeaders.json,
+            '{"sessionId": "a_session_ID"}'
+          ]
+        );
+
+        // -- start test
+        element.checkConnectionStatus();
+        server.respond(); //Flush server
+        flush(() => {
+            expect(element.connectionStatus).to.be.equal('connected');
+            done()
+        })
+      });
+
+
+        it("should set connectionStatus to 'disconnected' when server response with a 403", (done) => {
+          element._setConnectionStatus('connected');
+
+          // -- Configure mock server
+          server.respondWith(
+            'GET',
+            "/ozone/rest/v3/authentication/current/session",
+            [
+              403,
+              responseHeaders.json,
+              '{"message": "not authorized"}'
+            ]
+          );
+
+          // -- start test
+          element.checkConnectionStatus();
+          server.respond(); //Flush server
+          flush(() => {
+            expect(element.connectionStatus).to.be.equal('disconnected');
+            done()
+          })
+        });
+
+      it("should set connectionStatus to 'server error' when server response with an error code", (done) => {
+        element._setConnectionStatus('connected');
+
+        // -- Configure mock server
+        server.respondWith(
+          'GET',
+          "/ozone/rest/v3/authentication/current/session",
+          [
+            404,
+            responseHeaders.json,
+            '{"message": "server error"}'
+          ]
+        );
+
+        // -- start test
+        element.checkConnectionStatus();
+        server.respond(); //Flush server
+        flush(() => {
+          expect(element.connectionStatus).to.be.equal('server error');
+            done()
+        })
+      });
+      it("should set connectionStatus to 'offline' when server does not response after 500ms", (done) => {
+        // -- start test
+        element._setConnectionStatus('init status');
+
+        element.checkConnectionStatus();
+        element._catchTimeOut(); // workaround to simulate a XMLHttpRequest timeout
+        // TODO replace by sinon fakeServerWithClock
+        // example http://stackoverflow.com/questions/16560475/how-do-i-mock-a-timeout-or-failure-response-using-sinon-qunit
+
+        flush(() => {
+          expect(element.connectionStatus).to.be.equal('offline');
+            done()
+        });
+      });
+
+        it("should refresh periodical");
+    });
+    });
+  });
+</script>
+
+</body>
+</html>

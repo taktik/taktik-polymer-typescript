@@ -1,0 +1,179 @@
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>ozone-api-logout</title>
+
+  <script src="../../../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../../../web-component-tester/browser.js"></script>
+  <script src="../../../../iron-test-helpers/mock-interactions.js"></script>
+
+  <link rel="import" href="../../../../polymer/polymer.html">
+  <link rel="import" href="../../../../iron-form/iron-form.html">
+  <link rel="import" href="../../../../paper-input/paper-input.html">
+
+  <!-- Step 1: import the element to test -->
+  <link rel="import" href="../ozone-config/fake-ozone-config.html">
+  <link rel="import" href="../ozone-config/ozone-config.html">
+  <link rel="import" href="ozone-api-form-mixin.html">
+
+
+</head>
+<body>
+<fake-ozone-config id="ozoneConfig"></fake-ozone-config>
+<dom-module id="test-ozone-api-form">
+  <template>
+    <iron-form
+      id="ozoneAccess">
+      <form
+        enctype="application/json"
+        action="[[serviceUrl]]"
+        method="post"
+        hidden>
+        <paper-input id="username" label="Username" name="username" value="{{username}}"></paper-input>
+        <input type="submit" hidden>
+      </form>
+    </iron-form>
+  </template>
+</dom-module>
+<test-fixture id="basic">
+  <template>
+    <test-ozone-api-form></test-ozone-api-form>
+  </template>
+</test-fixture>
+
+<script>
+  addEventListener('WebComponentsReady', function() {
+      class TestOzoneApiForm extends OzoneApiFormMixin(Polymer.Element) {
+          static get is () { return 'test-ozone-api-form'; }
+
+          static get observers() {
+              return ['computeServiceUrl(config.endPoints.login)'];
+          }
+
+          request () {
+              this.$.ozoneAccess.submit();
+          }
+      }
+      window.customElements.define(TestOzoneApiForm.is, TestOzoneApiForm);
+    describe('test-ozone-api-form', function () {
+      //replace('ozone-config').with('fake-ozone-config');
+
+      let element,
+        afterFunctions = [],
+        server,
+        responseHeaders = {json: '{"Content-Type":"application/json"}'};
+
+
+      beforeEach((done) => {
+        element = fixture('basic');
+        server = sinon.fakeServer.create();
+        flush(done);
+      });
+
+
+      afterEach(() => {
+        server.restore();
+        afterFunctions.map((cleanup) => {
+          cleanup()
+        });
+        afterFunctions = [];
+
+      });
+
+      it('should fire ozone-request-success server 200', (done) => {
+
+        let eventToWatch = 'ozone-request-success';
+
+        // -- Prepare expect function
+        let expectToBeCall = (e) => {
+          done();
+        };
+
+        // -- Configure Listener
+        afterFunctions.push(() => {
+          if (element.removeEventListener) {
+            element.removeEventListener(eventToWatch, expectToBeCall);
+          }
+        });
+        element.addEventListener(eventToWatch, expectToBeCall);
+
+        // -- Configure mock server
+        //  server.respondWith(/.*ozone.*/ , '{"message": "it works"}');
+        server.respondWith(
+            'POST',
+            "/ozone/rest/v3/authentication/login",
+          [
+            200,
+            responseHeaders.json,
+            '{"message": "it works"}'
+          ]
+        );
+
+        // -- start test
+        // element.request();
+        // server.respond(); //Flush server
+          // Wait one tick for observeNodes.
+          Polymer.Base.async(function() {
+              element.request();
+              server.respond();//Flush server
+          }, 2);
+      });
+
+      it('should fire ozone-request-error on server error', (done) => {
+
+        let eventToWatch = 'ozone-request-error';
+
+        // -- Prepare expect function
+        let expectToBeCall = (event) => {
+          expect(event.detail).to.deep.equal({
+
+            status: 500,
+            statusText: "Internal Server Error"
+          });
+          done()
+        };
+
+        // -- Configure Listener
+        afterFunctions.push(() => {
+          if (element.removeEventListener) {
+            element.removeEventListener(eventToWatch, expectToBeCall);
+          }
+        });
+        element.addEventListener(eventToWatch, expectToBeCall);
+
+        // -- Configure mock server
+        server.respondWith(
+          'POST',
+          "/ozone/rest/v3/authentication/login",
+          [
+            500,
+            responseHeaders.json,
+            '{"message": "server error"}'
+          ]
+        );
+
+        // -- start test
+        element.request();
+        server.respond(); //Flush server
+      });
+
+      it('it should set serviceUrl on config change', (done) => {
+        expect(element.serviceUrl).to.be.equal("/ozone/rest/v3/authentication/login");
+
+        element.set('config.endPoints.login', '/an/other/url');
+        flush(() => {
+          expect(element.serviceUrl).to.be.equal("/ozone/an/other/url");
+          done();
+        });
+
+
+      });
+
+    });
+  });
+</script>
+
+</body>
+</html>
