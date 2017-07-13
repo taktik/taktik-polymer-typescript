@@ -3,16 +3,16 @@
  */
 
 
-/// <amd-module name="ozone-material/ozone-media-edit/ozone-media-edit"/>
+/// <amd-module name="ozone-media-edit"/>
 
 import {customElement} from 'decorators'
 import {Item, FieldDescriptor} from 'ozone-type'
-import {MediaUrl, OzonePreviewSize} from 'ozone-helper/ozone-media-url/mediaUrl'
-import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-material/ozone-item-abstract-view/ozone-item-abstract-view'
-import {OzoneEditEntryBehavior} from 'ozone-material/ozone-edit-entry/ozone-edit-entry'
-import {FieldsPermission} from 'ozone-api/ozone-api-type/ozone-api-type'
+import {MediaUrl, OzonePreviewSize} from 'ozone-media-url'
+import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item-abstract-view/ozone-item-abstract-view'
+import {OzoneEditEntryBehavior} from 'ozone-edit-entry/ozone-edit-entry'
+import {FieldsPermission} from 'ozone-api-type'
 
-import {ClapprWrapper, ClapprType, ClapprPlayer} from 'taktik-helper/taktik-clappr-wrapper/taktik-clappr-wrapper'
+import {ClapprWrapper, ClapprType, ClapprPlayer} from 'taktik-clappr-wrapper'
 
 export interface EditableFields{
     fieldType: string,

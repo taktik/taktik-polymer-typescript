@@ -1,7 +1,7 @@
-/// <amd-module name="ozone-material/ozone-edit-number-entry/ozone-edit-number-entry"/>
+/// <amd-module name="ozone-edit-number-entry"/>
 
 import {customElement} from 'decorators'
-import {OzoneEditEntry, OzoneEditEntryMixin, OzoneEditEntryConstructor} from 'ozone-material/ozone-edit-entry/ozone-edit-entry'
+import {OzoneEditEntry, OzoneEditEntryMixin, OzoneEditEntryConstructor} from 'ozone-edit-entry'
 
 
 /**

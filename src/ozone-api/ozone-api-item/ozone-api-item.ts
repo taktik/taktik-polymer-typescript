@@ -1,4 +1,4 @@
-/// <amd-module name="ozone-api/ozone-api-item/ozone-api-item"/>
+/// <amd-module name="ozone-api-item"/>
 
 /**
  * Created by hubert on 8/06/17.
@@ -6,7 +6,7 @@
 
 import {customElement, domElement} from 'decorators'
 import {Item} from 'ozone-type'
-import {SearchGenerator, SearchQuery} from 'ozone-helper/ozone-search-helper/ozone-search-helper';
+import {SearchGenerator, SearchQuery} from 'ozone-search-helper';
 
 export interface BulkResponse {
     response:Array<Item>;

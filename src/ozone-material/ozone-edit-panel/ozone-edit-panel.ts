@@ -1,8 +1,8 @@
-/// <amd-module name="ozone-material/ozone-edit-panel/ozone-edit-panel"/>
+/// <amd-module name="ozone-edit-panel"/>
 
 import {customElement, domElement} from 'decorators';
 import {Item} from 'ozone-type';
-import {OzoneMediaEdit} from 'ozone-material/ozone-media-edit/ozone-media-edit'
+import {OzoneMediaEdit} from 'ozone-media-edit'
 
 /**
  * <ozone-edit-panel> is an element that display an ozone media edit in a panel.

@@ -2,11 +2,11 @@
  * Created by hubert on 8/06/17.
  */
 
-/// <amd-module name="ozone-material/ozone-item-preview/ozone-item-preview"/>
+/// <amd-module name="ozone-item-preview"/>
 import {customElement} from 'decorators'
 import {Item, Media} from 'ozone-type';
-import {MediaUrl, OzonePreviewSize} from 'ozone-helper/ozone-media-url/mediaUrl'
-import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-material/ozone-item-abstract-view/ozone-item-abstract-view'
+import {MediaUrl, OzonePreviewSize} from 'ozone-media-url'
+import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item-abstract-view'
 
 
 /**

@@ -1,4 +1,4 @@
-/// <amd-module name="ozone-api/ozone-api-upload/ozone-api-upload"/>
+/// <amd-module name="ozone-api-upload"/>
 
 import {jsElement} from 'decorators'
 import {} from 'ozone-type'

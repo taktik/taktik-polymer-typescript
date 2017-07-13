@@ -26,20 +26,62 @@
       "ozone-type": [
         "./bower_components/ozone-type/ozone/include"
         ],
-      "ozone-api": [
-        "./src/ozone-api"
+      "ozone-api-upload": [
+        "./src/ozone-api/ozone-api-upload/ozone-api-upload"
         ],
-      "ozone-material": [
-        "./src/ozone-material"
+      "ozone-api-item": [
+        "./src/ozone-api/ozone-api-item/ozone-api-item"
         ],
-      "ozone-helper": [
-        "./src/ozone-helper"
+      "ozone-api-type": [
+        "./src/ozone-api/ozone-api-type/ozone-api-type"
         ],
-      "taktik-material": [
-        "./src/taktik-material"
+      "ozone-collection": [
+        "./src/ozone-helper/ozone-collection/ozone-collection"
         ],
-      "taktik-helper": [
-        "./src/taktik-helper"
+      "ozone-media-url": [
+        "./src/ozone-helper/ozone-media-url/ozone-media-url"
+        ],
+      "ozone-search-helper": [
+        "./src/ozone-helper/ozone-search-helper/ozone-search-helper"
+        ],
+      "ozone-edit-entry": [
+        "./src/ozone-material/ozone-edit-entry/ozone-edit-entry"
+      ],
+      "ozone-edit-number-entry": [
+        "./src/ozone-material/ozone-edit-number-entry/ozone-edit-number-entry"
+      ],
+      "ozone-edit-panel": [
+        "./src/ozone-material/ozone-edit-panel/ozone-edit-panel"
+      ],
+      "ozone-edit-set-entry": [
+        "./src/ozone-material/ozone-edit-set-entry/ozone-edit-set-entry"
+      ],
+      "ozone-edit-text-entry": [
+        "./src/ozone-material/ozone-edit-text-entry/ozone-edit-text-entry"
+      ],
+      "ozone-item-abstract-view": [
+        "./src/ozone-material/ozone-item-abstract-view/ozone-item-abstract-view"
+      ],
+      "ozone-item-preview": [
+        "./src/ozone-material/ozone-item-preview/ozone-item-preview"
+      ],
+      "ozone-localized-string": [
+        "./src/ozone-material/ozone-localized-string/ozone-localized-string"
+      ],
+      "ozone-media-edit": [
+        "./src/ozone-material/ozone-media-edit/ozone-media-edit"
+      ],
+      "ozone-mosaic": [
+        "./src/ozone-material/ozone-mosaic/ozone-mosaic"
+      ],
+      "ozone-upload": [
+        "./src/ozone-material/ozone-upload/ozone-upload"
+      ],
+      "taktik-language-selection": [
+        "./src/taktik-material/taktik-language-selection/taktik-language-selection"
+        ],
+      "taktik-clappr-wrapper": [
+        "./src/taktik-helper/taktik-clappr-wrapper/taktik-clappr-wrapper"
         ]
       }
     },

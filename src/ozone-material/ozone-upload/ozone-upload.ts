@@ -3,10 +3,10 @@
  */
 
 
-/// <amd-module name="ozone-material/ozone-upload/ozone-upload"/>
+/// <amd-module name="ozone-upload"/>
 
 import {customElement} from 'decorators'
-import {UploadFileRequest, XMLHttpRequestLike} from 'ozone-api/ozone-api-upload/ozone-api-upload'
+import {UploadFileRequest, XMLHttpRequestLike} from 'ozone-api-upload'
 
 
 export interface vaadinUploadType extends PolymerElement{

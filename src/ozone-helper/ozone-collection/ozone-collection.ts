@@ -1,8 +1,8 @@
-/// <amd-module name="ozone-helper/ozone-collection/ozone-collection"/>
+/// <amd-module name="ozone-collection"/>
 import {customElement, domElement} from 'decorators';
 import {Item} from 'ozone-type';
-import {OzoneApiItem, getOzoneApiItem} from 'ozone-api/ozone-api-item/ozone-api-item';
-import {SearchGenerator, SearchQuery} from 'ozone-helper/ozone-search-helper/ozone-search-helper'
+import {OzoneApiItem, getOzoneApiItem} from 'ozone-api-item';
+import {SearchGenerator, SearchQuery} from 'ozone-search-helper'
 
 export type uuid = string;
 /**

@@ -1,4 +1,4 @@
-/// <amd-module name="ozone-material/ozone-localized-string/ozone-localized-string"/>
+/// <amd-module name="ozone-localized-string"/>
 import {customElement} from 'decorators'
 import {LocalizedString} from "ozone-type";
 

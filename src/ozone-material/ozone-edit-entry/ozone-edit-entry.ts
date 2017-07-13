@@ -1,4 +1,4 @@
-/// <amd-module name="ozone-material/ozone-edit-entry/ozone-edit-entry"/>
+/// <amd-module name="ozone-edit-entry"/>
 
 import {customElement} from 'decorators'
 import {LocalizedString} from 'ozone-type'

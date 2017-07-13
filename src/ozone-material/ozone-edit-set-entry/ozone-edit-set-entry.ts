@@ -3,11 +3,11 @@
  */
 
 
-/// <amd-module name="ozone-material/ozone-edit-set-entry/ozone-edit-set-entry"/>
+/// <amd-module name="ozone-edit-set-entry"/>
 
 import {customElement} from 'decorators'
 import {LocalizedString} from 'ozone-type'
-import {OzoneEditEntry, OzoneEditEntryMixin, OzoneEditEntryConstructor} from 'ozone-material/ozone-edit-entry/ozone-edit-entry'
+import {OzoneEditEntry, OzoneEditEntryMixin, OzoneEditEntryConstructor} from 'ozone-edit-entry'
 /**
  * <ozone-edit-number-entry> is an element to edit ozone items fields as set<string>.
  *

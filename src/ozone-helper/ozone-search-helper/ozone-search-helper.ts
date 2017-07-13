@@ -1,4 +1,4 @@
-/// <amd-module name="ozone-helper/ozone-search-helper/ozone-search-helper"/>
+/// <amd-module name="ozone-search-helper"/>
 
 /**
  * Created by hubert on 8/06/17.

@@ -1,4 +1,4 @@
-/// <amd-module name="taktik-helper/taktik-clappr-wrapper/taktik-clappr-wrapper"/>
+/// <amd-module name="taktik-clappr-wrapper"/>
 
 declare var Clappr: ClapprType | undefined ;
 var clapperCopy: ClapprType | undefined;

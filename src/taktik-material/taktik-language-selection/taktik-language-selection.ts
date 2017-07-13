@@ -1,4 +1,4 @@
-/// <amd-module name="taktik-helper/taktik-language-selection/taktik-language-selection"/>
+/// <amd-module name="taktik-language-selection"/>
 
 
 import {customElement} from 'decorators'

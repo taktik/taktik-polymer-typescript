@@ -1,12 +1,12 @@
 /**
  * Created by hubert on 8/06/17.
  */
-/// <amd-module name="ozone-material/ozone-item-abstract-view/ozone-item-abstract-view"/>
+/// <amd-module name="ozone-item-abstract-view"/>
 
 import {customElement} from 'decorators'
 import {Item} from 'ozone-type'
-import {OzoneApiType, getOzoneApiType} from 'ozone-api/ozone-api-type/ozone-api-type'
-import {MediaUrl, SizeEnum, OzonePreviewSize} from 'ozone-helper/ozone-media-url/mediaUrl'
+import {OzoneApiType, getOzoneApiType} from 'ozone-api-type'
+import {MediaUrl, SizeEnum, OzonePreviewSize} from 'ozone-media-url'
 
 export interface rawField{
     name:string,

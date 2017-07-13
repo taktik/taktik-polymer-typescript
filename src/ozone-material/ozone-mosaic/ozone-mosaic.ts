@@ -2,11 +2,11 @@
  * Created by hubert on 8/06/17.
  */
 
-/// <amd-module name="ozone-material/ozone-mosaic/ozone-mosaic"/>
+/// <amd-module name="ozone-mosaic"/>
 import {customElement, domElement} from 'decorators';
 import {Item} from 'ozone-type';
-import {OzoneApiItem} from 'ozone-api/ozone-api-item/ozone-api-item';
-import {OzoneCollection} from 'ozone-helper/ozone-collection/ozone-collection';
+import {OzoneApiItem} from 'ozone-api-item';
+import {OzoneCollection} from 'ozone-collection';
 
 
 /**
