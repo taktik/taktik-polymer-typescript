@@ -112,6 +112,46 @@ gulp.task('serve', function() {
     gulp.watch(['elements/**/*.js'], reload);
 });
 
+/**
+ * gulp serve:build
+ * Run build demo application localy
+ * with a proxy to ozone api
+ *
+ */
+gulp.task('serve:build', function() {
+
+    console.log(proxyOptions);
+    console.log('proxying requests to', ozoneServer);
+    browserSync({
+        port: 5000,
+        notify: false,
+        logPrefix: 'PSK',
+        snippetOptions: {
+            rule: {
+                match: '<span id="browser-sync-binding"></span>',
+                fn: function(snippet) {
+                    return snippet;
+                }
+            }
+        },
+        // Run as an https by uncommenting 'https: true'
+        // Note: this uses an unsigned certificate which on first access
+        //       will present a certificate warning in the browser.
+        // https: true,
+        server: {
+            baseDir: ['./build'],
+            middleware: [historyApiFallback(), proxy(proxyOptions), function(req,res,next){
+                if (req.url === '/index.html') {
+                    console.log('redirect to demo.html');
+                    req.url = '/demo.html';
+                }
+                return next();
+            }],
+            index: "/demo.html"
+        }
+    });
+});
+
 
 /**
  * gulp test:browserstack
