@@ -1,6 +1,7 @@
 {
   "name": "ozone-components",
-  "main": "index.html",
+  "main": "demo.html",
+  "homepage": "http://dev.flower.could/polymer/",
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
     "reflect-metadata": "^0.1.10",

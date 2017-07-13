@@ -22,7 +22,7 @@ See demo application [demo](demo.html)
 
 Install elements with bower.
 
-`bower install ozone-components`
+`bower install https://bitbucket.taktik.be/scm/poly/ozone-components.git`
 
 ozone-components is a global packager, but each elements will be available for individual install.
 
@@ -67,7 +67,8 @@ In addition to HTML import ozone-components are available in TypeScrip AMD modul
 
 * ozone basic type
 
-Ozone basic type can be found in  `bower install ozone-type` they can be imported as above.
+Ozone basic type can be found in `ozone-type` they can be imported as above.
+`bower install https://bitbucket.taktik.be/scm/sandbox/ozone-type.git`
 
 * AMD module missing
 
