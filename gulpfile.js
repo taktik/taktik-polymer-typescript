@@ -26,9 +26,9 @@ gulp.task('ts', function(){
 
     return merge([ // Merge the two output streams, so this task is finished when the IO of both operations is done.
         tsResult.dts
-            .pipe(gulp.dest('src')),
+            .pipe(gulp.dest('elements')),
         tsResult.js
-            .pipe(gulp.dest('src'))
+            .pipe(gulp.dest('elements'))
     ]);
 });
 
@@ -37,7 +37,7 @@ gulp.task('ts', function(){
  * Rerun ts task when a ts file changes
  */
 gulp.task('ts:watch', function() {
-    gulp.watch(['src/**/*.ts','!src/**/*.d.ts'], ['ts']);
+    gulp.watch(['elements/**/*.ts','!elements/**/*.d.ts'], ['ts']);
 });
 
 /**
@@ -45,7 +45,7 @@ gulp.task('ts:watch', function() {
  * Generate a bower ready package in dist directory
  **/
 gulp.task('dist', function() {
-    return gulp.src(['./src/**/*'] )
+    return gulp.src(['./elements/**/*'] )
         .pipe(replace(/bower_components/g, '..'))
         .pipe(gulp.dest('./dist'));
 });
@@ -108,8 +108,8 @@ gulp.task('serve', function() {
         }
     });
 
-    gulp.watch(['src/**/*.html', '!app/bower_components/**/*.html'], reload);
-    gulp.watch(['src/**/*.js'], reload);
+    gulp.watch(['elements/**/*.html', '!app/bower_components/**/*.html'], reload);
+    gulp.watch(['elements/**/*.js'], reload);
 });
 
 
