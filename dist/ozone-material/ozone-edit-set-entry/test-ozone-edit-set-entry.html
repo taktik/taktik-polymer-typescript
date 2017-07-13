@@ -1,0 +1,145 @@
+<!doctype html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>ozone-suggest</title>
+
+    <script src="../../../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../../../web-component-tester/browser.js"></script>
+    <script src="../../../../iron-test-helpers/mock-interactions.js"></script>
+    <link rel="import" href="../../../../polymer/polymer.html">
+
+    <!-- Step 1: import the element to test -->
+    <link rel="import" href="ozone-edit-set-entry.html">
+
+</head>
+<body>
+<test-fixture id="basic">
+    <template>
+        <ozone-edit-set-entry
+                id="moduleUnderTest"
+        ></ozone-edit-set-entry>
+    </template>
+</test-fixture>
+
+
+
+<script>
+    describe('ozone-edit-set-entry', function () {
+        addEventListener('WebComponentsReady', function () {
+            let element;
+
+            describe('basic edit', function () {
+
+                beforeEach((done) => {
+                    element = fixture('basic');
+                    flush(()=>{done()})
+                });
+
+                it('should expose inputElement of string type',(done)=>{
+
+                    expect(element.inputElement.type).to.equal("text");
+                    expect(element.inputElement.is).to.equal("paper-input");
+                    done();
+
+                });
+
+                describe('inizialization', function () {
+
+                    it('default label is undefined', (done)=>{
+                        assert.isUndefined(element.inputElement.label);
+                        done()
+                    });
+                    it('default value is undefined', (done)=>{
+                        assert.isUndefined(element.inputElement.value);
+                        done()
+                    });
+                    it('default helper text is undefined', (done)=>{
+                        expect(element
+                            .shadowRoot.querySelector('.helper-text').textContent)
+                            .to.equal(' ');
+                        done()
+                    });
+                    it('default is editable', (done)=>{
+                        assert.isFalse(element.inputElement.disabled)
+                        done()
+                    });
+                    it('isModify should be false', (done)=>{
+                        assert.isFalse(element.isModify);
+                        done()
+                    });
+
+                    it('should have language default value set')
+                });
+
+                describe('when set language, name, type and value', function () {
+                    beforeEach((done) => {
+                        element.set('language', 'en');
+                        element.set('name', {strings: {en: 'a Name'}});
+                        element.set('type', 'string');
+                        element.set('value', ['a_list', 'of_items', 'separate', 'by_a_coma']);
+                        flush(()=>{done()})
+                    });
+                    it('label should be "a Name"', (done)=>{
+                        expect(element.inputElement.label).to.equal('a Name');
+                        done()
+                    });
+                    it('value should be "default value"', (done)=>{
+                        expect(element.inputElement.value).to.equal('a_list, of_items, separate, by_a_coma');
+                        done()
+                    });
+                    it('helper text should be "string"', (done)=>{
+                        expect(element
+                            .shadowRoot.querySelector('.helper-text').textContent)
+                            .to.equal('string');
+                        done()
+                    });
+                    it('isModify should be false', (done)=>{
+                        assert.isFalse(element.isModify);
+                        done()
+                    });
+                });
+
+                describe('on input value', function () {
+                    beforeEach((done) => {
+                        element.set('language', 'en');
+                        element.set('name', {strings: {en: 'a Name'}});
+                        element.set('type', 'string');
+                        element.set('value', ['a_list', 'of_items', 'separate', 'by_a_coma']);
+                        flush(()=>{
+                            element.inputElement.set('value', 'a_new, list_of, items');
+                            done()
+                        })
+                    });
+                    it('value should be "new value"', (done)=>{
+                        expect(element.value).to.deep.equal(['a_new', 'list_of', 'items']);
+                        done()
+                    });
+                    it('isModify should be true', (done)=>{
+                        assert.isTrue(element.isModify);
+                        done()
+                    });
+                });
+
+                describe('disabled', function () {
+
+                    beforeEach((done) => {
+                        element.set('disabled', true);
+                        flush(()=>{
+                            done()
+                        });
+                    });
+                    it('should disable the paper input', (done)=>{
+                        assert.isTrue(element.inputElement.disabled)
+                        done()
+                    });
+                })
+
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
