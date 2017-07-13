@@ -12,7 +12,7 @@ import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item
 import {OzoneEditEntryBehavior} from 'ozone-edit-entry/ozone-edit-entry'
 import {FieldsPermission} from 'ozone-api-type'
 
-import {ClapprWrapper, ClapprType, ClapprPlayer} from 'taktik-clappr-wrapper'
+import {getPlayer, ClapprType, ClapprPlayer} from 'taktik-clappr-wrapper'
 
 export interface EditableFields{
     fieldType: string,
@@ -195,6 +195,7 @@ export class OzoneMediaEdit  extends OzoneItemAbstractView(Polymer.Element)  {
     }
 
     async loadVideo(data?: Item){
+        const ClapprWrapper = getPlayer();
         if(this.ozoneTypeApi && data && ClapprWrapper) {
             if (await ( this.ozoneTypeApi.ifIsTypeInstanceOf(data.type, 'video'))) {
                 const mediaUrl = new MediaUrl(data.id as string, this.ozoneTypeApi.config);

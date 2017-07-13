@@ -1,14 +1,23 @@
 /// <amd-module name="taktik-clappr-wrapper"/>
 
 declare var Clappr: ClapprType | undefined ;
-var clapperCopy: ClapprType | undefined;
-try {
-    clapperCopy = Clappr;
-} catch (err) {
-    clapperCopy = undefined;
-}
 
-export var ClapprWrapper: ClapprType | undefined = clapperCopy;
+/**
+ * return Clapper player
+ * @return {ClapprType|any}
+ */
+export function getPlayer(): ClapprType | undefined{
+    let clapperCopy: ClapprType | undefined;
+    try {
+        clapperCopy = Clappr;
+
+        console.log('clappr OK')
+    } catch (err) {
+        clapperCopy = undefined;
+        console.log('clappr not found')
+    }
+    return clapperCopy
+};
 
 export interface ClapprType {
     Player: {new(param:ClapprParam): ClapprPlayer}
