@@ -2,35 +2,19 @@
  * Created by hubert on 8/06/17.
  */
 
-declare type uuid = string;
-
 /**
  * Extended OzoneApiMixin for ajax kind of query.
  *
- * @polymerMixin OzoneApiAjaxMixin
  */
 declare function OzoneApiAjaxMixin(element: any):OzoneApiAjaxMixinConstructor
 
-declare interface ConfigType {
-    ozoneApi: any,
-    type: string,
-    host:string,
-    view: string,
-    permissions: string,
-
-    endPoints: {
-        [key: string]: string
-    }
-}
 
 declare interface OzoneApiAjaxMixinConstructor {
     new(): OzoneApiAjaxMixinType;
 }
-declare function getOzoneConfig(): {configPromise: Promise<ConfigType>};
 
 /**
  *
- * @polymerMixin OzoneApiAjaxMixin
  * ### Events
  *
  * * *ozone-request-success* Fired when connection to ozone succeeds.

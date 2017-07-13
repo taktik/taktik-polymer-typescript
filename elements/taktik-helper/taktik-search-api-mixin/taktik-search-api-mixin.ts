@@ -14,7 +14,7 @@ declare interface TaktikSearchApiMixinConstructor {
  * * *results-found* Fired when results are found by the API.
  *
  */
-declare interface TaktikSearchApiMixinType extends PolymerElement{
+declare class TaktikSearchApiMixinType extends PolymerElement{
 
     /**
      * searchString string for search query.
