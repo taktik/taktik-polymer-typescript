@@ -4,7 +4,7 @@
  */
 
 
-import {jsElement} from 'decorators'
+import {jsElement} from 'taktik-polymer-typeScript'
 
 export type SizeEnum = Number;
 @jsElement()

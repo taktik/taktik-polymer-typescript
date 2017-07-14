@@ -1,6 +1,6 @@
 /// <amd-module name="ozone-edit-number-entry"/>
 
-import {customElement} from 'decorators'
+import {customElement} from 'taktik-polymer-typeScript'
 import {OzoneEditEntry, OzoneEditEntryMixin, OzoneEditEntryConstructor} from 'ozone-edit-entry'
 
 

@@ -82,14 +82,19 @@
         ],
       "taktik-clappr-wrapper": [
         "./elements/taktik-helper/taktik-clappr-wrapper/taktik-clappr-wrapper"
-        ]
+        ],
+      "taktik-polymer-typeScript": [
+        "./elements/taktik-helper/taktik-polymer-typeScript/taktik-polymer-typeScript"
+      ]
       }
     },
   "include": [
-    "elements/**/*",
+    "**/*",
     "types"
   ],
   "exclude": [
+    "dist",
+    "build",
     "node_modules",
     "bower_components"
   ]

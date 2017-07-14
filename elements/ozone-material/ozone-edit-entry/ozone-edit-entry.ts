@@ -1,6 +1,6 @@
 /// <amd-module name="ozone-edit-entry"/>
 
-import {customElement} from 'decorators'
+import {customElement} from 'taktik-polymer-typeScript'
 import {LocalizedString} from 'ozone-type'
 
 export interface PaperInputBehavior extends PolymerElement{

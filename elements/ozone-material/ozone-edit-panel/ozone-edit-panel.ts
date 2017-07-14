@@ -1,6 +1,6 @@
 /// <amd-module name="ozone-edit-panel"/>
 
-import {customElement, domElement} from 'decorators';
+import {customElement, domElement} from 'taktik-polymer-typeScript';
 import {Item} from 'ozone-type';
 import {OzoneMediaEdit} from 'ozone-media-edit'
 

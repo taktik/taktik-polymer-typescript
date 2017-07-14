@@ -1,5 +1,5 @@
 /// <amd-module name="decorators"/>
-/// <reference path="../bower_components/reflect-metadata/Reflect.d.ts" />
+/// <reference path="../../../bower_components/reflect-metadata/Reflect.d.ts" />
 
 /**
  * A TypeScript class decorator that defines a custom element with name

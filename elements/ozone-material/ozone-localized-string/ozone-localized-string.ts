@@ -1,5 +1,5 @@
 /// <amd-module name="ozone-localized-string"/>
-import {customElement} from 'decorators'
+import {customElement} from 'taktik-polymer-typeScript'
 import {LocalizedString} from "ozone-type";
 
 /**

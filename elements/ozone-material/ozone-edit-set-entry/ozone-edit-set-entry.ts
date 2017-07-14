@@ -5,7 +5,7 @@
 
 /// <amd-module name="ozone-edit-set-entry"/>
 
-import {customElement} from 'decorators'
+import {customElement} from 'taktik-polymer-typeScript'
 import {LocalizedString} from 'ozone-type'
 import {OzoneEditEntry, OzoneEditEntryMixin, OzoneEditEntryConstructor} from 'ozone-edit-entry'
 /**

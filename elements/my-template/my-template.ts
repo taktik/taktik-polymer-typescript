@@ -5,7 +5,7 @@
 
 /// <amd-module name="my-template"/>
 
-import {customElement} from 'decorators'
+import {customElement} from 'taktik-polymer-typeScript'
 
 
 /**

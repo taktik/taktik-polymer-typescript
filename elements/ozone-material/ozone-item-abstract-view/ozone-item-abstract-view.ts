@@ -3,7 +3,7 @@
  */
 /// <amd-module name="ozone-item-abstract-view"/>
 
-import {customElement} from 'decorators'
+import {customElement} from 'taktik-polymer-typeScript'
 import {Item} from 'ozone-type'
 import {OzoneApiType, getOzoneApiType} from 'ozone-api-type'
 import {MediaUrl, SizeEnum, OzonePreviewSize} from 'ozone-media-url'

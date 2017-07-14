@@ -5,7 +5,7 @@
 
 /// <amd-module name="ozone-media-edit"/>
 
-import {customElement} from 'decorators'
+import {customElement} from 'taktik-polymer-typeScript'
 import {Item, FieldDescriptor} from 'ozone-type'
 import {MediaUrl, OzonePreviewSize} from 'ozone-media-url'
 import{OzoneItemAbstractView, OzoneItemAbstractViewConstructor} from 'ozone-item-abstract-view/ozone-item-abstract-view'

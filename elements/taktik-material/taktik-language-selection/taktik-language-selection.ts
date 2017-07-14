@@ -1,7 +1,7 @@
 /// <amd-module name="taktik-language-selection"/>
 
 
-import {customElement} from 'decorators'
+import {customElement} from 'taktik-polymer-typeScript'
 /**
  * <taktik-language-selection> is a simple language selection module.
  *

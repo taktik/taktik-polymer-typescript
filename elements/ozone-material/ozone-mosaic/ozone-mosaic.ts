@@ -3,7 +3,7 @@
  */
 
 /// <amd-module name="ozone-mosaic"/>
-import {customElement, domElement} from 'decorators';
+import {customElement, domElement} from 'taktik-polymer-typeScript';
 import {Item} from 'ozone-type';
 import {OzoneApiItem} from 'ozone-api-item';
 import {OzoneCollection} from 'ozone-collection';
