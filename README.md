@@ -97,6 +97,11 @@ You are also more than welcome to propose fix, via full request.
 
 First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your application locally.
 
+```
+$ npm install -g polymer-cli
+$ npm install -g https://github.com/marcelmeulemans/wct-junit-reporter.git
+```
+
 ### Viewing Your Application
 
 ```

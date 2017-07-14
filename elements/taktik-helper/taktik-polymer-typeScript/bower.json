@@ -2,7 +2,9 @@
   "name": "taktik-polymer-typeScript",
   "main": "taktik-polymer-typeScript.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^2.0.0"
+    "polymer": "Polymer/polymer#^2.0.0",
+    "reflect-metadata": "^0.1.10",
+    "imd": "^1.0.0"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
