@@ -4,7 +4,8 @@
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
     "reflect-metadata": "^0.1.10",
-    "imd": "^1.0.0"
+    "imd": "^1.0.0",
+    "ozone-type": "https://bitbucket.taktik.be/scm/sandbox/ozone-type.git"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",

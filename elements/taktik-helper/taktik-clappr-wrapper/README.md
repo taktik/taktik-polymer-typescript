@@ -1,6 +1,6 @@
 # \<taktik-clappr-wrapper\>
 
-
+Wrapper of easy clapper include in polymer typeScript project
 
 ## Install the Polymer-CLI
 

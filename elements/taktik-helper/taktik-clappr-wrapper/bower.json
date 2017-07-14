@@ -2,7 +2,8 @@
   "name": "taktik-clappr-wrapper",
   "main": "taktik-clappr-wrapper.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^2.0.0"
+    "polymer": "Polymer/polymer#^2.0.0",
+    "clappr": "^0.2.67"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",

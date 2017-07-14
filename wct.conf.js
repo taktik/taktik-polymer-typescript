@@ -37,13 +37,19 @@ var ret = {
 
 var mapping = {};
 var rootPath = (__dirname).split(path.sep).slice(-1)[0];
+console.log('*************')
+console.log(rootPath)
 
 mapping['/components/' + rootPath  +
 'bower_components'] = 'bower_components';
+console.log(mapping)
 
-ret.webserver.pathMappings.push(mapping);
+//http://localhost:8081/components/ozone-components/elements/ozone-helper/webcomponentsjs/webcomponents-lite.js
+var hozoneHelper = {'/components/ozone-components/elements/ozone-helper': '/bower_components'};
 
 
+//ret.webserver.pathMappings.push(mapping);
+ret.webserver.pathMappings.push(hozoneHelper);
 
 /**
  * Adds BrowserStack config

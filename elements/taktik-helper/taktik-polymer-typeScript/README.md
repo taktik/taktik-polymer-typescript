@@ -1,6 +1,9 @@
 # \<taktik-polymer-typeScript\>
 
 
+Module providing development facilities for ozone polymer type script modules.
+
+
 
 ## Install the Polymer-CLI
 
