@@ -1,0 +1,18 @@
+{
+  "name": "taktik-polymer-typeScript",
+  "main": "taktik-polymer-typeScript.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0",
+    "reflect-metadata": "^0.1.10",
+    "imd": "^1.0.0",
+    "ozone-type": "https://bitbucket.taktik.be/scm/sandbox/ozone-type.git"
+  },
+  "devDependencies": {
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+  },
+  "resolutions": {
+    "polymer": "^2.0.0"
+  }
+}
