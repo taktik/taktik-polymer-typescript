@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test:browserstack"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +17,9 @@
   },
   "dependencies": {
     "gulp": "^3.9.1",
+    "gulp-browserstack": "^1.0.3",
     "run-sequence": "^2.1.0",
-    "wct-junit-reporter": "git+https://github.com/marcelmeulemans/wct-junit-reporter.git"
+    "wct-junit-reporter": "git+https://github.com/marcelmeulemans/wct-junit-reporter.git",
+    "web-component-tester": "^6.0.0"
   }
 }
