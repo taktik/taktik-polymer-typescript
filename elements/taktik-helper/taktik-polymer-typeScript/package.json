@@ -14,5 +14,10 @@
   "license": "ISC",
   "devDependencies": {
     "typescript": "^2.4.1"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "run-sequence": "^2.1.0",
+    "wct-junit-reporter": "git+https://github.com/marcelmeulemans/wct-junit-reporter.git"
   }
 }
