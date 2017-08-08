@@ -18,6 +18,8 @@
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-browserstack": "^1.0.3",
+    "gulp-typescript": "^3.2.1",
+    "merge2": "^1.1.0",
     "run-sequence": "^2.1.0",
     "wct-junit-reporter": "git+https://github.com/marcelmeulemans/wct-junit-reporter.git",
     "web-component-tester": "^6.0.0"

@@ -3,6 +3,35 @@
  */
 const gulp = require ('gulp');
 const runSequence = require('run-sequence');
+const ts = require('gulp-typescript');
+const merge = require('merge2');
+
+
+/**
+ * gulp ts
+ * compile project's typeScript code
+ */
+gulp.task('ts', function(){
+    const tsProject = ts.createProject('tsconfig.json');
+
+    var tsResult = tsProject.src()
+        .pipe(tsProject());
+
+    return merge([ // Merge the two output streams, so this task is finished when the IO of both operations is done.
+        tsResult.dts
+            .pipe(gulp.dest('.')),
+        tsResult.js
+            .pipe(gulp.dest('.'))
+    ]);
+});
+
+/**
+ * gulp ts:watch
+ * Rerun ts task when a ts file changes
+ */
+gulp.task('ts:watch', function() {
+    gulp.watch(['elements/**/*.ts','!elements/**/*.d.ts'], ['ts']);
+});
 
 
 
