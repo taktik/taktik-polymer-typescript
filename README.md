@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/hubjac1/taktik-polymer-typescript.svg?branch=master)](https://travis-ci.org/hubjac1/taktik-polymer-typescript)
+[![Build Status](https://travis-ci.org/taktik/taktik-polymer-typescript.svg?branch=master)](https://travis-ci.org/taktik/taktik-polymer-typescript)
 
 # \<taktik-polymer-typeScript\>
 
