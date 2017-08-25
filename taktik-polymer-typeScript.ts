@@ -1,6 +1,4 @@
 /// <amd-module name="taktik-polymer-typeScript"/>
-
-
 /**
  * A TypeScript class decorator that defines a custom element with name
  * `tagname` and the decorated class.
