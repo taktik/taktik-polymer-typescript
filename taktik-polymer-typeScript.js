@@ -1,5 +1,5 @@
 /// <amd-module name="decorators"/>
-/// <reference path="../reflect-metadata/Reflect.d.ts" />
+/// <reference path="bower_components/reflect-metadata/Reflect.d.ts" />
 define("decorators", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });

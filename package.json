@@ -7,13 +7,16 @@
     "test": "test"
   },
   "scripts": {
-    "test": "gulp test:browserstack"
+    "test": "gulp test:browserstack",
+    "start": "webpack --config webpack.config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^2.4.1"
+    "awesome-typescript-loader": "^3.2.3",
+    "ts-loader": "^2.3.3",
+    "typescript": "^2.4.2"
   },
   "dependencies": {
     "gulp": "^3.9.1",
@@ -22,6 +25,7 @@
     "merge2": "^1.1.0",
     "run-sequence": "^2.1.0",
     "wct-junit-reporter": "git+https://github.com/marcelmeulemans/wct-junit-reporter.git",
-    "web-component-tester": "^6.0.0"
+    "web-component-tester": "^6.0.0",
+    "webpack": "^3.5.5"
   }
 }

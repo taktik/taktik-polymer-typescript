@@ -1,3 +1,4 @@
+/// <reference path="bower_components/reflect-metadata/Reflect.d.ts" />
 export declare function customElement(tagname: string): (clazz: any) => void;
 /**
  * A TypeScript class decorator that declare a global class
