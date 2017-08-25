@@ -1,11 +1,11 @@
-/// <amd-module name="decorators"/>
-/// <reference path="bower_components/reflect-metadata/Reflect.d.ts" />
+/// <amd-module name="taktik-polymer-typeScript"/>
+
 
 /**
  * A TypeScript class decorator that defines a custom element with name
  * `tagname` and the decorated class.
  */
-
+import 'reflect-metadata'
 declare interface ProjectWindow extends Window{
   [index:string] : any;
 };

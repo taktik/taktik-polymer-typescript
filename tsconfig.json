@@ -22,16 +22,14 @@
     "rootDir": "./",
     /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
     "baseUrl": "./",
-    "paths": {}
+    "paths": {},
+    "outDir": "./build"
     },
   "include": [
-    "**/*",
     "types"
   ],
   "exclude": [
     "dist",
-    "build",
-    "node_modules",
-    "bower_components"
+    "build"
   ]
 }
