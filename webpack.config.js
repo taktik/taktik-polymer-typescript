@@ -3,8 +3,8 @@ const path = require('path');
 module.exports = {
     entry: './taktik-polymer-typeScript.ts',
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        filename: 'taktik-polymer-typeScript.js',
+        path: path.resolve(__dirname)
     },
     resolve: {
         extensions: ['.ts']
