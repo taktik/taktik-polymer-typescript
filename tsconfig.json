@@ -25,7 +25,8 @@
     "paths": {}
     },
   "include": [
-    "types"
+    "types",
+    "index.ts"
   ],
   "exclude": [
     "dist",
