@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "tsc",
+    "test": "tsc && git diff --exit-code",
     "start": "webpack --config webpack.config.js",
     "build": "tsc"
   },
