@@ -38,3 +38,33 @@ $ polymer test
 ```
 
 Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+
+
+## install & configure this module in an other a typeScript project
+
+
+- step 1: install dependency
+
+> Install you dependency
+> npm install --save https://github.com/taktik/taktik-polymer-typeScript
+
+
+- step 2: declare package in tsconfig.json
+```json
+{
+    "compilerOptions":{
+        "path":{
+            "taktik-polymer-typeScript": [
+                "./node_modules/taktik-polymer-typeScript/taktik-polymer-typeScript"
+            ]
+        }
+    }
+}
+```
+
+
+- step 3: import where you need
+```typescript
+import 'taktik-polymer-typeScript/type'; // import global type declaration
+import {customElement} from 'taktik-polymer-typeScript' // Import elements
+```
