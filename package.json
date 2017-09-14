@@ -18,7 +18,9 @@
     "typescript": "^2.4.2"
   },
   "dependencies": {
+    "@polymer/polymer": "^2.0.2",
     "@types/reflect-metadata": "0.0.5",
+    "ozone-type": "https://bitbucket.taktik.be/scm/sandbox/ozone-type.git#^1.0",
     "reflect-metadata": "^0.1.10"
   }
 }
