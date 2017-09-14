@@ -59,6 +59,9 @@ Your application is already set up to be tested via [web-component-tester](https
             ]
         }
     }
+  "include": [
+    "./node_modules/taktik-polymer-typeScript/type/*",
+  ],
 }
 ```
 
