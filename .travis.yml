@@ -7,4 +7,3 @@ addons:
 
 before_script:
   - npm install -g gulp-cli bower
-  - bower install
