@@ -4,6 +4,11 @@
  * `tagname` and the decorated class.
  */
 import 'reflect-metadata'
+import '../type/element'
+import '../type/shadow'
+import '../type/polymer'
+import '../type/iron-ajax'
+import '../type/missing'
 declare interface ProjectWindow extends Window{
   [index:string] : any;
 };
