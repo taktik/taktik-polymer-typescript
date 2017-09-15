@@ -1,27 +1,24 @@
 {
-  "name": "taktik-polymer-typeScript",
+  "name": "taktik-polymer-typescript",
   "version": "1.0.0",
-  "description": "",
-  "main": "taktik-polymer-typeScript.js",
-  "directories": {
-    "test": "test"
-  },
+  "description": "Module providing development facilities for ozone polymer type script modules.",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
-    "test": "gulp test:browserstack"
+    "prepublish": "npm run build",
+    "test": "tsc && git diff --exit-code",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^2.4.1"
+    "typescript": "^2.4.2"
   },
   "dependencies": {
-    "gulp": "^3.9.1",
-    "gulp-browserstack": "^1.0.3",
-    "gulp-typescript": "^3.2.1",
-    "merge2": "^1.1.0",
-    "run-sequence": "^2.1.0",
-    "wct-junit-reporter": "git+https://github.com/marcelmeulemans/wct-junit-reporter.git",
-    "web-component-tester": "^6.0.0"
+    "@polymer/polymer": "^2.0.2",
+    "@types/reflect-metadata": "0.0.5",
+    "ozone-type": "git+https://git@bitbucket.taktik.be/scm/sandbox/ozone-type.git",
+    "reflect-metadata": "^0.1.10"
   }
 }

@@ -16,22 +16,11 @@
       "es5",
       "dom"
     ],
-    "types":[],
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
     "declaration": true,
-    /* Generates corresponding '.d.ts' file. */
-    "rootDir": "./",
-    /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
-    "baseUrl": "./",
-    "paths": {}
-    },
-  "include": [
-    "**/*",
-    "types"
-  ],
-  "exclude": [
-    "dist",
-    "build",
-    "node_modules",
-    "bower_components"
-  ]
+    "outDir": "./dist",
+    "strict": true
+  }
 }
