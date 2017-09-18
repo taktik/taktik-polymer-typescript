@@ -1,9 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
-    // Use of ES6
-    "module": "amd",
-    // Module strategy that is likely to be use with official Polymer/typeScript support. See PolymerLabs/IMD
+    "module": "es2015",
     "experimentalDecorators": true,
     //
     "emitDecoratorMetadata": true,
@@ -15,9 +13,6 @@
       "es6",
       "es5",
       "dom"
-    ],
-    "typeRoots": [
-      "./node_modules/@types"
     ],
     "declaration": true,
     "outDir": "./dist",

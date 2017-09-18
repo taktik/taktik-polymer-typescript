@@ -1,6 +1,6 @@
 {
   "name": "taktik-polymer-typescript",
-  "version": "1.0.0",
+  "version": "2.2.0",
   "description": "Module providing development facilities for ozone polymer type script modules.",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
@@ -18,7 +18,6 @@
   "dependencies": {
     "@polymer/polymer": "^2.0.2",
     "@types/reflect-metadata": "0.0.5",
-    "ozone-type": "git+https://git@bitbucket.taktik.be/scm/sandbox/ozone-type.git",
-    "reflect-metadata": "^0.1.10"
+    "ozone-type": "git+https://git@bitbucket.taktik.be/scm/sandbox/ozone-type.git"
   }
 }
