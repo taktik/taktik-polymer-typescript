@@ -3,39 +3,41 @@
  * A TypeScript class decorator that defines a custom element with name
  * `tagname` and the decorated class.
  */
-import 'reflect-metadata'
-import '../type/element'
-import '../type/shadow'
-import '../type/polymer'
-import '../type/iron-ajax'
-import '../type/missing'
-declare interface ProjectWindow extends Window{
-  [index:string] : any;
-};
-declare var window: ProjectWindow;
+import "reflect-metadata"
+import "../type/element"
+import "../type/shadow"
+import "../type/polymer"
+import "../type/iron-ajax"
+import "../type/missing"
+declare interface ProjectWindow extends Window {
+	[index: string]: any
+}
+declare var window: ProjectWindow
 
 export function customElement(tagname: string) {
-  return (clazz: any) => {
-    clazz.is = tagname;
-    window[clazz.name] = clazz; // Register class in windows se that is can be use without IMD module loading.
-                                // Useful for import in pure JS project.
-    window.customElements.define(tagname, clazz);
-  }
+	return (clazz: any) => {
+		clazz.is = tagname
+		window[clazz.name] = clazz // Register class in windows se that is can be use without IMD module loading.
+		// Useful for import in pure JS project.
+		window.customElements.define(tagname, clazz)
+	}
 }
 /**
  * A TypeScript class decorator that declare a global class
  * `tagname` and the decorated class.
  */
 export function jsElement() {
-  return (clazz: any) => {
-    window[clazz.name] = clazz; // Register class in windows se that is can be use without IMD module loading.
-                                // Useful for import in pure JS project.
-  }
+	return (clazz: any) => {
+		window[clazz.name] = clazz // Register class in windows se that is can be use without IMD module loading.
+		// Useful for import in pure JS project.
+	}
 }
 
 export interface PropertyOptions {
-  notify?: boolean;
-};
+	notify?: boolean
+	type?: any
+	value?: any
+}
 
 /**
  * A TypeScript property decorator factory that defines this as a Polymer
@@ -44,21 +46,19 @@ export interface PropertyOptions {
  * This function must be invoked to return a decorator.
  */
 export function property<T>(options?: PropertyOptions) {
-  return (proto: any, propName: string) : any => {
-    const notify = (options && options.notify) as boolean
-    const type = Reflect.getMetadata("design:type", proto, propName);
-    const config = _ensureConfig(proto);
-    config.properties[propName] = {
-      type,
-      notify,
-    };
-  }
+	return (proto: any, propName: string): any => {
+		const notify = (options && options.notify) as boolean
+		const type = Reflect.getMetadata("design:type", proto, propName)
+		const config = _ensureConfig(proto)
+		config.properties[propName] = {
+			type,
+			notify
+		}
+	}
 }
 
-
 export function domElement<T>() {
-  return (proto: any, propName: string) : any => {
-  }
+	return (proto: any, propName: string): any => {}
 }
 
 /**
@@ -68,36 +68,38 @@ export function domElement<T>() {
  *
  * This function must be invoked to return a decorator.
  */
-export function observe(targets: string|string[]) {
-  return (proto: any, propName: string) : any => {
-    const targetString = typeof targets === 'string' ? targets : targets.join(',');
-    const config = _ensureConfig(proto);
-    config.observers.push(`${propName}(${targetString})`);
-  }
+export function observe(targets: string | string[]) {
+	return (proto: any, propName: string): any => {
+		const targetString = typeof targets === "string" ? targets : targets.join(",")
+		const config = _ensureConfig(proto)
+		config.observers.push(`${propName}(${targetString})`)
+	}
 }
 
 interface Config {
-  properties: {[name: string]: PropertyDefinition};
-  observers: string[];
+	properties: { [name: string]: PropertyDefinition }
+	observers: string[]
 }
 
 interface PropertyDefinition {
-  notify?: boolean;
-  type: Function;
+	notify?: boolean
+	type: Function
 }
 
 function _ensureConfig(proto: any): Config {
-  const ctor = proto.constructor;
-  if (ctor.hasOwnProperty('__polymer_ts_config')) {
-    return ctor.__polymer_ts_config;
-  }
+	const ctor = proto.constructor
+	if (ctor.hasOwnProperty("__polymer_ts_config")) {
+		return ctor.__polymer_ts_config
+	}
 
-  Object.defineProperty(ctor, 'config', {
-    get() { return ctor.__polymer_ts_config; }
-  });
+	Object.defineProperty(ctor, "config", {
+		get() {
+			return ctor.__polymer_ts_config
+		}
+	})
 
-  const config: Config = ctor.__polymer_ts_config = ctor.__polymer_ts_config || {};
-  config.properties = config.properties || {};
-  config.observers = config.observers || [];
-  return config;
+	const config: Config = (ctor.__polymer_ts_config = ctor.__polymer_ts_config || {})
+	config.properties = config.properties || {}
+	config.observers = config.observers || []
+	return config
 }

@@ -5,3 +5,5 @@
 /.idea/
 dist/
 
+.jsbeautifyrc
+.prettierrc
