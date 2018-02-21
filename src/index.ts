@@ -33,10 +33,77 @@ export function jsElement() {
 	}
 }
 
+// export interface PropertyOptions {
+// 	notify?: boolean
+// 	type?: any
+// 	value?: any
+// }
+
+/**
+ * A TypeScript property decorator factory that defines this as a Polymer
+ * property.
+ *
+ * This function must be invoked to return a decorator.
+ */
+// export function property<T>(options?: PropertyOptions) {
+// 	return (proto: any, propName: string): any => {
+// 		const notify = (options && options.notify) as boolean
+// 		const type = Reflect.getMetadata("design:type", proto, propName)
+// 		const config = _ensureConfig(proto)
+// 		config.properties[propName] = {
+// 			type,
+// 			notify
+// 		}
+// 	}
+// }
+
 export interface PropertyOptions {
+	/**
+	 * This field can be omitted if the Metadata Reflection API is configured.
+	 */
+	type?:
+		| BooleanConstructor
+		| DateConstructor
+		| NumberConstructor
+		| StringConstructor
+		| ArrayConstructor
+		| ObjectConstructor
 	notify?: boolean
-	type?: any
-	value?: any
+	reflectToAttribute?: boolean
+	readOnly?: boolean
+	computed?: string
+	observer?: string | ((val: any, old: any) => void)
+}
+
+function createProperty(proto: any, name: string, options?: PropertyOptions): void {
+	const notify = (options && options.notify) || false
+	const reflectToAttribute = (options && options.reflectToAttribute) || false
+	const readOnly = (options && options.readOnly) || false
+	const computed = (options && options.computed) || ""
+	const observer = (options && options.observer) || ""
+
+	let type
+	if (options && options.hasOwnProperty("type")) {
+		type = options.type
+	} else if (
+		(window as any).Reflect &&
+		Reflect.hasMetadata &&
+		Reflect.getMetadata &&
+		Reflect.hasMetadata("design:type", proto, name)
+	) {
+		type = Reflect.getMetadata("design:type", proto, name)
+	} else {
+		console.error(
+			`A type could not be found for ${name}. ` + "Set a type or configure Metadata Reflection API support."
+		)
+	}
+
+	if (!proto.constructor.hasOwnProperty("properties")) {
+		Object.defineProperty(proto.constructor, "properties", { value: {} })
+	}
+
+	const finalOpts: PropertyOptions = { type, notify, reflectToAttribute, readOnly, computed, observer }
+	proto.constructor.properties[name] = finalOpts
 }
 
 /**
@@ -45,15 +112,9 @@ export interface PropertyOptions {
  *
  * This function must be invoked to return a decorator.
  */
-export function property<T>(options?: PropertyOptions) {
+export function property(options?: PropertyOptions) {
 	return (proto: any, propName: string): any => {
-		const notify = (options && options.notify) as boolean
-		const type = Reflect.getMetadata("design:type", proto, propName)
-		const config = _ensureConfig(proto)
-		config.properties[propName] = {
-			type,
-			notify
-		}
+		createProperty(proto, propName, options)
 	}
 }
 
@@ -68,13 +129,16 @@ export function domElement<T>() {
  *
  * This function must be invoked to return a decorator.
  */
-export function observe(targets: string | string[]) {
+
+export function observe(...targets: string[]) {
 	return (proto: any, propName: string): any => {
-		const targetString = typeof targets === "string" ? targets : targets.join(",")
-		const config = _ensureConfig(proto)
-		config.observers.push(`${propName}(${targetString})`)
+		if (!proto.constructor.hasOwnProperty("observers")) {
+			proto.constructor.observers = []
+		}
+		proto.constructor.observers.push(`${propName}(${targets.join(",")})`)
 	}
 }
+  
 
 interface Config {
 	properties: { [name: string]: PropertyDefinition }

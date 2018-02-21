@@ -58,13 +58,15 @@ declare class PolymerElement extends PolymerMetaEffects {
   static finalized: boolean;
   static finalize(): void;
   static readonly template: HTMLTemplateElement;
+  static observers: string[]
+  public $: any
 
   connectedCallback(): void;
   ready(): void;
 
   updateStyles(properties: string[]): void;
 
-  $:any;
+  //$:any;
 
   splice(property: string, start?:number, remove?:number, items?:any): void;
 
