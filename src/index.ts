@@ -105,13 +105,13 @@ function createProperty(proto: any, name: string, options?: PropertyOptions): vo
 	}
 
 
+	let finalOpts
 	if (statePath) {
-		const finalOpts = { type, notify, reflectToAttribute, readOnly, computed, observer, statePath };
-		proto.constructor.properties[name] = finalOpts;
+		finalOpts = { type, notify, reflectToAttribute, readOnly, computed, observer, statePath };
 	} else {
-		const finalOpts = { type, notify, reflectToAttribute, readOnly, computed, observer };
-        proto.constructor.properties[name] = finalOpts;
+		finalOpts = { type, notify, reflectToAttribute, readOnly, computed, observer };
     }
+	proto.constructor.properties[name] = finalOpts;
 }
 
 /**
